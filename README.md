@@ -69,11 +69,11 @@ is blank line before and after the beginning of a region, before and after the e
 - Doxygen blocks begins with `/**` and ends with `*/`, and star-aligned. Use the 
   `\command` version.
 
-    \verbatim
-    /**
-     * \brief This is a doxygen block.
-     */
-    \endverbatim
+      \verbatim
+      /**
+       * \brief This is a doxygen block.
+       */
+      \endverbatim
 
 #### Block Convention
 - First line: optional keyword + optional identifier + space + opening symbol.
