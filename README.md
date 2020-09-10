@@ -68,6 +68,7 @@ is blank line before and after the beginning of a region, before and after the e
 - Leave a space between `//` or `/* */` and the comment.
 - Doxygen blocks begins with `/**` and ends with `*/`, and star-aligned. Use the 
   `\command` version.
+
     \verbatim
     /**
      * \brief This is a doxygen block.
