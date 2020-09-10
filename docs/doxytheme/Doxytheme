@@ -1,0 +1,40 @@
+
+#Doxytheme
+
+#Developed by Mastiware
+
+ALPHABETICAL_INDEX     = YES
+
+COLS_IN_ALPHA_INDEX    = 2
+
+GENERATE_HTML          = YES
+
+HTML_OUTPUT            = html
+
+HTML_FILE_EXTENSION    = .html
+
+HTML_HEADER            = mw_doxy.doxytheme/mw_custom_header.html
+
+HTML_FOOTER            = mw_doxy.doxytheme/mw_custom_footer.html
+
+HTML_STYLESHEET        = mw_doxy.doxytheme/mw_custom_style.css
+
+HTML_EXTRA_STYLESHEET  = mw_doxy.doxytheme/mw_custom_tabs.css
+
+HTML_EXTRA_FILES       = mw_doxy.doxytheme/assets/list_arr.png \
+                         mw_doxy.doxytheme/assets/logo-mastiware.png \
+                         mw_doxy.doxytheme/assets/mw.png \
+                         mw_doxy.doxytheme/assets/propofmw.png \
+                         mw_doxy.doxytheme/assets/navpath_sep.png
+
+
+HTML_TIMESTAMP         = YES
+
+HTML_DYNAMIC_SECTIONS  = NO
+
+HTML_INDEX_NUM_ENTRIES = 100
+
+GENERATE_TREEVIEW      = NO
+
+SEARCHENGINE           = YES
+

@@ -1,0 +1,77 @@
+.tabs, .tabs2, .tabs3 {
+    width: 100%;
+    z-index: 101;
+    font-size: 15px;
+    font-family: 'Lato',sans-serif;
+}
+
+.tabs2 {
+    font-size: 10px;
+}
+.tabs3 {
+    font-size: 9px;
+}
+
+.tablist {
+    margin: 0;
+    padding: 0;
+    display: table;
+}
+
+.tablist li {
+    float: left;
+    display: table-cell;
+    line-height: 36px;
+    list-style: none;
+}
+
+.tablist a {
+    display: block;
+    padding: 0 20px;
+    font-weight: bold;
+    text-decoration: none;
+    outline: none;
+}
+
+.tabs3 .tablist a {
+    padding: 0 10px;
+}
+
+.tablist a:hover {
+    background-repeat:repeat-x;
+    color: #fff;
+    text-decoration: none;
+}
+
+.tablist li.current a {
+    background-repeat:repeat-x;
+    color: #fff;
+}
+
+.sm-dox {
+	background-image: none;
+	padding: 0px;
+}
+
+.sm-dox a {
+	font-family: "Lato";
+	color: #000;
+	text-shadow: none;
+}
+
+.sm-dox a:hover {
+	text-shadow: none;
+	font-family: "Lato";
+}
+
+.sm-dox a span.sub-arrow {
+	border-color: #73c6cb transparent transparent transparent;
+}
+
+.sm-dox li ul a:hover {
+	background-image: none;
+	background-color: #bababa;
+	text-shadow: none;
+	font-family: "Lato";
+	color: rgb(102,102,102);
+}
