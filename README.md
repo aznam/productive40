@@ -39,15 +39,14 @@ project; absolute path, otherwise.
 
 #### Sections
 - Headers and sources files are divided into preprocessors directives and code sections.
-Each section begins with a header:
-    \verbatim
-/*
-===============================================================================================
-    Section name
-===============================================================================================
-*/
-    \endverbatim
-
+  Each section begins with a header:   
+  ```cpp
+  /*
+  =================================================================================================
+      Section name
+  =================================================================================================
+  */
+  ```
 - There is no blank line between the section header and the first line of code (except if
 this line is a comment). There is a blank line before the beginning of a section header.
 
@@ -57,25 +56,25 @@ is blank line before and after the beginning of a region, before and after the e
 
 ### Preprocessor Macros
 - Ident rule: Preprocessor instructions should be formatted using block indent rules. Exemple:
-    \verbatim
-#define MACRO_1
-#if instruction
-    #define MACRO_2
-#endif
-    \endverbatim
+  ```cpp
+  #define MACRO_1
+  #if instruction
+      #define MACRO_2
+  #endif
+  ```
 - Regular code inside a preprocessor block is indented according the regular block they belong to.
 
 #### Comments
 - Leave a space between `//` or `/* */` and the comment.
-- Doxygen blocks begins with `/**` and ends with `*/`, and star-aligned. Use the
-`\command` version.
+- Doxygen blocks begins with `/**` and ends with `*/`, and star-aligned. Use the 
+  `\command` version.
     \verbatim
-/**
- * \brief This is a doxygen block.
- */
+    /**
+     * \brief This is a doxygen block.
+     */
     \endverbatim
 
-#### Block Covention
+#### Block Convention
 - First line: optional keyword + optional identifier + space + opening symbol.
 - Content is indented.
 - Last line: closing symbol unidented + optional semi-colon + optional comment.
@@ -91,10 +90,11 @@ is blank line before and after the beginning of a region, before and after the e
 - Use nested namespace declaration in namespace headers.
 - Namespace documentation is done before the declaration of the namespace.
 - Namespace declaration follow block convention. Example:
-
-        namespace mynamespace {
-            ... content ...
-        }; // namespace mynamespace
+  ```cpp
+  namespace mynamespace {
+      ... content ...
+  }; // namespace mynamespace
+  ```
 
 #### Variables naming
 - Local variables are named using lowercases symbols only, and each word is separated with `_`.
@@ -112,35 +112,36 @@ is blank line before and after the beginning of a region, before and after the e
  - Second line: type specifiers
  - Third line: Identifier following the block convention.
 - Parameters in Declaration and Predeclaration are unnamed. Example:
-
-        static
-        const int
-        function (
-            int,
-            char * []
-	    );
-
+  ```cpp
+  static
+  const int
+  function (
+      int,
+      char * [] 
+  );
+  ```
 - Body in function definitions follows block convention. Example:
-
-        const int
-        function (
-            ... params ...
-	    ) {
-            ... content ...
-		}
+  ```cpp
+  const int
+  function (
+      ... params ...
+  ) {
+      ... content ...
+  }
+  ```
 
 #### Class, Interface, Structure, Type
 - Each word in type identifiers begin with an uppercase, and contains no special symbols.
 - Classes, interfaces and structures follow block convention. Except if there is inheritance, 
-the colon symbol is placed after the identifier, with one base ancestor per line (idented). 
-Example:
-
-    class MaClass3 : 
-        public MaClass1,
-        public MaClass2 {
-        ... content ...
-    }; // class MaClass3
-
+  the colon symbol is placed after the identifier, with one base ancestor per line (idented). 
+  Example:
+  ```cpp
+  class MaClass3 : 
+      public MaClass1,
+      public MaClass2 {
+      ... content ...
+  }; // class MaClass3
+  ```
 - Each word of an instance member begins with an uppercase except the first word. There is only
 alphanumeric symbols.
 - Public instance members begin with `_`.

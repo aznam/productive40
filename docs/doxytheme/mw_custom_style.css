@@ -263,7 +263,7 @@ pre.fragment {
         border: 1px solid #C4CFE5;
         background-color: #FBFCFD;
         padding: 4px 6px;
-        margin: 4px 8px 4px 2px;
+        margin: 10px 0px 10px 0px;
         overflow: auto;
         word-wrap: break-word;
         font-size:  9pt;
@@ -277,7 +277,8 @@ div.fragment {
  	margin: 0px;
 	background-color: #e8e8e8;
 	border: none;
-	
+	margin-top:10px;
+	margin-bottom:10px;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
