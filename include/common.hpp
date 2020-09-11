@@ -3,8 +3,10 @@
  * \author Aznam Yacoub (aznam.yacoub@lis-lab.fr)
  * \date Sept. 9 2020
  * \version 1.0
- * \brief Workspace Main Include File.
- * \details This file gathers all the files required to interact with the entire workspace.
+ * \brief Project Main Include File.
+ * \details The project "Common" is a library which gathers all the common components between
+ * the projects. It contains pattern implementations, mathematical operations, etc.
+ * Use this file if you need to interact with this library.
  */
 
 /*
@@ -20,33 +22,22 @@
 ===================================================================================================
 */
 
-/**
- * \namespace lis
- * \brief Main LIS namespace.
- * \details Main LIS namespace.
- */
 namespace lis {
 	
-	/**
-	 * \namespace pecase
-	 * \brief PECASE namespace.
-	 * \details PECASE namespace.
-	 */
 	namespace pecase {
 
-		/**
-		 * \namespace productive40
-		 * \brief Contains the code related to the workspace PRODUCTIVE 4.0.
-		 * \details Contains the code related to the workspace PRODUCTIVE 4.0.
-		 */
 		namespace productive40 {
 
-		#pragma region Forward Declarations
+			namespace common {
 
-			// Forward declare here global variables, constants, functions shared by all
-			// the projects of the workspace.
+			#pragma region Forward Declarations
 
-		#pragma endregion
+				// Forward declare here global variables, constants, functions shared by all
+				// the projects of the workspace.
+
+			#pragma endregion
+
+			}; // namespace common
 
 		}; // namespace productive40
 
@@ -59,7 +50,6 @@ namespace lis {
 	Projects Includes
 ===================================================================================================
 */
-#include <common.hpp>
 
 /*
 ===================================================================================================
