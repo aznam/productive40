@@ -1,8 +1,8 @@
 Code Documentation                     {#mainpage}
-=============================================
+===================================================================================================
 
 Commit, Push and Sync Rules
----------------------------
+---------------------------------------------------------------------------------------------------
 - Don't mix reasons when you commit a change.
 - Each modification should be prefixed by the name of the (sub)project.
 - Modifications concerning the tree structure, the project settings, etc. should be tagged using
@@ -11,7 +11,7 @@ Commit, Push and Sync Rules
 - Modifications concerning bugfixes should be tagged using [bugfix] prefix.
 
 Code Standards & Convention
----------------------------------------------
+---------------------------------------------------------------------------------------------------
 ### Global Documentation Guidelines
 - Each file must fully documented, including: filename, author, date, version, brief and detailed
 descriptions. This header is specified before any line of code.
@@ -152,6 +152,48 @@ alphanumeric symbols.
 - Static functions follows function naming convention.
 - Access protection should be in this order: private, protected, public.
 - Initializer-list follow the block convention.
+
+Catkin Build
+---------------------------------------------------------------------------------------------------
+1. Initialize catkin.
+```
+$(ROS_INSTALL)\$(Platform)\setup.bat
+```
+2.Initialize the catkin workspace from the subdirectory `project`.
+```
+cd $(SolutionDir)/project
+catkin_init_workspace
+```
+3. Build the catkin workspace from the root directory using the project `CATKIN_WORKSPACE` or
+```
+catkin_make --use-ninja --force-cmake 
+    --build "$(SolutionDir)project" 
+    --source "$(SolutionDir)project" 
+    -DCATKIN_DEVEL_PREFIX="$(SolutionDir)" 
+    -DCMAKE_PLATFORM=$(PlatformShortName) 
+    -DCMAKE_BUILD_TYPE=$(Configuration)
+```
+or
+```
+cmake -S project -B project -G Ninja 
+    -DCATKIN_DEVEL_PREFIX="$(SolutionDir)" 
+    -DCMAKE_PLATFORM=$(PlatformShortName)  
+    -DCMAKE_BUILD_TYPE=$(Configuration)
+```
+4. To build a specific package:
+```
+catkin_make --use-ninja --force-cmake 
+    --only-pkg-with-deps package_name
+    --build "$(SolutionDir)project" 
+    --source "$(SolutionDir)project" 
+    -DCATKIN_DEVEL_PREFIX="$(SolutionDir)" 
+    -DCMAKE_PLATFORM=$(PlatformShortName) 
+    -DCMAKE_BUILD_TYPE=$(Configuration)
+```
+5. Clean the CMakeCache.
+```
+catkin_make -DCATKIN_WHITELIST_PACKAGES=""
+```
 
 Changelog
 ---------

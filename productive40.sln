@@ -5,10 +5,33 @@ VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F1ACEF06-73E2-4B1A-93CF-B39319FEEE56}"
 	ProjectSection(SolutionItems) = preProject
+		.catkin_workspace = .catkin_workspace
 		.editorconfig = .editorconfig
+		.gitignore = .gitignore
+		DIRECTORY.md = DIRECTORY.md
+		productive40.hpp = productive40.hpp
+		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CATKIN_WORKSPACE", "project\CATKIN_WORKSPACE\CATKIN_WORKSPACE.vcxproj", "{AE9DACCE-7859-4CAB-A8FF-99E6F981A03D}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AE9DACCE-7859-4CAB-A8FF-99E6F981A03D}.Debug|x64.ActiveCfg = Debug|x64
+		{AE9DACCE-7859-4CAB-A8FF-99E6F981A03D}.Debug|x64.Build.0 = Debug|x64
+		{AE9DACCE-7859-4CAB-A8FF-99E6F981A03D}.Debug|x86.ActiveCfg = Debug|Win32
+		{AE9DACCE-7859-4CAB-A8FF-99E6F981A03D}.Debug|x86.Build.0 = Debug|Win32
+		{AE9DACCE-7859-4CAB-A8FF-99E6F981A03D}.Release|x64.ActiveCfg = Release|x64
+		{AE9DACCE-7859-4CAB-A8FF-99E6F981A03D}.Release|x64.Build.0 = Release|x64
+		{AE9DACCE-7859-4CAB-A8FF-99E6F981A03D}.Release|x86.ActiveCfg = Release|Win32
+		{AE9DACCE-7859-4CAB-A8FF-99E6F981A03D}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection

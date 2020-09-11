@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <ROS_INSTALL>D:\Libraries\ros\melodic</ROS_INSTALL>
+  </PropertyGroup>
+  <PropertyGroup>
+    <_PropertySheetDisplayName>CATKIN_WORKSPACE</_PropertySheetDisplayName>
+  </PropertyGroup>
+  <ItemDefinitionGroup />
+  <ItemGroup>
+    <BuildMacro Include="ROS_INSTALL">
+      <Value>$(ROS_INSTALL)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+  </ItemGroup>
+</Project>
