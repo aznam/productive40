@@ -32,10 +32,71 @@
     <Filter Include="Documentation Files">
       <UniqueIdentifier>{f5a61620-f79a-4b9f-991e-b71b63cb406d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Documentation Files\include">
+      <UniqueIdentifier>{518ee37f-9f35-4e67-a892-153428eae9cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Documentation Files\source">
+      <UniqueIdentifier>{33f06f2c-2c27-485a-9b1b-bb5a2eeec01a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\application">
+      <UniqueIdentifier>{3f886ef5-be52-4e94-99b2-c0fc47a89a80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\application">
+      <UniqueIdentifier>{d7ff0d15-3bef-4bcb-8683-da2656705de2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ui">
+      <UniqueIdentifier>{2bdad5c3-0e99-4f8b-9735-5999d4a2d62e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ui">
+      <UniqueIdentifier>{a76e8236-f7a9-4ca6-baba-f47433c41d95}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\missionplanner.hpp">
       <Filter>Package Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\missionplanner\application.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\missionplanner\ui.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\source\missionplanner\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\missionplanner\application\application.cpp">
+      <Filter>Source Files\application</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\missionplanner\ui\main_window.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\include\missionplanner\DIRECTORY.md">
+      <Filter>Documentation Files\include</Filter>
+    </None>
+    <None Include="..\..\source\missionplanner\DIRECTORY.md">
+      <Filter>Documentation Files\source</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="..\..\include\missionplanner\application\application.hpp">
+      <Filter>Header Files\application</Filter>
+    </QtMoc>
+    <QtMoc Include="..\..\include\missionplanner\ui\main_window.hpp">
+      <Filter>Header Files\ui</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="..\..\ui\main_window.ui">
+      <Filter>UI Files</Filter>
+    </QtUic>
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="..\..\resource\main_window.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
   </ItemGroup>
 </Project>

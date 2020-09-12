@@ -3,9 +3,8 @@
  * \author Aznam Yacoub (aznam.yacoub@lis-lab.fr)
  * \date Sept. 9 2020
  * \version 1.0
- * \brief MissionPlanner Project Main Include File.
- * \details The project "Mission Planner" provides a demo application in which the user can
- * control and make diagnostic of robots.
+ * \brief Application Namespace File.
+ * \details This file declares the Application namespace of the mission planner.
  */
 
 /*
@@ -26,19 +25,22 @@ namespace lis {
 
 		namespace productive40 {
 
-			/**
-			 * \namespace lis::pecase::productive40::missionplanner
-			 * \brief Contains the code related to the MissionPlanner.
- 			 * \details Contains the code related to the MissionPlanner.
-			 */
 			namespace missionplanner {
 
-			#pragma region Forward Declarations
+				/**
+				 * \namespace lis::pecase::productive40::missionplanner::application
+				 * \brief Contains the code related to the application of the mission planner.
+				 * \details Contains the code related to the application of the mission planner.
+				 */
+				namespace application {
 
-				// Forward declare here global variables, constants, functions shared by all
-				// the projects of the workspace.
+				#pragma region Forward Declarations
 
-			#pragma endregion
+					class Application;
+
+				#pragma endregion
+
+				}; //namespace application
 
 			}; // namespace missionplanner
 
@@ -53,8 +55,7 @@ namespace lis {
 	Projects Includes
 ===================================================================================================
 */
-#include "missionplanner/application.hpp"
-#include "missionplanner/ui.hpp"
+#include "application/application.hpp"
 
 /*
 ===================================================================================================

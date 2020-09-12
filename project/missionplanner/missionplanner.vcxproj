@@ -12,6 +12,25 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\missionplanner.hpp" />
+    <ClInclude Include="..\..\include\missionplanner\application.hpp" />
+    <ClInclude Include="..\..\include\missionplanner\ui.hpp" />
+    <QtMoc Include="..\..\include\missionplanner\ui\main_window.hpp" />
+    <QtMoc Include="..\..\include\missionplanner\application\application.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="..\..\ui\main_window.ui" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="..\..\resource\main_window.qrc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\source\missionplanner\application\application.cpp" />
+    <ClCompile Include="..\..\source\missionplanner\main.cpp" />
+    <ClCompile Include="..\..\source\missionplanner\ui\main_window.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\include\missionplanner\DIRECTORY.md" />
+    <None Include="..\..\source\missionplanner\DIRECTORY.md" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{A4F8DFEA-297E-436E-B2E6-2624470D9F36}</ProjectGuid>
@@ -37,7 +56,6 @@
   <ImportGroup Label="Shared" />
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="mission_planner.props" />
     <Import Project="missionplanner.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
