@@ -3,8 +3,8 @@
  * \author Aznam Yacoub (aznam.yacoub@lis-lab.fr)
  * \date Sept. 9 2020
  * \version 1.0
- * \brief Workspace Main Include File.
- * \details This file gathers all the files required to interact with the entire workspace.
+ * \brief Pattern Namespace File.
+ * \details This file declares the Pattern namespace of the common library.
  */
 
 /*
@@ -19,34 +19,30 @@
     Code
 ===================================================================================================
 */
-
-/**
- * \namespace lis
- * \brief Main LIS namespace.
- * \details Main LIS namespace.
- */
 namespace lis {
 	
-	/**
-	 * \namespace lis::pecase
-	 * \brief PECASE namespace.
-	 * \details PECASE namespace.
-	 */
 	namespace pecase {
 
-		/**
-		 * \namespace lis::pecase::productive40
-		 * \brief Contains the code related to the workspace PRODUCTIVE 4.0.
-		 * \details Contains the code related to the workspace PRODUCTIVE 4.0.
-		 */
 		namespace productive40 {
 
-		#pragma region Forward Declarations
+			namespace common {
 
-			// Forward declare here global variables, constants, functions shared by all
-			// the projects of the workspace.
+				/**
+				 * \namespace lis::pecase::productive40::common::pattern
+				 * \brief Contains the code related to the pattern namespace.
+ 				 * \details This namespace provides some implementations of generic patterns.
+				 */
+				namespace pattern {
 
-		#pragma endregion
+				#pragma region Class Forward Declarations
+
+					template<typename> class GenericFSM;
+
+				#pragma endregion
+
+				}; // namespace pattern
+
+			}; // namespace common
 
 		}; // namespace productive40
 
@@ -59,7 +55,7 @@ namespace lis {
 	Projects Includes
 ===================================================================================================
 */
-#include <common.hpp>
+#include "pattern/generic_fsm.hpp"
 
 /*
 ===================================================================================================

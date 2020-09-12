@@ -161,10 +161,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\common.hpp" />
+    <ClInclude Include="..\..\include\common\common_defines.hpp" />
+    <ClInclude Include="..\..\include\common\math.hpp" />
+    <ClInclude Include="..\..\include\common\pattern.hpp" />
+    <ClInclude Include="..\..\include\common\pattern\generic_fsm.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\include\common\DIRECTORY.md" />
+    <None Include="..\..\include\common\pattern\generic_fsm.tpp" />
     <None Include="..\..\source\common\DIRECTORY.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\source\common\math.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

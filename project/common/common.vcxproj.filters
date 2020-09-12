@@ -16,10 +16,31 @@
     <Filter Include="Package Files">
       <UniqueIdentifier>{ab313061-d73d-4fca-8c76-96e32007209c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\pattern">
+      <UniqueIdentifier>{18a59e33-be19-4123-af50-5caf2b272c7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Template Files">
+      <UniqueIdentifier>{e04b104d-cb15-4b8a-b4fb-60d5f97aa89e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Template Files\pattern">
+      <UniqueIdentifier>{e5e87cd6-ef2b-4290-a483-a02605b4ab25}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\common.hpp">
       <Filter>Package Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\common\common_defines.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\common\math.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\common\pattern.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\common\pattern\generic_fsm.hpp">
+      <Filter>Header Files\pattern</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -29,5 +50,13 @@
     <None Include="..\..\source\common\DIRECTORY.md">
       <Filter>Package Files</Filter>
     </None>
+    <None Include="..\..\include\common\pattern\generic_fsm.tpp">
+      <Filter>Template Files\pattern</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\source\common\math.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
