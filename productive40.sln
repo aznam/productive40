@@ -30,8 +30,14 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test", "project\test\test.vcxproj", "{37A92884-CC4A-4504-B68C-7DC1246E02E3}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RobotAPI", "project\robotapi\robotapi.vcxproj", "{AF7133E2-F8EF-4BBB-9AAE-3F08F8E07587}"
+	ProjectSection(ProjectDependencies) = postProject
+		{48C1874E-E8A2-4733-8514-A8F30AD62DA4} = {48C1874E-E8A2-4733-8514-A8F30AD62DA4}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MissionPlanner", "project\missionplanner\missionplanner.vcxproj", "{A4F8DFEA-297E-436E-B2E6-2624470D9F36}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AF7133E2-F8EF-4BBB-9AAE-3F08F8E07587} = {AF7133E2-F8EF-4BBB-9AAE-3F08F8E07587}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

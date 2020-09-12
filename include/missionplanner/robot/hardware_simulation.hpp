@@ -3,8 +3,8 @@
  * \author Aznam Yacoub (aznam.yacoub@lis-lab.fr)
  * \date Sept. 9 2020
  * \version 1.0
- * \brief Provide an interface for Hardware access.
- * \details This file provides an interface to access the hardware of the robot.
+ * \brief This file provides an interface for simulated hardware.
+ * \details This file provides an interface for simulated hardware.
  */
 
 /*
@@ -16,30 +16,31 @@
 
 /*
 ===================================================================================================
-	Project Includes
+    Project Includes
 ===================================================================================================
 */
-#include "../robotapi_defines.hpp"
-#include "robot_information.hpp"
+#include <robotapi/hardware.hpp>
 
 /*
 ===================================================================================================
     Code
 ===================================================================================================
 */
-namespace lis::pecase::productive40::robotapi::hardware {
-	
+namespace lis::pecase::productive40::missionplanner::robot {
+
 #pragma region Types Definitions
 
 	/**
-	 * \interface HardwareInterface include/robotapi/hardware/hardware_interface.hpp \
-	 * <productive40/robotapi/hardware/hardware_interface.hpp>
-	 * \brief Interface to access the hardware of the robot.
-	 * \details This interface provides generic access to the hardware. Subclass this
-	 * interface to implement specific hardware access.
+	 * \class HardwareSimulation include/missionplanner/robot/hardware_simulation.hpp \
+	 * <productive40/missionplanner/robot/hardware_simulation.hpp>
+	 * \brief Hardware Simulated Interface.
+	 * \details This class implements an access to simulated hardware in the mission planner.
+	 * It is used for the simulation of the hardware part of the robot, in order to test the
+	 * algorithms directly in the mission planner without ROS.
 	 * \nosubgrouping
 	 */
-	class ROBOTAPI_LIB HardwareInterface {
+    class HardwareSimulation :
+		public robotapi::hardware::HardwareInterface {
 
 	/**
 	 * \name Constructors / Destructor
@@ -53,8 +54,8 @@ namespace lis::pecase::productive40::robotapi::hardware {
 		 * \brief Default ctor.
 		 * \details Default constructor.
 		 */
-		protected:
-		HardwareInterface (
+		public:
+		HardwareSimulation (
 			void
 		);
 
@@ -66,10 +67,10 @@ namespace lis::pecase::productive40::robotapi::hardware {
 		 * \brief Default dtor.
 		 * \details Default destructor.
 		 */
-		public: virtual
-		~HardwareInterface (
+		public:
+		~HardwareSimulation (
 			void
-		) = 0;
+		);
 
 		#pragma endregion
 
@@ -82,32 +83,26 @@ namespace lis::pecase::productive40::robotapi::hardware {
 	#pragma region Robot Information Management
 	/**@{*/
 
-		#pragma region Abstract Methods
+		#pragma region Overriden Methods
 
 		/**
 		 * \brief Returns basic informations about the robot.
 		 * \details Returns basic informations stored in the robot.
 		 * \returns (const hardware::RobotInformation &) Informations about the robot.
 		 */
-		 public: virtual
-		 const RobotInformation &
+		 public:
+		 const robotapi::hardware::RobotInformation &
 		 robot_informations (
 			void
-		 ) const = 0;
+		 ) const override;
 
 		#pragma endregion
 
 	/**@}*/
 	#pragma endregion
 
-	}; // class HardwareInterface
+    }; // class HardwareSimulation
 
 #pragma endregion
 
-}; // namespace lis::pecase::productive40::robotapi::hardware
-
-/*
-===================================================================================================
-    Macros
-===================================================================================================
-*/
+}; // namespace lis::pecase::productive40::missionplanner::robot

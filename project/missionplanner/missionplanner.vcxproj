@@ -13,7 +13,11 @@
   <ItemGroup>
     <ClInclude Include="..\..\include\missionplanner.hpp" />
     <ClInclude Include="..\..\include\missionplanner\application.hpp" />
+    <ClInclude Include="..\..\include\missionplanner\robot.hpp" />
+    <ClInclude Include="..\..\include\missionplanner\robot\hardware_simulation.hpp" />
+    <ClInclude Include="..\..\include\missionplanner\robot\simubot_interface.hpp" />
     <ClInclude Include="..\..\include\missionplanner\ui.hpp" />
+    <ClCompile Include="..\..\source\missionplanner\robot\hardware_simulation.cpp" />
     <QtMoc Include="..\..\include\missionplanner\ui\main_window.hpp" />
     <QtMoc Include="..\..\include\missionplanner\application\application.hpp" />
   </ItemGroup>
@@ -26,6 +30,7 @@
   <ItemGroup>
     <ClCompile Include="..\..\source\missionplanner\application\application.cpp" />
     <ClCompile Include="..\..\source\missionplanner\main.cpp" />
+    <ClCompile Include="..\..\source\missionplanner\robot\simubot_interface.cpp" />
     <ClCompile Include="..\..\source\missionplanner\ui\main_window.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -50,6 +50,12 @@
     <Filter Include="Source Files\ui">
       <UniqueIdentifier>{a76e8236-f7a9-4ca6-baba-f47433c41d95}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\robot">
+      <UniqueIdentifier>{7acc501e-691b-45ea-98b6-1893cbea6e6b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\robot">
+      <UniqueIdentifier>{31372afc-155b-4574-961e-e0afe526b3c0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\missionplanner.hpp">
@@ -61,6 +67,15 @@
     <ClInclude Include="..\..\include\missionplanner\ui.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\missionplanner\robot.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\missionplanner\robot\hardware_simulation.hpp">
+      <Filter>Header Files\robot</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\missionplanner\robot\simubot_interface.hpp">
+      <Filter>Header Files\robot</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\source\missionplanner\main.cpp">
@@ -71,6 +86,12 @@
     </ClCompile>
     <ClCompile Include="..\..\source\missionplanner\ui\main_window.cpp">
       <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\missionplanner\robot\hardware_simulation.cpp">
+      <Filter>Source Files\robot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\missionplanner\robot\simubot_interface.cpp">
+      <Filter>Source Files\robot</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

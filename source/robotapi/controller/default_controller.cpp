@@ -28,7 +28,7 @@ namespace lis::pecase::productive40::robotapi::controller {
 	DefaultController::DefaultController (
 		 const hardware::HardwareInterface & hw_interface
 	) :
-		m_robotInformations(hw_interface.robot_informations())  {
+		m_robotInformations(hw_interface.robot_informations()) {
 	}
 
 	DefaultController::~DefaultController (
@@ -44,7 +44,7 @@ namespace lis::pecase::productive40::robotapi::controller {
 	DefaultController::robot_informations (
 		void
 	) const {
-		return m_robotInformations;
+		return this->m_robotInformations;
 	}
 
 #pragma endregion

@@ -20,6 +20,7 @@
 ===================================================================================================
 */
 #include "../../../include/missionplanner/ui/main_window.hpp"
+#include "../../../include/missionplanner/robot/hardware_simulation.hpp"
 
 /*
 ===================================================================================================
@@ -34,7 +35,7 @@ namespace lis::pecase::productive40::missionplanner::ui {
         QWidget * parent
     ) :
 		QMainWindow(parent) {
-        m_internalUI.setupUi(this);
+        this->m_internalUI.setupUi(this);
     }
 
     MainWindow::~MainWindow (

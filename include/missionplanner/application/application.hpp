@@ -3,8 +3,8 @@
  * \author Aznam Yacoub (aznam.yacoub@lis-lab.fr)
  * \date Sept. 9 2020
  * \version 1.0
- * \brief Application Namespace File.
- * \details This file declares the Application namespace of the mission planner.
+ * \brief This file provides the interface of the Main Application of the mission planner.
+ * \details This file provides the interface of the Main Application of the mission planner.
  */
 
 /*
@@ -54,7 +54,8 @@ namespace lis::pecase::productive40::missionplanner::application {
 	 * \details This class represents the main Qt Application of the Mission Planner.
 	 * \nosubgrouping
 	 */
-    class Application : public QApplication {
+    class Application :
+		public QApplication {
 
         Q_OBJECT
 

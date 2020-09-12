@@ -3,9 +3,8 @@
  * \author Aznam Yacoub (aznam.yacoub@lis-lab.fr)
  * \date Sept. 9 2020
  * \version 1.0
- * \brief Provide an interface to interact with robot.
- * \details This file provides an interface to interact and access the robot. This interface
- * must be implemented for each kind of robot.
+ * \brief Provide an interface to interact with simubot.
+ * \details This file provides an interface to interact with simubot.
  */
 
 /*
@@ -20,29 +19,54 @@
 	Project Includes
 ===================================================================================================
 */
-#include "robotapi_defines.hpp"
-#include "controller/controller_interface.hpp"
-#include "hardware/hardware_interface.hpp"
+#include <robotapi/robot_interface.hpp>
+#include <robotapi/controller.hpp>
+#include "hardware_simulation.hpp"
 
 /*
 ===================================================================================================
     Code
 ===================================================================================================
 */
-namespace lis::pecase::productive40::robotapi {
+namespace lis::pecase::productive40::missionplanner::robot {
 	
 #pragma region Types Definitions
 
 	/**
-	 * \interface RobotInterface include/robotapi/robot_interface.hpp \
-	 * <productive40/robotapi/robot_interface.hpp>
-	 * \brief Interface to interact with the robot.
-	 * \details The following high-level interface allows access to components and interactions
-	 * with the robot. For each kind of robot, this interface must be implemented to provide an
-	 * access to the different algorithm.
+	 * \class SimubotInterface include/missionplanner/robot/simubot_interface.hpp \
+	 * <productive40/missionplanner/robot/simubot_interface.hpp>
+	 * \brief Interface to interact with a simubot.
+	 * \details The following interface provides access and model a simulated robot in the
+	 * mission planner.
 	 * \nosubgrouping
 	 */
-	class ROBOTAPI_LIB RobotInterface {
+	class SimubotInterface :
+		public robotapi::RobotInterface {
+
+	/**
+	 * \name Instance Data Members
+	 */
+	#pragma region Instance Data Members
+	/**@{*/
+
+		/**
+		 * \brief Simulated Hardware Interface.
+		 * \details Simulated Hardware Interface.
+		 */
+		private:
+		HardwareSimulation
+		m_hardware;
+
+		/**
+		 * \brief Default Controller.
+		 * \details Default Controller.
+		 */
+		private:
+		robotapi::controller::DefaultController
+		m_controller;
+
+	/**@}*/
+	#pragma endregion
 
 	/**
 	 * \name Constructors / Destructor
@@ -56,8 +80,8 @@ namespace lis::pecase::productive40::robotapi {
 		 * \brief Default ctor.
 		 * \details Default ctor.
 		 */
-		protected:
-		RobotInterface (
+		public:
+		SimubotInterface (
 			void
 		);
 
@@ -69,10 +93,10 @@ namespace lis::pecase::productive40::robotapi {
 		 * \brief Default dtor.
 		 * \details Default destructor.
 		 */
-		public: virtual
-		~RobotInterface (
+		public:
+		~SimubotInterface (
 			void
-		) = 0;
+		);
 
 		#pragma endregion
 
@@ -94,35 +118,35 @@ namespace lis::pecase::productive40::robotapi {
 		communication::CommunicationSystem *
 		communication (
 			void
-		) const = 0;*/
+		) = 0;*/
 
 		/**
 		 * \brief Access to the controller interface.
 		 * \details Access to the controller interface.
 		 * \return (ControllerInterface *) Pointer to the controller interface.
 		 */
-		public: virtual
-		controller::ControllerInterface *
+		public:
+		robotapi::controller::ControllerInterface *
 		controller ( 
 			void
-		) const = 0;
+		) const override;
 
 		/**
 		 * \brief Access to the hardware interface.
 		 * \details Access to the hardware interface.
 		 * \return (HardwareInterface *) Pointer to the hardware interface.
 		 */
-		public: virtual
-		hardware::HardwareInterface *
+		public:
+		robotapi::hardware::HardwareInterface *
 		hardware (
 			void
-		) const = 0;
+		) const override;
 
 	/**@}*/
 	#pragma endregion
 
-	}; // class RobotInterface
+	}; // class SimubotInterface
 
 #pragma endregion
 
-}; // namespace lis::pecase::productive40::robotapi
+}; // namespace lis::pecase::productive40::missionplanner::robot
