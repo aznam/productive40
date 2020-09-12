@@ -163,7 +163,7 @@ namespace lis::pecase::productive40::common::pattern {
 		/**@}*/
 		#pragma endregion
 
-		}; // class State
+		}; // class GenericFSM<Context>::State
 
 	/**@}*/
 	#pragma endregion

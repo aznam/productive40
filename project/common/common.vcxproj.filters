@@ -25,6 +25,12 @@
     <Filter Include="Template Files\pattern">
       <UniqueIdentifier>{e5e87cd6-ef2b-4290-a483-a02605b4ab25}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Documentation Files">
+      <UniqueIdentifier>{eb07a643-60f6-48dc-a3f8-bdeb5115e986}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Documentation Files\include">
+      <UniqueIdentifier>{892c4fe4-415e-4d4b-8da4-5435a7260305}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\common.hpp">
@@ -44,11 +50,11 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\include\common\DIRECTORY.md">
-      <Filter>Package Files</Filter>
-    </None>
     <None Include="..\..\include\common\pattern\generic_fsm.tpp">
       <Filter>Template Files\pattern</Filter>
+    </None>
+    <None Include="..\..\include\common\DIRECTORY.md">
+      <Filter>Documentation Files\include</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
