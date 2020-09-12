@@ -1255,6 +1255,7 @@ dl.section dd {
 .image
 {
         text-align: center;
+		padding:15px;
 }
 
 .dotgraph

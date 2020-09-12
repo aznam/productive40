@@ -6,6 +6,10 @@
 \brief Contains the sources and implementations files of the PRODUCTIVE 4.0 workspace.
 \details Contains the implementations and definitions of the components of the workspace.
 
+\dir example
+\brief Contains some examples.
+\details Contains examples of class and runtime manipulations.
+
 \dir test
 \brief Contains the test code.
 \details Contains the test code and scenarios.

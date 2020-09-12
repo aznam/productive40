@@ -69,11 +69,9 @@ is blank line before and after the beginning of a region, before and after the e
 - Doxygen blocks begins with `/**` and ends with `*/`, and star-aligned. Use the 
   `\command` version.
 
-      \verbatim
       /**
        * \brief This is a doxygen block.
        */
-      \endverbatim
 
 #### Block Convention
 - First line: optional keyword + optional identifier + space + opening symbol.
@@ -150,7 +148,7 @@ alphanumeric symbols.
 - Static attributes follow global variable naming convention.
 - Instance methods follows instance member naming convention.
 - Static functions follows function naming convention.
-- Access protection should be in this order: private, protected, public.
+- Access protection should be in this order: public, protected, private.
 - Initializer-list follow the block convention.
 
 Catkin Build
