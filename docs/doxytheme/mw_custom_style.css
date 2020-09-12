@@ -1573,9 +1573,7 @@ tr.heading h2 {
 #MSearchField
 {
 	background-image:none;
-	background-color:#0f0f0f;
 	color:#bababa;
-	border:solid 1px #464646;
 	font-family:'Lato', sans-serif;
 	
 	-webkit-border-radius: 5px;
