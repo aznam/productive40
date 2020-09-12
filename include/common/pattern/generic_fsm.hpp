@@ -64,7 +64,7 @@ namespace lis::pecase::productive40::common::pattern {
 		protected:
 		class State {
 
-			friend class Context;
+			friend Context;
 			friend class GenericFSM<Context>;
 
 		/**

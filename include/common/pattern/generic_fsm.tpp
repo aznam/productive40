@@ -36,8 +36,7 @@ namespace lis::pecase::productive40::common::pattern {
 	> GenericFSM<Context>::State::State (
 		const Context & context
 	) :
-		m_context(context),
-		m_currentState(nullptr) {
+		m_context(const_cast<Context &>(context)) {
 	}
 
 	template <
@@ -55,7 +54,9 @@ namespace lis::pecase::productive40::common::pattern {
 		typename Context
 	> GenericFSM<Context>::GenericFSM (
 		void
-	) {
+	) :
+		m_currentState(nullptr),
+		m_states(std::vector<GenericFSM<Context>::State *>()) {
 	}
 
 	template <

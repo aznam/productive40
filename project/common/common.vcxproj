@@ -80,24 +80,28 @@
     <OutDir>$(SolutionDir)/lib/$(Configuration)/$(PlatformShortName)/</OutDir>
     <IntDir>$(ProjectDir)/obj/$(Configuration)/$(PlatformShortName)/</IntDir>
     <IncludePath>$(EIGEN_INC);$(BOOST_1_66);$(SolutionDir)\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <TargetName>$(MSBuildProjectName)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)/lib/$(Configuration)/$(PlatformShortName)/</OutDir>
     <IntDir>$(ProjectDir)/obj/$(Configuration)/$(PlatformShortName)/</IntDir>
     <IncludePath>$(EIGEN_INC);$(BOOST_1_66);$(SolutionDir)\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <TargetName>$(MSBuildProjectName)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)/lib/$(Configuration)/$(PlatformShortName)/</OutDir>
     <IntDir>$(ProjectDir)/obj/$(Configuration)/$(PlatformShortName)/</IntDir>
     <IncludePath>$(EIGEN_INC);$(BOOST_1_66);$(SolutionDir)\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <TargetName>$(MSBuildProjectName)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)/lib/$(Configuration)/$(PlatformShortName)/</OutDir>
     <IntDir>$(ProjectDir)/obj/$(Configuration)/$(PlatformShortName)/</IntDir>
     <IncludePath>$(EIGEN_INC);$(BOOST_1_66);$(SolutionDir)\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <TargetName>$(MSBuildProjectName)</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
