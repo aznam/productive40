@@ -47,9 +47,6 @@
     <None Include="..\..\include\common\DIRECTORY.md">
       <Filter>Package Files</Filter>
     </None>
-    <None Include="..\..\source\common\DIRECTORY.md">
-      <Filter>Package Files</Filter>
-    </None>
     <None Include="..\..\include\common\pattern\generic_fsm.tpp">
       <Filter>Template Files\pattern</Filter>
     </None>

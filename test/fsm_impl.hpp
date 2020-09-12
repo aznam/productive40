@@ -15,7 +15,8 @@ class FiniteStateMachine :
 		public:
 		InitState (
 			const FiniteStateMachine& fsm
-		) : State(fsm) {
+		) :
+			State(fsm) {
 			std::cout << "Create Init State" << std::endl;
 		}
 
@@ -59,7 +60,8 @@ class FiniteStateMachine :
 		public:
 		EndState (
 			const FiniteStateMachine & fsm
-		) : State(fsm) {
+		) :
+			State(fsm) {
 			std::cout << "Create End State" << std::endl;
 		}
 

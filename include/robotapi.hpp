@@ -3,8 +3,11 @@
  * \author Aznam Yacoub (aznam.yacoub@lis-lab.fr)
  * \date Sept. 9 2020
  * \version 1.0
- * \brief Workspace Main Include File.
- * \details This file gathers all the files required to interact with the entire workspace.
+ * \brief RobotAPI Library Project Main Include File.
+ * \details The project "Robot API" provides an interface to manage a robot. It implements
+ * control, diagnostic and pronostics algorithms. This library is designed to be integrated into
+ * a robot subsystem and doesn't provide low-level implementation of hardware and thread.
+ * Use this file if you need to interact with this library.
  */
 
 /*
@@ -19,34 +22,27 @@
     Code
 ===================================================================================================
 */
-
-/**
- * \namespace lis
- * \brief Main LIS namespace.
- * \details Main LIS namespace.
- */
 namespace lis {
 	
-	/**
-	 * \namespace lis::pecase
-	 * \brief PECASE namespace.
-	 * \details PECASE namespace.
-	 */
 	namespace pecase {
 
-		/**
-		 * \namespace lis::pecase::productive40
-		 * \brief Contains the code related to the workspace PRODUCTIVE 4.0.
-		 * \details Contains the code related to the workspace PRODUCTIVE 4.0.
-		 */
 		namespace productive40 {
 
-		#pragma region Forward Declarations
+			/**
+			 * \namespace lis::pecase::productive40::robotapi
+			 * \brief Contains the code related to the RobotAPI library.
+ 			 * \details Contains the code related to the RobotAPI library.
+			 */
+			namespace robotapi {
 
-			// Forward declare here global variables, constants, functions shared by all
-			// the projects of the workspace.
+			#pragma region Forward Declarations
 
-		#pragma endregion
+				// Forward declare here global variables, constants, functions shared by all
+				// the projects of the workspace.
+
+			#pragma endregion
+
+			}; // namespace robotapi
 
 		}; // namespace productive40
 
@@ -59,8 +55,7 @@ namespace lis {
 	Projects Includes
 ===================================================================================================
 */
-#include <common.hpp>
-#include <robotapi.hpp>
+#include "robotapi/robotapi_defines.hpp"
 
 /*
 ===================================================================================================
