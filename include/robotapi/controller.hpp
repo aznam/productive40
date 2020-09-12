@@ -3,11 +3,8 @@
  * \author Aznam Yacoub (aznam.yacoub@lis-lab.fr)
  * \date Sept. 9 2020
  * \version 1.0
- * \brief RobotAPI Library Project Main Include File.
- * \details The project "Robot API" provides an interface to manage a robot. It implements
- * control, diagnostic and pronostics algorithms. This library is designed to be integrated into
- * a robot subsystem and doesn't provide low-level implementation of hardware and thread.
- * Use this file if you need to interact with this library.
+ * \brief Controller Namespace File.
+ * \details This file declares the Controller namespace of the RobotAPI library.
  */
 
 /*
@@ -22,7 +19,7 @@
 	Projects Includes
 ===================================================================================================
 */
-#include "robotapi/robotapi_defines.hpp"
+#include "robotapi_defines.hpp"
 
 /*
 ===================================================================================================
@@ -35,18 +32,24 @@ namespace lis {
 
 		namespace productive40 {
 
-			/**
-			 * \namespace lis::pecase::productive40::robotapi
-			 * \brief Contains the code related to the RobotAPI library.
- 			 * \details Contains the code related to the RobotAPI library.
-			 */
 			namespace robotapi {
 
-			#pragma region Forward Declarations
+				/**
+				 * \namespace lis::pecase::productive40::robotapi::controller
+				 * \brief Contains the code related to the controller namespace.
+ 				 * \details This namespace provides implementations of the controller components.
+				 */
+				namespace controller {
 
-				class ROBOTAPI_LIB RobotInterface;
+				#pragma region Types Forward Declarations
 
-			#pragma endregion
+					class ROBOTAPI_LIB ControllerInterface;
+
+					class ROBOTAPI_LIB DefaultController;
+
+				#pragma endregion
+
+				}; // namespace controller
 
 			}; // namespace robotapi
 
@@ -61,9 +64,8 @@ namespace lis {
 	Projects Includes
 ===================================================================================================
 */
-#include "robotapi/hardware.hpp"
-#include "robotapi/controller.hpp"
-#include "robotapi/robot_interface.hpp"
+#include "controller/controller_interface.hpp"
+#include "controller/default_controller.hpp"
 
 /*
 ===================================================================================================

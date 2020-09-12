@@ -169,10 +169,26 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\robotapi.hpp" />
+    <ClInclude Include="..\..\include\robotapi\controller.hpp" />
+    <ClInclude Include="..\..\include\robotapi\controller\controller_interface.hpp" />
+    <ClInclude Include="..\..\include\robotapi\controller\default_controller.hpp" />
+    <ClInclude Include="..\..\include\robotapi\hardware.hpp" />
+    <ClInclude Include="..\..\include\robotapi\hardware\hardware_interface.hpp" />
+    <ClInclude Include="..\..\include\robotapi\hardware\robot_information.hpp" />
     <ClInclude Include="..\..\include\robotapi\robotapi_defines.hpp" />
+    <ClInclude Include="..\..\include\robotapi\robot_interface.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\source\robotapi\controller\controller_interface.cpp" />
+    <ClCompile Include="..\..\source\robotapi\controller\default_controller.cpp" />
+    <ClCompile Include="..\..\source\robotapi\hardware\hardware_interface.cpp" />
+    <ClCompile Include="..\..\source\robotapi\hardware\robot_information.cpp" />
     <ClCompile Include="..\..\source\robotapi\robotapi_entry.cpp" />
+    <ClCompile Include="..\..\source\robotapi\robot_interface.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\include\robotapi\DIRECTORY.md" />
+    <None Include="..\..\source\robotapi\DIRECTORY.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
