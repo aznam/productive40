@@ -3,8 +3,9 @@
  * \author Aznam Yacoub (aznam.yacoub@lis-lab.fr)
  * \date Sept. 9 2020
  * \version 1.0
- * \brief Workspace Main Include File.
- * \details This file gathers all the files required to interact with the entire workspace.
+ * \brief MissionPlanner Project Main Include File.
+ * \details The project "Mission Planner" provides a demo application in which the user can
+ * control and make diagnostic of robots.
  */
 
 /*
@@ -19,34 +20,27 @@
     Code
 ===================================================================================================
 */
-
-/**
- * \namespace lis
- * \brief Main LIS namespace.
- * \details Main LIS namespace.
- */
 namespace lis {
 	
-	/**
-	 * \namespace lis::pecase
-	 * \brief PECASE namespace.
-	 * \details PECASE namespace.
-	 */
 	namespace pecase {
 
-		/**
-		 * \namespace lis::pecase::productive40
-		 * \brief Contains the code related to the workspace PRODUCTIVE 4.0.
-		 * \details Contains the code related to the workspace PRODUCTIVE 4.0.
-		 */
 		namespace productive40 {
 
-		#pragma region Forward Declarations
+			/**
+			 * \namespace lis::pecase::productive40::missionplanner
+			 * \brief Contains the code related to the MissionPlanner.
+ 			 * \details Contains the code related to the MissionPlanner.
+			 */
+			namespace missionplanner {
 
-			// Forward declare here global variables, constants, functions shared by all
-			// the projects of the workspace.
+			#pragma region Forward Declarations
 
-		#pragma endregion
+				// Forward declare here global variables, constants, functions shared by all
+				// the projects of the workspace.
+
+			#pragma endregion
+
+			}; // namespace missionplanner
 
 		}; // namespace productive40
 
@@ -59,9 +53,6 @@ namespace lis {
 	Projects Includes
 ===================================================================================================
 */
-#include <common.hpp>
-#include <robotapi.hpp>
-#include <missionplanner.hpp>
 
 /*
 ===================================================================================================

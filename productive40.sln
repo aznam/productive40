@@ -31,6 +31,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test", "project\test\test.v
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RobotAPI", "project\robotapi\robotapi.vcxproj", "{AF7133E2-F8EF-4BBB-9AAE-3F08F8E07587}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MissionPlanner", "project\missionplanner\missionplanner.vcxproj", "{A4F8DFEA-297E-436E-B2E6-2624470D9F36}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -71,6 +73,12 @@ Global
 		{AF7133E2-F8EF-4BBB-9AAE-3F08F8E07587}.Release|x64.Build.0 = Release|x64
 		{AF7133E2-F8EF-4BBB-9AAE-3F08F8E07587}.Release|x86.ActiveCfg = Release|Win32
 		{AF7133E2-F8EF-4BBB-9AAE-3F08F8E07587}.Release|x86.Build.0 = Release|Win32
+		{A4F8DFEA-297E-436E-B2E6-2624470D9F36}.Debug|x64.ActiveCfg = Debug|x64
+		{A4F8DFEA-297E-436E-B2E6-2624470D9F36}.Debug|x64.Build.0 = Debug|x64
+		{A4F8DFEA-297E-436E-B2E6-2624470D9F36}.Debug|x86.ActiveCfg = Debug|x64
+		{A4F8DFEA-297E-436E-B2E6-2624470D9F36}.Release|x64.ActiveCfg = Release|x64
+		{A4F8DFEA-297E-436E-B2E6-2624470D9F36}.Release|x64.Build.0 = Release|x64
+		{A4F8DFEA-297E-436E-B2E6-2624470D9F36}.Release|x86.ActiveCfg = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

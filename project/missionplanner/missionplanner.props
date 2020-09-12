@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+	<EIGEN_INC>D:\Libraries\eigen</EIGEN_INC>
+    <ROS_INC>D:\Libraries\ros\melodic\$(PLATFORM)\include</ROS_INC>
+    <ROS_LIB>D:\Libraries\ros\melodic\$(PLATFORM)\lib</ROS_LIB>
+    <ROS_BIN>D:\Libraries\ros\melodic\$(PLATFORM)\bin;D:\Libraries\rosdeps\$(PLATFORM)\bin</ROS_BIN>
+    <BOOST_1_66>D:\Libraries\rosdeps\x64\include\boost-1_66</BOOST_1_66>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemDefinitionGroup />
+  <ItemGroup>
+    <BuildMacro Include="EIGEN_INC">
+      <Value>$(EIGEN_INC)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="EIGEN_LIB">
+      <Value>$(EIGEN_LIB)</Value>
+    </BuildMacro>
+    <BuildMacro Include="ROS_INC">
+      <Value>$(ROS_INC)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="ROS_LIB">
+      <Value>$(ROS_LIB)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="ROS_BIN">
+      <Value>$(ROS_BIN)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="BOOST_1_66">
+      <Value>$(BOOST_1_66)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+  </ItemGroup>
+</Project>
