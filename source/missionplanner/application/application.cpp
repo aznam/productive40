@@ -28,12 +28,46 @@ namespace lis::pecase::productive40::missionplanner::application {
 		char ** argv
 	) :
 		QApplication(argc, argv) {
+
+		// Parse arguments
+		for(unsigned i = 1; i < argc; i++) {
+
+			// Simulated robots
+			if(strcmp(argv[i], "--robot") == 0 && i+1 < argc) {
+				unsigned int nb_robots = atoi(argv[i+1]);
+				for(unsigned r = 0; r < nb_robots; r++) {
+					Simubot* robot = new Simubot(this, r + 1);
+					connect(robot, &Simubot::finished, this, &Application::robotTerminated);
+					this->m_simubots.append(robot);
+					robot->start();
+				}
+			}
+
+		}
+
+		// Show the main window
 		this->m_mainWindow.show();
 	}
 
 	Application::~Application (
 		void
 	) {
+		for(unsigned r = 0; r < m_simubots.size(); r++) {
+			m_simubots[r]->exit(0);
+		}
+	}
+
+#pragma endregion
+
+#pragma region Simubot Functions
+
+	void
+	Application::robotTerminated (
+		void
+	) {
+		Simubot* sender = (Simubot*)QObject::sender();
+		disconnect(sender, &Simubot::finished, this, &Application::robotTerminated);
+		delete sender;
 	}
 
 #pragma endregion

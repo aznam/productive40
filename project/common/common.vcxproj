@@ -169,10 +169,12 @@
     <ClInclude Include="..\..\include\common\math.hpp" />
     <ClInclude Include="..\..\include\common\pattern.hpp" />
     <ClInclude Include="..\..\include\common\pattern\generic_fsm.hpp" />
+    <ClInclude Include="..\..\include\common\pattern\singleton.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\include\common\DIRECTORY.md" />
     <None Include="..\..\include\common\pattern\generic_fsm.tpp" />
+    <None Include="..\..\include\common\pattern\singleton.tpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\source\common\math.cpp" />

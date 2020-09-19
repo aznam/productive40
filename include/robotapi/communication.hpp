@@ -3,9 +3,8 @@
  * \author Aznam Yacoub (aznam.yacoub@lis-lab.fr)
  * \date Sept. 9 2020
  * \version 1.0
- * \brief MissionPlanner Project Main Include File.
- * \details The project "Mission Planner" provides a demo application in which the user can
- * control and make diagnostic of robots.
+ * \brief Controller Namespace File.
+ * \details This file declares the Communication namespace of the RobotAPI library.
  */
 
 /*
@@ -14,6 +13,13 @@
 ===================================================================================================
 */
 #pragma once
+
+/*
+===================================================================================================
+	Projects Includes
+===================================================================================================
+*/
+#include "robotapi_defines.hpp"
 
 /*
 ===================================================================================================
@@ -26,20 +32,25 @@ namespace lis {
 
 		namespace productive40 {
 
-			/**
-			 * \namespace lis::pecase::productive40::missionplanner
-			 * \brief Contains the code related to the MissionPlanner.
- 			 * \details Contains the code related to the MissionPlanner.
-			 */
-			namespace missionplanner {
+			namespace robotapi {
 
-			#pragma region Forward Declarations
+				/**
+				 * \namespace lis::pecase::productive40::robotapi::communication
+				 * \brief Contains the code related to the communication namespace.
+ 				 * \details This namespace provides implementations of the communication
+				 * components.
+				 */
+				namespace communication {
 
-				// Forward declare here global variables, constants.
+				#pragma region Types Forward Declarations
 
-			#pragma endregion
+					class ROBOTAPI_LIB CommunicationInterface;
 
-			}; // namespace missionplanner
+				#pragma endregion
+
+				}; // namespace communication
+
+			}; // namespace robotapi
 
 		}; // namespace productive40
 
@@ -52,9 +63,7 @@ namespace lis {
 	Projects Includes
 ===================================================================================================
 */
-#include "missionplanner/application.hpp"
-#include "missionplanner/ui.hpp"
-#include "missionplanner/robot.hpp"
+#include "communication/communication_interface.hpp"
 
 /*
 ===================================================================================================

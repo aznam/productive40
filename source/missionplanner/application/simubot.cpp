@@ -3,45 +3,57 @@
  * \author Aznam Yacoub (aznam.yacoub@lis-lab.fr)
  * \date Sept. 9 2020
  * \version 1.0
- * \brief This file provides an implementation of the main window.
- * \details This file implements the main window of the mission planner.
+ * \brief This file provides an implementation of simulated robot.
+ * \details This file implements simulated robots.
  */
 
 /*
 ===================================================================================================
-    Standard Includes
+	Standard Includes
 ===================================================================================================
 */
 #include <iostream>
 
 /*
 ===================================================================================================
-    Project Includes
+	Project Includes
 ===================================================================================================
 */
-#include "../../../include/missionplanner/ui/main_window.hpp"
+#include "../../../include/missionplanner/application/simubot.hpp"
 
 /*
 ===================================================================================================
-    Code
+	Code
 ===================================================================================================
 */
-namespace lis::pecase::productive40::missionplanner::ui {
+namespace lis::pecase::productive40::missionplanner::application {
 
 #pragma region Constructors / Destructor
 
-    MainWindow::MainWindow (
-        QWidget * parent
-    ) :
-		QMainWindow(parent) {
-        this->m_internalUI.setupUi(this);
-    }
+	Simubot::Simubot (
+		QObject * parent,
+		unsigned int id
+	) :
+		QThread(parent),
+		m_identifier(id) {
+	}
 
-    MainWindow::~MainWindow (
-        void
-    ) {
-    }
+	Simubot::~Simubot (
+		void
+	) {
+	}
 
 #pragma endregion
 
-}; // namespace lis::pecase::productive40::missionplanner::ui
+#pragma region Thread Operations
+
+	void
+	Simubot::run (
+		void
+	) {
+		QThread::run();
+	}
+
+#pragma endregion
+
+}; // namespace lis::pecase::productive40::missionplanner::application

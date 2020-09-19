@@ -12,14 +12,14 @@
 	Project Includes
 ===================================================================================================
 */
-#include "../../../include/missionplanner/robot/simubot_interface.hpp"
+#include "../../../../include/missionplanner/application/robot/simubot_interface.hpp"
 
 /*
 ===================================================================================================
     Code
 ===================================================================================================
 */
-namespace lis::pecase::productive40::missionplanner::robot {
+namespace lis::pecase::productive40::missionplanner::application::robot {
 	
 #pragma region Constructors / Destructor
 	
@@ -40,6 +40,13 @@ namespace lis::pecase::productive40::missionplanner::robot {
 
 #pragma region Accessors (Getters)
 
+	robotapi::communication::CommunicationInterface *
+	SimubotInterface::communication (
+		void
+	) const {
+		return nullptr;
+	}
+
 	robotapi::controller::ControllerInterface *
 	SimubotInterface::controller (
 		void
@@ -56,4 +63,4 @@ namespace lis::pecase::productive40::missionplanner::robot {
 
 #pragma endregion
 
-}; // namespace lis::pecase::productive40::missionplanner::robot
+}; // namespace lis::pecase::productive40::missionplanner::application::robot

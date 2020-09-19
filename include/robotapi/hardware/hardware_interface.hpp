@@ -56,7 +56,7 @@ namespace lis::pecase::productive40::robotapi::hardware {
 		protected:
 		HardwareInterface (
 			void
-		);
+		) = default;
 
 		#pragma endregion
 
@@ -69,7 +69,7 @@ namespace lis::pecase::productive40::robotapi::hardware {
 		public: virtual
 		~HardwareInterface (
 			void
-		) = 0;
+		) = default;
 
 		#pragma endregion
 

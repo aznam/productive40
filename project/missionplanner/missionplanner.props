@@ -2,7 +2,7 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros">
-	<EIGEN_INC>D:\Libraries\eigen</EIGEN_INC>
+    <EIGEN_INC>D:\Libraries\eigen</EIGEN_INC>
     <ROS_INC>D:\Libraries\ros\melodic\$(PLATFORM)\include</ROS_INC>
     <ROS_LIB>D:\Libraries\ros\melodic\$(PLATFORM)\lib</ROS_LIB>
     <ROS_BIN>D:\Libraries\ros\melodic\$(PLATFORM)\bin;D:\Libraries\rosdeps\$(PLATFORM)\bin</ROS_BIN>
@@ -14,9 +14,6 @@
     <BuildMacro Include="EIGEN_INC">
       <Value>$(EIGEN_INC)</Value>
       <EnvironmentVariable>true</EnvironmentVariable>
-    </BuildMacro>
-    <BuildMacro Include="EIGEN_LIB">
-      <Value>$(EIGEN_LIB)</Value>
     </BuildMacro>
     <BuildMacro Include="ROS_INC">
       <Value>$(ROS_INC)</Value>

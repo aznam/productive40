@@ -29,16 +29,16 @@ namespace lis {
 
 				/**
 				 * \namespace lis::pecase::productive40::missionplanner::robot
-				 * \brief Contains the code related to the simulated robots.
-				 * \details Contains the code related to the simulated robots.
+				 * \brief Contains the code related to the robot management.
+				 * \details Contains the code related to the robot management.
 				 */
 				namespace robot {
 
 				#pragma region Forward Declarations
 
-					class HardwareSimulation;
+					class Robot;
 
-					class SimubotInterface;
+					class RobotManager;
 
 				#pragma endregion
 
@@ -57,8 +57,8 @@ namespace lis {
 	Projects Includes
 ===================================================================================================
 */
-#include "robot/hardware_simulation.hpp"
-#include "robot/simubot_interface.hpp"
+//#include "robot/robot.hpp"
+//#include "robot/robot_manager.hpp"
 
 /*
 ===================================================================================================

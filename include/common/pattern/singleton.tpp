@@ -3,8 +3,8 @@
  * \author Aznam Yacoub (aznam.yacoub@lis-lab.fr)
  * \date Sept. 9 2020
  * \version 1.0
- * \brief Provide an implementation of the Controller Interface.
- * \details This file provides an implementation of the Controller Interface.
+ * \brief Singleton Implementation.
+ * \details This file provides an implementation for singletons.
  */
 
 /*
@@ -12,34 +12,34 @@
 	Macros
 ===================================================================================================
 */
-#pragma once
 
 /*
 ===================================================================================================
 	Project Includes
 ===================================================================================================
 */
-#include "../../../include/robotapi/controller/controller_interface.hpp"
+#include "singleton.hpp"
 
 /*
 ===================================================================================================
     Code
 ===================================================================================================
 */
-namespace lis::pecase::productive40::robotapi::controller {
-	
-#pragma region Constructors / Destructor
+namespace lis::pecase::productive40::common::pattern {
 
-	ControllerInterface::ControllerInterface (
+#pragma region Singleton Management
+
+	template <
+		typename Class
+	> static
+	Class &
+	Singleton<Class>::instance (
 		void
 	) {
-	}
-
-	ControllerInterface::~ControllerInterface (
-		void
-	) {
+		static Class instance;
+		return instance;
 	}
 
 #pragma endregion
 
-}; // namespace lis::pecase::productive40::robotapi::controller
+}; // namespace lis::pecase::productive40::common::pattern

@@ -50,11 +50,23 @@
     <Filter Include="Source Files\ui">
       <UniqueIdentifier>{a76e8236-f7a9-4ca6-baba-f47433c41d95}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Documentation Files\include\application">
+      <UniqueIdentifier>{a56c4efd-2389-434e-b546-eca403ebd486}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Documentation Files\source\application">
+      <UniqueIdentifier>{61d80ab0-1e85-4be6-830a-fce09b32b24d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\application\robot">
+      <UniqueIdentifier>{4324a37e-9301-4c80-b860-f5ecca43e0e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\application\robot">
+      <UniqueIdentifier>{d07a77ce-8bfa-43fa-a47b-e16c66048dfb}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Header Files\robot">
-      <UniqueIdentifier>{7acc501e-691b-45ea-98b6-1893cbea6e6b}</UniqueIdentifier>
+      <UniqueIdentifier>{2be5d97d-0fa1-44dc-9b75-e189809e1a4c}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\robot">
-      <UniqueIdentifier>{31372afc-155b-4574-961e-e0afe526b3c0}</UniqueIdentifier>
+      <UniqueIdentifier>{1b3b9758-7124-454a-ab23-732087d09575}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -67,14 +79,17 @@
     <ClInclude Include="..\..\include\missionplanner\ui.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\missionplanner\application\robot\hardware_simulation.hpp">
+      <Filter>Header Files\application\robot</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\missionplanner\application\robot\simubot_interface.hpp">
+      <Filter>Header Files\application\robot</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\include\missionplanner\robot.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\missionplanner\robot\hardware_simulation.hpp">
-      <Filter>Header Files\robot</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\missionplanner\robot\simubot_interface.hpp">
-      <Filter>Header Files\robot</Filter>
+    <ClInclude Include="..\..\include\missionplanner\application\robot.hpp">
+      <Filter>Header Files\application</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -87,11 +102,14 @@
     <ClCompile Include="..\..\source\missionplanner\ui\main_window.cpp">
       <Filter>Source Files\ui</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\source\missionplanner\robot\hardware_simulation.cpp">
-      <Filter>Source Files\robot</Filter>
+    <ClCompile Include="..\..\source\missionplanner\application\robot\hardware_simulation.cpp">
+      <Filter>Source Files\application\robot</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\source\missionplanner\robot\simubot_interface.cpp">
-      <Filter>Source Files\robot</Filter>
+    <ClCompile Include="..\..\source\missionplanner\application\robot\simubot_interface.cpp">
+      <Filter>Source Files\application\robot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\missionplanner\application\simubot.cpp">
+      <Filter>Source Files\application</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -101,6 +119,12 @@
     <None Include="..\..\source\missionplanner\DIRECTORY.md">
       <Filter>Documentation Files\source</Filter>
     </None>
+    <None Include="..\..\include\missionplanner\application\DIRECTORY.md">
+      <Filter>Documentation Files\include\application</Filter>
+    </None>
+    <None Include="..\..\source\missionplanner\application\DIRECTORY.md">
+      <Filter>Documentation Files\source\application</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="..\..\include\missionplanner\application\application.hpp">
@@ -108,6 +132,9 @@
     </QtMoc>
     <QtMoc Include="..\..\include\missionplanner\ui\main_window.hpp">
       <Filter>Header Files\ui</Filter>
+    </QtMoc>
+    <QtMoc Include="..\..\include\missionplanner\application\simubot.hpp">
+      <Filter>Header Files\application</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>

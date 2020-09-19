@@ -63,6 +63,7 @@ namespace lis {
 */
 #include "robotapi/hardware.hpp"
 #include "robotapi/controller.hpp"
+#include "robotapi/communication.hpp"
 #include "robotapi/robot_interface.hpp"
 
 /*

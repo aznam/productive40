@@ -23,6 +23,7 @@
 #include "robotapi_defines.hpp"
 #include "controller/controller_interface.hpp"
 #include "hardware/hardware_interface.hpp"
+#include "communication/communication_interface.hpp"
 
 /*
 ===================================================================================================
@@ -86,15 +87,15 @@ namespace lis::pecase::productive40::robotapi {
 	/**@{*/
 
 		/**
-		 * \brief Access to the communication subsystem.
-		 * \details Access to the communication subsystem.
-		 * \return (CommunicationSystem *) Pointer to the communication subsystem.
+		 * \brief Access to the communication interface.
+		 * \details Access to the communication interface.
+		 * \return (CommunicationInterface *) Pointer to the communication interface.
 		 */
-		/*public: virtual
-		communication::CommunicationSystem *
+		public: virtual
+		communication::CommunicationInterface *
 		communication (
 			void
-		) const = 0;*/
+		) const = 0;
 
 		/**
 		 * \brief Access to the controller interface.

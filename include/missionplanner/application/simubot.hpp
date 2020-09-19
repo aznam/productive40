@@ -3,8 +3,8 @@
  * \author Aznam Yacoub (aznam.yacoub@lis-lab.fr)
  * \date Sept. 9 2020
  * \version 1.0
- * \brief This file provides the interface of the Main Application of the mission planner.
- * \details This file provides the interface of the Main Application of the mission planner.
+ * \brief This file provides the interface of a simulated robot in the mission planner.
+ * \details This file provides the interface of a simulated robot in the mission planner.
  */
 
 /*
@@ -19,16 +19,14 @@
     Qt Include
 ===================================================================================================
 */
-#include <QApplication>
-#include <QVector>
+#include <QThread>
 
 /*
 ===================================================================================================
     Project Includes
 ===================================================================================================
 */
-#include "simubot.hpp"
-#include "../ui/main_window.hpp"
+#include "robot/simubot_interface.hpp"
 
 /*
 ===================================================================================================
@@ -40,14 +38,16 @@ namespace lis::pecase::productive40::missionplanner::application {
 #pragma region Types Definitions
 
 	/**
-	 * \class Application include/missionplanner/application/application.hpp \
-	 * <productive40/missionplanner/application/application.hpp>
-	 * \brief Application Main Class.
-	 * \details This class represents the main Qt Application of the Mission Planner.
+	 * \class Simubot include/missionplanner/application/simubot.hpp \
+	 * <productive40/missionplanner/application/simubot.hpp>
+	 * \brief Simubot Main Class.
+	 * \details This class implements a simulated robot inside the mission planner, in order to
+	 * test algorithm without needing the implementation of ROS. Each robot is thus represented
+	 * by a thred which run independently of the main application.
 	 * \nosubgrouping
 	 */
-    class Application :
-		public QApplication {
+    class Simubot :
+		public QThread {
 
         Q_OBJECT
 
@@ -58,20 +58,20 @@ namespace lis::pecase::productive40::missionplanner::application {
 	/**@{*/
 
 		/**
-		 * \brief Vector of Simulated Robot.
-		 * \details Number of simulated robots to run.
+		 * \brief Identifier of the robot.
+		 * \details Identifier of the robot.
 		 */
 		private:
-		QVector<Simubot*>
-		m_simubots;
+		unsigned int
+		m_identifier;
 
 		/**
-		 * \brief Main Window UI.
-		 * \details Main Window UI.
+		 * \brief Interface to interact the robot.
+		 * \details Interface to interact with the robot.
 		 */
         private:
-        ui::MainWindow
-        m_mainWindow;
+        robot::SimubotInterface
+        m_robotInterface;
 
 	/**@}*/
     #pragma endregion
@@ -87,13 +87,13 @@ namespace lis::pecase::productive40::missionplanner::application {
 		/**
 		 * \brief Default ctor.
 		 * \details Default constructor.
-		 * \param[in] argc (int) Number of arguments.
-		 * \param[in] argv (char **) Array of arguments.
+		 * \param[in] parent (QObject *) Parent of the thread.
+		 * \param[in] id (unsigned int) Id of the robot.
 		 */
         public:
-        Application (
-            int,
-            char **
+        Simubot (
+            QObject *,
+			unsigned int
         );
 
         #pragma endregion
@@ -105,7 +105,7 @@ namespace lis::pecase::productive40::missionplanner::application {
 		 * \details Default destructor.
 		 */
         public:
-        ~Application (
+        ~Simubot (
             void
         );
 
@@ -115,29 +115,33 @@ namespace lis::pecase::productive40::missionplanner::application {
     #pragma endregion
 
 	/**
-	 * \name Simubot Functions
+	 * \name Thread Operations
 	 */
-	#pragma region Simubot Functions
+	#pragma region Thread Operations
 	/**@{*/
 
-		#pragma region Slots
+		#pragma region Overriden Methods
 
 		/**
-		 * \brief Thread terminated slot.
-		 * \details Thread terminated slot.
+		 * \brief Entry point of the thread.
+		 * \details The starting point for the thread. After calling start(), the newly created
+		 * thread calls this function. The default implementation simply calls exec().
+		 *
+		 * You can reimplement this function to facilitate advanced thread management. Returning
+		 * from this method will end the execution of the thread.
 		 */
-		private slots:
+		protected:
 		void
-		robotTerminated (
+		run (
 			void
-		);
+		) override;
 
 		#pragma endregion
 
 	/**@}*/
 	#pragma endregion
 
-    }; // class Application
+    }; // class Simubot
 
 #pragma endregion
 

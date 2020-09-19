@@ -28,7 +28,7 @@
     Code
 ===================================================================================================
 */
-namespace lis::pecase::productive40::missionplanner::robot {
+namespace lis::pecase::productive40::missionplanner::application::robot {
 	
 #pragma region Types Definitions
 
@@ -114,11 +114,11 @@ namespace lis::pecase::productive40::missionplanner::robot {
 		 * \details Access to the communication subsystem.
 		 * \return (CommunicationSystem *) Pointer to the communication subsystem.
 		 */
-		/*public: virtual
-		communication::CommunicationSystem *
+		public:
+		robotapi::communication::CommunicationInterface *
 		communication (
 			void
-		) = 0;*/
+		) const override;
 
 		/**
 		 * \brief Access to the controller interface.
@@ -149,4 +149,4 @@ namespace lis::pecase::productive40::missionplanner::robot {
 
 #pragma endregion
 
-}; // namespace lis::pecase::productive40::missionplanner::robot
+}; // namespace lis::pecase::productive40::missionplanner::application::robot

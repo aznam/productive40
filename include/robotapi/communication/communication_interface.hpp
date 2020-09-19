@@ -3,8 +3,8 @@
  * \author Aznam Yacoub (aznam.yacoub@lis-lab.fr)
  * \date Sept. 9 2020
  * \version 1.0
- * \brief Provide an interface for Robot Controller.
- * \details This file provides an interface to control the robot.
+ * \brief Provide an interface for Robot Communication.
+ * \details This file provides an interface to interact with the communication system.
  */
 
 /*
@@ -20,26 +20,26 @@
 ===================================================================================================
 */
 #include "../robotapi_defines.hpp"
-#include "../hardware/robot_information.hpp"
 
 /*
 ===================================================================================================
     Code
 ===================================================================================================
 */
-namespace lis::pecase::productive40::robotapi::controller {
+namespace lis::pecase::productive40::robotapi::communication {
 	
 #pragma region Types Definitions
 
 	/**
-	 * \interface ControllerInterface include/robotapi/controller/controller_interface.hpp \
-	 * <productive40/robotapi/controller/controller_interface.hpp>
+	 * \interface CommunicationInterface \
+	 * include/robotapi/communication/communication_interface.hpp \
+	 * <productive40/robotapi/communication/communication_interface.hpp>
 	 * \brief Interface to control the robot.
-	 * \details This interface provides generic routines to control the robot. Subclass this
-	 * interface to implement control algorithms.
+	 * \details This interface provides generic routines to interact with the communication
+	 * system and subsystems of the robot.
 	 * \nosubgrouping
 	 */
-	class ROBOTAPI_LIB ControllerInterface {
+	class ROBOTAPI_LIB CommunicationInterface {
 
 	/**
 	 * \name Constructors / Destructor
@@ -54,7 +54,7 @@ namespace lis::pecase::productive40::robotapi::controller {
 		 * \details Default constructor.
 		 */
 		protected:
-		ControllerInterface (
+		CommunicationInterface (
 			void
 		) = default;
 
@@ -67,7 +67,7 @@ namespace lis::pecase::productive40::robotapi::controller {
 		 * \details Default destructor.
 		 */
 		public: virtual
-		~ControllerInterface (
+		~CommunicationInterface (
 			void
 		) = default;
 
@@ -77,34 +77,36 @@ namespace lis::pecase::productive40::robotapi::controller {
 	#pragma endregion
 
 	/**
-	 * \name Robot Manipulation
+	 * \name Communication Handling
 	 */
-	#pragma region Robot Manipulation
+	#pragma region Communication Handling
 	/**@{*/
 
 		#pragma region Abstract Methods
 
 		/**
-		 * \brief Returns basic informations about the robot.
-		 * \details Returns basic informations about the robot.
-		 * \returns (const hardware::RobotInformation &) Informations about the robot.
+		 * \brief Broadast a message.
+		 * \details Broadcast a message on a network or air.
+		 * \param[in] message (const char *) Array of bytes to broadcast.
+		 * \param[in] size (unsigned long) Size of the message.
 		 */
-		 public: virtual
-		 const hardware::RobotInformation &
-		 robot_informations (
-			void
-		 ) const = 0;
+		public: virtual
+		void
+		broadcast (
+			const char *,
+			unsigned long
+		) = 0;
 
 		#pragma endregion
 
 	/**@}*/
 	#pragma endregion
 
-	}; // class ControllerInterface
+	}; // class CommunicationInterface
 
 #pragma endregion
 
-}; // namespace lis::pecase::productive40::robotapi::controller
+}; // namespace lis::pecase::productive40::robotapi::communication
 
 /*
 ===================================================================================================

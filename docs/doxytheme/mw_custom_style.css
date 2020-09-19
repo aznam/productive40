@@ -1121,6 +1121,7 @@ div.headertitle .title
 
 div.ttc {
 	margin-top:13px;
+	display:none;
 }
 
 dl

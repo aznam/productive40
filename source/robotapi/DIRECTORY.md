@@ -5,3 +5,7 @@
 \dir source\robotapi\hardware
 \brief This folder contains implementations of the operations related to hardware components.
 \details This folder contains implementations of the operations related to hardware components.
+
+\dir source\robotapi\communication
+\brief This folder contains implementations of communication components.
+\details This folder contains implementations to communication components.

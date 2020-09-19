@@ -5,3 +5,7 @@
 \dir include\robotapi\hardware
 \brief This folder contains interfaces to interact with hardware components.
 \details This folder contains interfaces to interact with hardware components.
+
+\dir include\robotapi\communication
+\brief This folder contains interfaces of communication components.
+\details This folder contains interfaces to communication components.

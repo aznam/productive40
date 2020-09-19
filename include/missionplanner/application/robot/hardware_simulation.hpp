@@ -26,13 +26,13 @@
     Code
 ===================================================================================================
 */
-namespace lis::pecase::productive40::missionplanner::robot {
+namespace lis::pecase::productive40::missionplanner::application::robot {
 
 #pragma region Types Definitions
 
 	/**
-	 * \class HardwareSimulation include/missionplanner/robot/hardware_simulation.hpp \
-	 * <productive40/missionplanner/robot/hardware_simulation.hpp>
+	 * \class HardwareSimulation include/missionplanner/application/robot/hardware_simulation.hpp \
+	 * <productive40/missionplanner/application/robot/hardware_simulation.hpp>
 	 * \brief Hardware Simulated Interface.
 	 * \details This class implements an access to simulated hardware in the mission planner.
 	 * It is used for the simulation of the hardware part of the robot, in order to test the
@@ -105,4 +105,4 @@ namespace lis::pecase::productive40::missionplanner::robot {
 
 #pragma endregion
 
-}; // namespace lis::pecase::productive40::missionplanner::robot
+}; // namespace lis::pecase::productive40::missionplanner::application::robot

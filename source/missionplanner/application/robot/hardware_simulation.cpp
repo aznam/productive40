@@ -20,14 +20,14 @@
 	Project Includes
 ===================================================================================================
 */
-#include "../../../include/missionplanner/robot/hardware_simulation.hpp"
+#include "../../../../include/missionplanner/application/robot/hardware_simulation.hpp"
 
 /*
 ===================================================================================================
     Code
 ===================================================================================================
 */
-namespace lis::pecase::productive40::missionplanner::robot {
+namespace lis::pecase::productive40::missionplanner::application::robot {
 	
 #pragma region Constructors / Destructor
 
@@ -67,4 +67,4 @@ namespace lis::pecase::productive40::missionplanner::robot {
 
 #pragma endregion
 
-}; // namespace lis::pecase::productive40::missionplanner::robot
+}; // namespace lis::pecase::productive40::missionplanner::application::robot

@@ -36,6 +36,8 @@ namespace lis {
 
 				#pragma region Class Forward Declarations
 
+					template<typename> class Singleton;
+
 					template<typename> class GenericFSM;
 
 				#pragma endregion
@@ -55,6 +57,7 @@ namespace lis {
 	Projects Includes
 ===================================================================================================
 */
+#include "pattern/singleton.hpp"
 #include "pattern/generic_fsm.hpp"
 
 /*

@@ -43,8 +43,13 @@ namespace lis {
 
 		#pragma region Forward Declarations
 
-			// Forward declare here global variables, constants, functions shared by all
-			// the projects of the workspace.
+			const char* Project_Name = "Productive 4.0";
+
+			const unsigned int Version = 10;
+
+			const unsigned int Major_Version = 1;
+
+			const unsigned int Minor_Version = 0;
 
 		#pragma endregion
 

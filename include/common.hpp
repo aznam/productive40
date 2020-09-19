@@ -36,8 +36,7 @@ namespace lis {
 
 			#pragma region Forward Declarations
 
-				// Forward declare here global variables, constants, functions shared by all
-				// the projects of the workspace.
+				// Forward declare here global variables, constants, functions.
 
 			#pragma endregion
 

@@ -169,6 +169,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\robotapi.hpp" />
+    <ClInclude Include="..\..\include\robotapi\communication.hpp" />
+    <ClInclude Include="..\..\include\robotapi\communication\communication_interface.hpp" />
     <ClInclude Include="..\..\include\robotapi\controller.hpp" />
     <ClInclude Include="..\..\include\robotapi\controller\controller_interface.hpp" />
     <ClInclude Include="..\..\include\robotapi\controller\default_controller.hpp" />
@@ -179,9 +181,7 @@
     <ClInclude Include="..\..\include\robotapi\robot_interface.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\source\robotapi\controller\controller_interface.cpp" />
     <ClCompile Include="..\..\source\robotapi\controller\default_controller.cpp" />
-    <ClCompile Include="..\..\source\robotapi\hardware\hardware_interface.cpp" />
     <ClCompile Include="..\..\source\robotapi\hardware\robot_information.cpp" />
     <ClCompile Include="..\..\source\robotapi\robotapi_entry.cpp" />
     <ClCompile Include="..\..\source\robotapi\robot_interface.cpp" />

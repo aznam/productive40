@@ -3,9 +3,8 @@
  * \author Aznam Yacoub (aznam.yacoub@lis-lab.fr)
  * \date Sept. 9 2020
  * \version 1.0
- * \brief MissionPlanner Project Main Include File.
- * \details The project "Mission Planner" provides a demo application in which the user can
- * control and make diagnostic of robots.
+ * \brief Application Namespace File.
+ * \details This file declares the Application::Robot namespace of the mission planner.
  */
 
 /*
@@ -26,18 +25,28 @@ namespace lis {
 
 		namespace productive40 {
 
-			/**
-			 * \namespace lis::pecase::productive40::missionplanner
-			 * \brief Contains the code related to the MissionPlanner.
- 			 * \details Contains the code related to the MissionPlanner.
-			 */
 			namespace missionplanner {
 
-			#pragma region Forward Declarations
+				namespace application {
 
-				// Forward declare here global variables, constants.
+					/**
+					 * \namespace lis::pecase::productive40::missionplanner::application::robot
+					 * \brief Contains the code related to the implementation of simulated robot.
+					 * \details Contains the code related to the implementation of simulated robot.
+					 */
+					namespace robot {
 
-			#pragma endregion
+					#pragma region Forward Declarations
+
+						class HardwareSimulation;
+
+						class SimubotInterface;
+
+					#pragma endregion
+
+					}; // namespace robot
+
+				}; //namespace application
 
 			}; // namespace missionplanner
 
@@ -52,9 +61,8 @@ namespace lis {
 	Projects Includes
 ===================================================================================================
 */
-#include "missionplanner/application.hpp"
-#include "missionplanner/ui.hpp"
-#include "missionplanner/robot.hpp"
+#include "robot/hardware_simulation.hpp"
+#include "robot/simubot_interface.hpp"
 
 /*
 ===================================================================================================

@@ -1,10 +1,10 @@
-\dir source\missionplanner\robot
-\brief This folder contains implementations of simulated robot components.
-\details This folder contains implementations of simulated robot components.
-
 \dir source\missionplanner\application
 \brief This folder contains implementations of application components.
 \details This folder contains implementations of application components.
+
+\dir source\missionplanner\robot
+\brief This folder contains implementations of robot components.
+\details This folder contains implementations of robot components.
 
 \dir source\missionplanner\ui
 \brief This folder contains implementations of the ui components.

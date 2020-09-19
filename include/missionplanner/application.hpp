@@ -38,6 +38,8 @@ namespace lis {
 
 					class Application;
 
+					class Simubot;
+
 				#pragma endregion
 
 				}; //namespace application
@@ -55,7 +57,9 @@ namespace lis {
 	Projects Includes
 ===================================================================================================
 */
+#include "application/robot.hpp"
 #include "application/application.hpp"
+#include "application/simubot.hpp"
 
 /*
 ===================================================================================================

@@ -37,6 +37,12 @@
     <Filter Include="Documentation Files\source">
       <UniqueIdentifier>{a56f69c6-1056-452a-b6b1-4c3f6bd4b180}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\communication">
+      <UniqueIdentifier>{f7f5587d-7437-452d-9e0a-cfce54232b6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\communication">
+      <UniqueIdentifier>{b524f22d-8d2b-406b-ac7e-11d2a1467a0d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\robotapi.hpp">
@@ -66,6 +72,12 @@
     <ClInclude Include="..\..\include\robotapi\hardware\hardware_interface.hpp">
       <Filter>Header Files\hardware</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\robotapi\communication.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\robotapi\communication\communication_interface.hpp">
+      <Filter>Header Files\communication</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\source\robotapi\robotapi_entry.cpp">
@@ -79,12 +91,6 @@
     </ClCompile>
     <ClCompile Include="..\..\source\robotapi\robot_interface.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\source\robotapi\controller\controller_interface.cpp">
-      <Filter>Source Files\controller</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\source\robotapi\hardware\hardware_interface.cpp">
-      <Filter>Source Files\hardware</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

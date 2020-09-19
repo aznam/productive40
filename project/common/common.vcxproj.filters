@@ -48,6 +48,9 @@
     <ClInclude Include="..\..\include\common\pattern\generic_fsm.hpp">
       <Filter>Header Files\pattern</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\common\pattern\singleton.hpp">
+      <Filter>Header Files\pattern</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\include\common\pattern\generic_fsm.tpp">
@@ -55,6 +58,9 @@
     </None>
     <None Include="..\..\include\common\DIRECTORY.md">
       <Filter>Documentation Files\include</Filter>
+    </None>
+    <None Include="..\..\include\common\pattern\singleton.tpp">
+      <Filter>Template Files\pattern</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
