@@ -4,7 +4,8 @@
  * \date Sept. 9 2020
  * \version 1.0
  * \brief Application Namespace File.
- * \details This file declares the Application namespace of the mission planner.
+ * \details This file declares the application namespace of the Mission Planner. This namespace
+ * contains elements related to this application architecture.
  */
 
 /*
@@ -60,9 +61,3 @@ namespace lis {
 #include "application/robot.hpp"
 #include "application/application.hpp"
 #include "application/simubot.hpp"
-
-/*
-===================================================================================================
-    Macros
-===================================================================================================
-*/

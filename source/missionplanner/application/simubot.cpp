@@ -32,15 +32,21 @@ namespace lis::pecase::productive40::missionplanner::application {
 
 	Simubot::Simubot (
 		QObject * parent,
-		unsigned int id
+		unsigned int identifier
 	) :
 		QThread(parent),
-		m_identifier(id) {
+		m_refreshTimer(this),
+		m_identifier(identifier),
+		m_robotInterface(identifier) {
+		connect(&this->m_refreshTimer, &QTimer::timeout, this, &Simubot::refresh);
+		this->m_refreshTimer.start(this->m_CPUfrequency);
 	}
 
 	Simubot::~Simubot (
 		void
 	) {
+		this->m_refreshTimer.stop();
+		disconnect(&this->m_refreshTimer, &QTimer::timeout, this, &Simubot::refresh);
 	}
 
 #pragma endregion
@@ -52,6 +58,14 @@ namespace lis::pecase::productive40::missionplanner::application {
 		void
 	) {
 		QThread::run();
+	}
+
+	void
+	Simubot::refresh (
+		void
+	) {
+		if(this->m_robotInterface.communication()->connected() == false)
+			this->m_robotInterface.broadcastIdentifier();
 	}
 
 #pragma endregion

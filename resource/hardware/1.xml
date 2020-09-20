@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<simubot>
+	<informations>
+		<vendor>LIS</vendor>
+		<identifier>ae005ac2-7cf6-4d05-b336-864236b73c74</identifier>
+		<mass>390.0</mass>
+		<dimensions>
+			<length>0.56</length>
+			<width>0.365</width>
+			<height>0.90</height>
+		</dimensions>
+		<limits>
+			<speed>5.0</speed>
+			<accel>5.0</accel>
+			<inertia>0.89</inertia>
+		</limits>
+	</informations>
+	<sensors>
+		<position>
+			<x></x>
+			<y></y>
+		</position>
+	</sensors>
+</simubot>

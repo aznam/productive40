@@ -3,8 +3,8 @@
  * \author Aznam Yacoub (aznam.yacoub@lis-lab.fr)
  * \date Sept. 9 2020
  * \version 1.0
- * \brief Robot Namespace File.
- * \details This file declares the application::Robot namespace of the mission planner.
+ * \brief Delegate Namespace File.
+ * \details This file declares the network::delegate namespace of the mission planner.
  */
 
 /*
@@ -27,28 +27,28 @@ namespace lis {
 
 			namespace missionplanner {
 
-				namespace application {
+				namespace network {
 
 					/**
-					 * \namespace lis::pecase::productive40::missionplanner::application::robot
-					 * \brief Contains the code related to the implementation of simulated robot.
-					 * \details Contains the code related to the implementation of simulated robot.
+					 * \namespace lis::pecase::productive40::missionplanner::network::delegate
+					 * \brief Contains the code related to the realization of network components.
+					 * \details Contains the code related to the realization of network components.
 					 */
-					namespace robot {
+					namespace delegate {
 
 					#pragma region Forward Declarations
 
-						class FakeCommunication;
+						class FakeCommunicationImpl;
 
-						class HardwareSimulation;
+						class RosCommunicationImpl;
 
-						class SimubotInterface;
+						class InetCommunicationImpl;
 
 					#pragma endregion
 
-					}; // namespace robot
+					}; // namespace delegate
 
-				}; //namespace application
+				}; //namespace network
 
 			}; // namespace missionplanner
 
@@ -63,9 +63,9 @@ namespace lis {
 	Projects Includes
 ===================================================================================================
 */
-#include "robot/hardware_simulation.hpp"
-#include "robot/simubot_interface.hpp"
-#include "robot/fake_communication.hpp"
+#include "delegate/fake_communication_impl.hpp"
+//#include "delegate/ros_communication_impl.hpp"
+//#include "delegate/inet_communication_impl.hpp"
 
 /*
 ===================================================================================================

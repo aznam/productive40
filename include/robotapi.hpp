@@ -42,9 +42,41 @@ namespace lis {
 			 */
 			namespace robotapi {
 
+			#pragma region Constants
+
+				/**
+				 * \brief Packet size for Data Transmission.
+				 * \details Packet size for Data Transmission.
+				 */
+				const size_t
+				Packet_Size = 128;
+
+			#pragma endregion
+
+			#pragma region Types Definitions
+
+				/**
+				 * \enum MessageCode
+				 * \brief Discovery Message Code.
+				 * \details Discovery Message Code.
+				 */
+				enum ROBOTAPI_LIB MessageCode {
+
+					/**
+					 * \brief Discovery Code.
+					 * \details Discovery Code.
+					 */
+					Discovery = 0x01
+
+				};
+
+			#pragma region
+
 			#pragma region Forward Declarations
 
 				class ROBOTAPI_LIB RobotInterface;
+
+				class ROBOTAPI_LIB DefaultInterface;
 
 			#pragma endregion
 
@@ -65,6 +97,7 @@ namespace lis {
 #include "robotapi/controller.hpp"
 #include "robotapi/communication.hpp"
 #include "robotapi/robot_interface.hpp"
+#include "robotapi/default_interface.hpp"
 
 /*
 ===================================================================================================

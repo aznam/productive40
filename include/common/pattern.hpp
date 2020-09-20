@@ -4,7 +4,7 @@
  * \date Sept. 9 2020
  * \version 1.0
  * \brief Pattern Namespace File.
- * \details This file declares the Pattern namespace of the common library.
+ * \details This file declares the pattern namespace of the "Common" library.
  */
 
 /*
@@ -59,9 +59,3 @@ namespace lis {
 */
 #include "pattern/singleton.hpp"
 #include "pattern/generic_fsm.hpp"
-
-/*
-===================================================================================================
-    Macros
-===================================================================================================
-*/

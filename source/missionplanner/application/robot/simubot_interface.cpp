@@ -13,6 +13,7 @@
 ===================================================================================================
 */
 #include "../../../../include/missionplanner/application/robot/simubot_interface.hpp"
+#include <common/strutils.hpp>
 
 /*
 ===================================================================================================
@@ -24,11 +25,18 @@ namespace lis::pecase::productive40::missionplanner::application::robot {
 #pragma region Constructors / Destructor
 	
 	SimubotInterface::SimubotInterface (
-		void
+		unsigned int identifier
 	) :
-		robotapi::RobotInterface(),
-		m_hardware(),
-		m_controller(m_hardware) {
+		robotapi::DefaultInterface(),
+		m_hardware(QString::asprintf("resource/hardware/%d.xml", identifier)),
+		m_controller(m_hardware),
+		m_communication() {
+		m_communication.listen(
+			common::strutils::atohex(
+				m_hardware.robot_informations()._identifier,
+				sizeof(m_hardware.robot_informations()._identifier)
+			)
+		);
 	}
 
 	SimubotInterface::~SimubotInterface (
@@ -44,7 +52,7 @@ namespace lis::pecase::productive40::missionplanner::application::robot {
 	SimubotInterface::communication (
 		void
 	) const {
-		return nullptr;
+		return (robotapi::communication::CommunicationInterface *)(&this->m_communication);
 	}
 
 	robotapi::controller::ControllerInterface *

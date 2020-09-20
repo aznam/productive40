@@ -4,7 +4,7 @@
  * \date Sept. 9 2020
  * \version 1.0
  * \brief Math Namespace File.
- * \details This file declares the Math namespace of the common library.
+ * \details This file declares the math namespace of the "Common" library.
  */
 
 /*
@@ -49,8 +49,8 @@ namespace lis {
 					/**
 					 * \brief Compute the euclidian distance between two points.
 					 * \details Compute the euclidian distance between two points.
-					 * \param p1 (const Eigen::Vector2d &) Point 1.
-					 * \param p2 (const Eigen::Vector2d &) Point 2.
+					 * \param[in] p1 (const Eigen::Vector2d &) Point 1.
+					 * \param[in] p2 (const Eigen::Vector2d &) Point 2.
 					 * \return (double) Distance between P1 and P2.
 					 */
 					extern
@@ -63,8 +63,8 @@ namespace lis {
 					/**
 					 * \brief Compute the euclidian distance between two points.
 					 * \details Compute the euclidian distance between two points.
-					 * \param p1 (const Eigen::Vector3d &) Point 1.
-					 * \param p2 (const Eigen::Vector3d &) Point 2.
+					 * \param[in] p1 (const Eigen::Vector3d &) Point 1.
+					 * \param[in] p2 (const Eigen::Vector3d &) Point 2.
 					 * \return (double) Distance between P1 and P2.
 					 */
 					extern
@@ -87,15 +87,3 @@ namespace lis {
 	}; // namespace pecase
 
 }; // namespace lis
-
-/*
-===================================================================================================
-	Projects Includes
-===================================================================================================
-*/
-
-/*
-===================================================================================================
-    Macros
-===================================================================================================
-*/

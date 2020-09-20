@@ -16,10 +16,18 @@
 
 /*
 ===================================================================================================
+	Standard Include
+===================================================================================================
+*/
+#include <memory>
+
+/*
+===================================================================================================
     Qt Include
 ===================================================================================================
 */
 #include <QThread>
+#include <QTimer>
 
 /*
 ===================================================================================================
@@ -52,6 +60,24 @@ namespace lis::pecase::productive40::missionplanner::application {
         Q_OBJECT
 
 	/**
+	 * \name Constants
+	 */
+	#pragma region Constants
+	/**@{*/
+
+		/**
+		 * \brief Simubot Update Frequency.
+		 * \details This constant simulates the CPU frequency of a simulated robot (in ms).
+		 */
+		private: const
+		unsigned long
+		m_CPUfrequency = 300;
+
+
+	/**@}*/
+	#pragma endregion
+
+	/**
 	 * \name Instance Data Members
 	 */
     #pragma region Instance Data Members
@@ -73,6 +99,14 @@ namespace lis::pecase::productive40::missionplanner::application {
         robot::SimubotInterface
         m_robotInterface;
 
+		/**
+		 * \brief Robot Update Frequency.
+		 * \details This timer refresh the state of the robot.
+		 */
+		private:
+		QTimer
+		m_refreshTimer;
+
 	/**@}*/
     #pragma endregion
 
@@ -88,7 +122,7 @@ namespace lis::pecase::productive40::missionplanner::application {
 		 * \brief Default ctor.
 		 * \details Default constructor.
 		 * \param[in] parent (QObject *) Parent of the thread.
-		 * \param[in] id (unsigned int) Id of the robot.
+		 * \param[in] identifier (unsigned int) Id of the robot.
 		 */
         public:
         Simubot (
@@ -135,6 +169,20 @@ namespace lis::pecase::productive40::missionplanner::application {
 		run (
 			void
 		) override;
+
+		#pragma endregion
+
+		#pragma region Slots
+
+		/**
+		 * \brief Robot refresh.
+		 * \details Refresh the robot state.
+		 */
+		private slots:
+		void
+		refresh (
+			void
+		);
 
 		#pragma endregion
 

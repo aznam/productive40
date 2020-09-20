@@ -3,8 +3,8 @@
  * \author Aznam Yacoub (aznam.yacoub@lis-lab.fr)
  * \date Sept. 9 2020
  * \version 1.0
- * \brief Robot Namespace File.
- * \details This file declares the application::Robot namespace of the mission planner.
+ * \brief Network Namespace File.
+ * \details This file declares the Network namespace of the mission planner.
  */
 
 /*
@@ -27,28 +27,22 @@ namespace lis {
 
 			namespace missionplanner {
 
-				namespace application {
+				/**
+				 * \namespace lis::pecase::productive40::missionplanner::network
+				 * \brief Contains the code related to network handling in the mission planner.
+				 * \details Contains the code related to network handling in the mission planner.
+				 */
+				namespace network {
 
-					/**
-					 * \namespace lis::pecase::productive40::missionplanner::application::robot
-					 * \brief Contains the code related to the implementation of simulated robot.
-					 * \details Contains the code related to the implementation of simulated robot.
-					 */
-					namespace robot {
+				#pragma region Forward Declarations
 
-					#pragma region Forward Declarations
+					class NetworkManager;
 
-						class FakeCommunication;
+					class NetworkManagerImpl;
 
-						class HardwareSimulation;
+				#pragma endregion
 
-						class SimubotInterface;
-
-					#pragma endregion
-
-					}; // namespace robot
-
-				}; //namespace application
+				}; //namespace network
 
 			}; // namespace missionplanner
 
@@ -63,9 +57,9 @@ namespace lis {
 	Projects Includes
 ===================================================================================================
 */
-#include "robot/hardware_simulation.hpp"
-#include "robot/simubot_interface.hpp"
-#include "robot/fake_communication.hpp"
+#include "network/network_manager.hpp"
+#include "network/network_manager_impl.hpp"
+#include "network/delegate.hpp"
 
 /*
 ===================================================================================================

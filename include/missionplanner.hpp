@@ -3,7 +3,7 @@
  * \author Aznam Yacoub (aznam.yacoub@lis-lab.fr)
  * \date Sept. 9 2020
  * \version 1.0
- * \brief MissionPlanner Project Main Include File.
+ * \brief Mission Planner Project Main Include File.
  * \details The project "Mission Planner" provides a demo application in which the user can
  * control and make diagnostic of robots.
  */
@@ -53,11 +53,7 @@ namespace lis {
 ===================================================================================================
 */
 #include "missionplanner/application.hpp"
+#include "missionplanner/network.hpp"
 #include "missionplanner/ui.hpp"
 #include "missionplanner/robot.hpp"
-
-/*
-===================================================================================================
-    Macros
-===================================================================================================
-*/
+#include "missionplanner/environment.hpp"

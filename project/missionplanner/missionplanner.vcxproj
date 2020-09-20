@@ -14,9 +14,16 @@
     <ClInclude Include="..\..\include\missionplanner.hpp" />
     <ClInclude Include="..\..\include\missionplanner\application.hpp" />
     <ClInclude Include="..\..\include\missionplanner\application\robot.hpp" />
+    <QtMoc Include="..\..\include\missionplanner\application\robot\fake_communication.hpp" />
     <ClInclude Include="..\..\include\missionplanner\application\robot\hardware_simulation.hpp" />
     <ClInclude Include="..\..\include\missionplanner\application\robot\simubot_interface.hpp" />
     <QtMoc Include="..\..\include\missionplanner\application\simubot.hpp" />
+    <QtMoc Include="..\..\include\missionplanner\environment.hpp" />
+    <ClInclude Include="..\..\include\missionplanner\network.hpp" />
+    <QtMoc Include="..\..\include\missionplanner\network\network_manager.hpp" />
+    <QtMoc Include="..\..\include\missionplanner\network\network_manager_impl.hpp" />
+    <ClInclude Include="..\..\include\missionplanner\network\delegate.hpp" />
+    <QtMoc Include="..\..\include\missionplanner\network\delegate\fake_communication_impl.hpp" />
     <ClInclude Include="..\..\include\missionplanner\robot.hpp" />
     <ClInclude Include="..\..\include\missionplanner\ui.hpp" />
     <QtMoc Include="..\..\include\missionplanner\ui\main_window.hpp" />
@@ -30,17 +37,23 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\source\missionplanner\application\application.cpp" />
+    <ClCompile Include="..\..\source\missionplanner\application\robot\fake_communication.cpp" />
     <ClCompile Include="..\..\source\missionplanner\application\robot\hardware_simulation.cpp" />
     <ClCompile Include="..\..\source\missionplanner\application\robot\simubot_interface.cpp" />
     <ClCompile Include="..\..\source\missionplanner\application\simubot.cpp" />
+    <ClCompile Include="..\..\source\missionplanner\environment.cpp" />
     <ClCompile Include="..\..\source\missionplanner\main.cpp" />
+    <ClCompile Include="..\..\source\missionplanner\network\delegate\fake_communication_impl.cpp" />
+    <ClCompile Include="..\..\source\missionplanner\network\network_manager.cpp" />
     <ClCompile Include="..\..\source\missionplanner\ui\main_window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\include\missionplanner\application\DIRECTORY.md" />
     <None Include="..\..\include\missionplanner\DIRECTORY.md" />
+    <None Include="..\..\include\missionplanner\network\DIRECTORY.md" />
     <None Include="..\..\source\missionplanner\application\DIRECTORY.md" />
     <None Include="..\..\source\missionplanner\DIRECTORY.md" />
+    <None Include="..\..\source\missionplanner\network\DIRECTORY.md" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{A4F8DFEA-297E-436E-B2E6-2624470D9F36}</ProjectGuid>
@@ -93,11 +106,11 @@
   </ImportGroup>
   <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <QtInstall>msvc2017_64</QtInstall>
-    <QtModules>core;gui;widgets;xml</QtModules>
+    <QtModules>core;gui;widgets;xml;network</QtModules>
   </PropertyGroup>
   <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <QtInstall>msvc2017_64</QtInstall>
-    <QtModules>core;gui;widgets;xml</QtModules>
+    <QtModules>core;gui;widgets;xml;network</QtModules>
   </PropertyGroup>
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.props')">
     <Import Project="$(QtMsBuild)\qt.props" />
@@ -107,10 +120,10 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <Optimization>Disabled</Optimization>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <PreprocessorDefinitions>WIN64;USE_ROBOTAPI;$(Qt_DEFINES_);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN64;USE_ROBOTAPI;$(Qt_DEFINES_);%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -140,7 +153,7 @@
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <PreprocessorDefinitions>WIN64;USE_ROBOTAPI;$(Qt_DEFINES_);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN64;USE_ROBOTAPI;$(Qt_DEFINES_);%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

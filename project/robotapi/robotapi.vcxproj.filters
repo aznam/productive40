@@ -78,6 +78,9 @@
     <ClInclude Include="..\..\include\robotapi\communication\communication_interface.hpp">
       <Filter>Header Files\communication</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\robotapi\default_interface.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\source\robotapi\robotapi_entry.cpp">
@@ -89,7 +92,7 @@
     <ClCompile Include="..\..\source\robotapi\hardware\robot_information.cpp">
       <Filter>Source Files\hardware</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\source\robotapi\robot_interface.cpp">
+    <ClCompile Include="..\..\source\robotapi\default_interface.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -49,15 +49,15 @@ namespace lis::pecase::productive40::robotapi::hardware {
 		 * \brief Vendor name.
 		 * \details Vendor name.
 		 */
-		const char *
-		_vendorName;
+		const char
+		_vendorName [16];
 
 		/**
 		 * \brief identifier.
 		 * \details identifier.
 		 */
-		const unsigned int
-		_identifier;
+		const unsigned char
+		_identifier [16];
 
 		/**
 		 * \brief Base dimensions.
@@ -106,8 +106,7 @@ namespace lis::pecase::productive40::robotapi::hardware {
 		/**
 		 * \brief Default initializer.
 		 * \details Default initializer.
-		 * \param[in] vendor_name (const char *) Vendor name.
-		 * \param[in] identifier (unsigned int) Identifier of the robot.
+		 * \param[in] identifier (const unsigned char (&) [16]) Identifier of the robot.
 		 * \param[in] dimensions (const double (&) [3]) Dimensions of the robot (l,w,h).
 		 * \param[in] mass (double) Mass of the robot.
 		 * \param[in] max_linear_speed (double) Maximum linear speed.
@@ -115,8 +114,7 @@ namespace lis::pecase::productive40::robotapi::hardware {
 		 * \param[in] inertia_moment (double) Moment of inertia.
 		 */
 		RobotInformation (
-			const char *,
-			unsigned int,
+			const unsigned char (&) [16],
 			const double (&) [3],
 			double,
 			double,

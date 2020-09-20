@@ -16,6 +16,13 @@
 
 /*
 ===================================================================================================
+	Qt Includes
+===================================================================================================
+*/
+#include <QString>
+
+/*
+===================================================================================================
     Project Includes
 ===================================================================================================
 */
@@ -43,6 +50,19 @@ namespace lis::pecase::productive40::missionplanner::application::robot {
 		public robotapi::hardware::HardwareInterface {
 
 	/**
+	 * \name Instance Data Members
+	 */
+	#pragma region Instance Data Members
+	/**@{*/
+
+		private:
+		robotapi::hardware::RobotInformation
+		m_informations;
+
+	/**@}*/
+	#pragma endregion
+
+	/**
 	 * \name Constructors / Destructor
 	 */
 	#pragma region Constructors / Destructor
@@ -53,10 +73,11 @@ namespace lis::pecase::productive40::missionplanner::application::robot {
 		/**
 		 * \brief Default ctor.
 		 * \details Default constructor.
+		 * \param[in] config_file (QString) Name of the config file describing the hardware.
 		 */
 		public:
 		HardwareSimulation (
-			void
+			QString
 		);
 
 		#pragma endregion

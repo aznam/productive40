@@ -13,6 +13,8 @@
 ===================================================================================================
 */
 #include "../../../include/missionplanner/application/application.hpp"
+#include "../../../include/missionplanner/application.hpp"
+#include "../../../include/missionplanner/network.hpp"
 
 /*
 ===================================================================================================
@@ -27,7 +29,23 @@ namespace lis::pecase::productive40::missionplanner::application {
 		int argc,
 		char ** argv
 	) :
-		QApplication(argc, argv) {
+		QApplication(argc, argv),
+		m_networkManager(network::NetworkManager::instance()) {
+
+		// Setup the network manager for the Fake Communication
+		this->m_networkManager.addNetworkDelegate(
+			new network::delegate::FakeCommunicationImpl
+		);
+
+		// Setup the network manager for ROS Communication
+		//this->m_networkManager.addNetworkDelegate(
+		//	new network::delegate::RosCommunicationImpl
+		//);
+
+		// Setup the network manager for INET Communication
+		//this->m_networkManager.addNetworkDelegate(
+		//	new network::delegate::InetCommunicationImpl
+		//);
 
 		// Parse arguments
 		for(unsigned i = 1; i < argc; i++) {
@@ -52,8 +70,8 @@ namespace lis::pecase::productive40::missionplanner::application {
 	Application::~Application (
 		void
 	) {
-		for(unsigned r = 0; r < m_simubots.size(); r++) {
-			m_simubots[r]->exit(0);
+		for(unsigned r = 0; r < this->m_simubots.size(); r++) {
+			this->m_simubots[r]->exit(0);
 		}
 	}
 

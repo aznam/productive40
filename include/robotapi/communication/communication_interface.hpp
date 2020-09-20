@@ -85,6 +85,18 @@ namespace lis::pecase::productive40::robotapi::communication {
 		#pragma region Abstract Methods
 
 		/**
+		 * \brief Indicates if the robot is currently connected to a mission planner.
+		 * \details Indicates if the robot is currently connected to a mission planner.
+		 * \retval true The robot is corrently connected to a mission planner.
+		 * \retval false The robot is currently disconnected.
+		 */
+		public: virtual
+		bool
+		connected (
+			void
+		) const = 0;
+
+		/**
 		 * \brief Broadast a message.
 		 * \details Broadcast a message on a network or air.
 		 * \param[in] message (const char *) Array of bytes to broadcast.
@@ -93,7 +105,7 @@ namespace lis::pecase::productive40::robotapi::communication {
 		public: virtual
 		void
 		broadcast (
-			const char *,
+			const unsigned char *,
 			unsigned long
 		) = 0;
 

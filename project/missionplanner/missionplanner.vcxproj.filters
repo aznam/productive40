@@ -68,6 +68,24 @@
     <Filter Include="Source Files\robot">
       <UniqueIdentifier>{1b3b9758-7124-454a-ab23-732087d09575}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\network">
+      <UniqueIdentifier>{084bc830-4b58-438a-80f0-fc06525a8aa3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\network">
+      <UniqueIdentifier>{96053e5c-6f30-46d9-972e-d3a8b86d0ee4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\network\delegate">
+      <UniqueIdentifier>{a82fabd2-8e8b-470d-baf4-e6b4e18ad646}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Documentation Files\include\network">
+      <UniqueIdentifier>{8737b266-060c-40cc-b8cc-73aed3c8469d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Documentation Files\source\network">
+      <UniqueIdentifier>{838a51c6-c533-4185-8767-c734a1917c7f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\network\delegate">
+      <UniqueIdentifier>{7c3773a5-2b69-489e-9a67-5cf8e545b18c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\missionplanner.hpp">
@@ -91,6 +109,12 @@
     <ClInclude Include="..\..\include\missionplanner\application\robot.hpp">
       <Filter>Header Files\application</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\missionplanner\network.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\missionplanner\network\delegate.hpp">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\source\missionplanner\main.cpp">
@@ -111,6 +135,18 @@
     <ClCompile Include="..\..\source\missionplanner\application\simubot.cpp">
       <Filter>Source Files\application</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\source\missionplanner\network\network_manager.cpp">
+      <Filter>Source Files\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\missionplanner\application\robot\fake_communication.cpp">
+      <Filter>Source Files\application\robot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\missionplanner\environment.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\missionplanner\network\delegate\fake_communication_impl.cpp">
+      <Filter>Source Files\network\delegate</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\include\missionplanner\DIRECTORY.md">
@@ -125,6 +161,12 @@
     <None Include="..\..\source\missionplanner\application\DIRECTORY.md">
       <Filter>Documentation Files\source\application</Filter>
     </None>
+    <None Include="..\..\include\missionplanner\network\DIRECTORY.md">
+      <Filter>Documentation Files\include\network</Filter>
+    </None>
+    <None Include="..\..\source\missionplanner\network\DIRECTORY.md">
+      <Filter>Documentation Files\source\network</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="..\..\include\missionplanner\application\application.hpp">
@@ -135,6 +177,21 @@
     </QtMoc>
     <QtMoc Include="..\..\include\missionplanner\application\simubot.hpp">
       <Filter>Header Files\application</Filter>
+    </QtMoc>
+    <QtMoc Include="..\..\include\missionplanner\network\network_manager_impl.hpp">
+      <Filter>Header Files\network</Filter>
+    </QtMoc>
+    <QtMoc Include="..\..\include\missionplanner\network\delegate\fake_communication_impl.hpp">
+      <Filter>Header Files\network\delegate</Filter>
+    </QtMoc>
+    <QtMoc Include="..\..\include\missionplanner\environment.hpp">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\..\include\missionplanner\network\network_manager.hpp">
+      <Filter>Header Files\network</Filter>
+    </QtMoc>
+    <QtMoc Include="..\..\include\missionplanner\application\robot\fake_communication.hpp">
+      <Filter>Header Files\application\robot</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>

@@ -16,12 +16,20 @@
 
 /*
 ===================================================================================================
+	Standard Includes
+===================================================================================================
+*/
+#include <memory>
+
+/*
+===================================================================================================
 	Project Includes
 ===================================================================================================
 */
-#include <robotapi/robot_interface.hpp>
+#include <robotapi/default_interface.hpp>
 #include <robotapi/controller.hpp>
 #include "hardware_simulation.hpp"
+#include "fake_communication.hpp"
 
 /*
 ===================================================================================================
@@ -41,7 +49,7 @@ namespace lis::pecase::productive40::missionplanner::application::robot {
 	 * \nosubgrouping
 	 */
 	class SimubotInterface :
-		public robotapi::RobotInterface {
+		public robotapi::DefaultInterface {
 
 	/**
 	 * \name Instance Data Members
@@ -49,6 +57,14 @@ namespace lis::pecase::productive40::missionplanner::application::robot {
 	#pragma region Instance Data Members
 	/**@{*/
 
+		/**
+		 * \brief Fake Communication Interface.
+		 * \details Fake Communication Interface.
+		 */
+		private:
+		FakeCommunication
+		m_communication;
+		
 		/**
 		 * \brief Simulated Hardware Interface.
 		 * \details Simulated Hardware Interface.
@@ -79,10 +95,12 @@ namespace lis::pecase::productive40::missionplanner::application::robot {
 		/**
 		 * \brief Default ctor.
 		 * \details Default ctor.
+		 * \param[in] identifier (int) Identifier of the robot.
 		 */
 		public:
 		SimubotInterface (
-			void
+			unsigned int
+
 		);
 
 		#pragma endregion

@@ -24,16 +24,32 @@ namespace lis::pecase::productive40::robotapi::hardware {
 #pragma region Initializers
 
 	RobotInformation::RobotInformation (
-		const char * vendor_name,
-		unsigned int identifier,
+		const unsigned char (& identifier) [16],
 		const double (& dimensions) [3],
 		double mass,
 		double max_linear_speed,
 		double max_linear_accel,
 		double inertia_moment
 	) :
-		_vendorName(vendor_name),
-		_identifier(identifier),
+		_vendorName("LIS"),
+		_identifier{
+			identifier[0],
+			identifier[1],
+			identifier[2],
+			identifier[3],
+			identifier[4],
+			identifier[5],
+			identifier[6],
+			identifier[7],
+			identifier[8],
+			identifier[9],
+			identifier[10],
+			identifier[11],
+			identifier[12],
+			identifier[13],
+			identifier[14],
+			identifier[15],
+		},
 		_dimensions{dimensions[0], dimensions[1], dimensions[2]},
 		_mass(mass),
 		_maxLinearSpeed(max_linear_speed),
@@ -44,8 +60,25 @@ namespace lis::pecase::productive40::robotapi::hardware {
 	RobotInformation::RobotInformation (
 		const RobotInformation & robot_informations
 	) :
-		_vendorName(robot_informations._vendorName),
-		_identifier(robot_informations._identifier),
+		_vendorName("LIS"),
+		_identifier{
+			robot_informations._identifier[0],
+			robot_informations._identifier[1],
+			robot_informations._identifier[2],
+			robot_informations._identifier[3],
+			robot_informations._identifier[4],
+			robot_informations._identifier[5],
+			robot_informations._identifier[6],
+			robot_informations._identifier[7],
+			robot_informations._identifier[8],
+			robot_informations._identifier[9],
+			robot_informations._identifier[10],
+			robot_informations._identifier[11],
+			robot_informations._identifier[12],
+			robot_informations._identifier[13],
+			robot_informations._identifier[14],
+			robot_informations._identifier[15],
+		},
 		_dimensions{
 			robot_informations._dimensions[0],
 			robot_informations._dimensions[1],

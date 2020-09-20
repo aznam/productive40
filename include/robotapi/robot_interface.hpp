@@ -60,7 +60,7 @@ namespace lis::pecase::productive40::robotapi {
 		protected:
 		RobotInterface (
 			void
-		);
+		) = default;
 
 		#pragma endregion
 
@@ -73,7 +73,7 @@ namespace lis::pecase::productive40::robotapi {
 		public: virtual
 		~RobotInterface (
 			void
-		) = 0;
+		) = default;
 
 		#pragma endregion
 

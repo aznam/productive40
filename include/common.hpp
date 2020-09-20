@@ -29,8 +29,8 @@ namespace lis {
 
 			/**
 			 * \namespace lis::pecase::productive40::common
-			 * \brief Contains the code related to the common library.
- 			 * \details Contains the code related to the common library.
+			 * \brief Contains the code related to the "Common" library.
+ 			 * \details Contains the code related to the "Common" library.
 			 */
 			namespace common {
 
@@ -53,12 +53,6 @@ namespace lis {
 	Projects Includes
 ===================================================================================================
 */
-#include "common/common_defines.hpp"
+#include "common/strutils.hpp"
 #include "common/math.hpp"
 #include "common/pattern.hpp"
-
-/*
-===================================================================================================
-    Macros
-===================================================================================================
-*/

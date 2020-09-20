@@ -3,8 +3,8 @@
  * \author Aznam Yacoub (aznam.yacoub@lis-lab.fr)
  * \date Sept. 9 2020
  * \version 1.0
- * \brief This file provides the interface of the Main Application of the mission planner.
- * \details This file provides the interface of the Main Application of the mission planner.
+ * \brief This file provides the interface of the Main Application of the Mission Planner.
+ * \details This file provides the interface of the Main Application of the Mission Planner.
  */
 
 /*
@@ -27,8 +27,9 @@
     Project Includes
 ===================================================================================================
 */
-#include "simubot.hpp"
+#include "../network/network_manager.hpp"
 #include "../ui/main_window.hpp"
+#include "simubot.hpp"
 
 /*
 ===================================================================================================
@@ -62,7 +63,7 @@ namespace lis::pecase::productive40::missionplanner::application {
 		 * \details Number of simulated robots to run.
 		 */
 		private:
-		QVector<Simubot*>
+		QVector<Simubot *>
 		m_simubots;
 
 		/**
@@ -72,6 +73,14 @@ namespace lis::pecase::productive40::missionplanner::application {
         private:
         ui::MainWindow
         m_mainWindow;
+
+		/**
+		 * \brief Pointer to the Network Manager.
+		 * \details Pointer to the Network Manager.
+		 */
+		private:
+		network::NetworkManager &
+		m_networkManager;
 
 	/**@}*/
     #pragma endregion
