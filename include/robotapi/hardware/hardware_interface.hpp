@@ -22,6 +22,8 @@
 #include "../robotapi_defines.hpp"
 #include "robot_information.hpp"
 
+#include <Eigen/Dense>
+
 /*
 ===================================================================================================
     Code
@@ -92,6 +94,60 @@ namespace lis::pecase::productive40::robotapi::hardware {
 		 public: virtual
 		 const RobotInformation &
 		 robot_informations (
+			void
+		 ) const = 0;
+
+		 public: virtual
+		 Eigen::Vector2d
+		 position (
+			void
+		 ) const = 0;
+
+		 public: virtual
+		 double
+		 orientation (
+			void
+		 ) const = 0;
+
+		 public: virtual
+		 Eigen::Vector2d
+		 velocity (
+			void
+		 ) const = 0;
+
+		 public: virtual
+		 double
+		 angular_speed (
+			void
+		 ) const = 0;
+
+		 public: virtual
+		 Eigen::Vector2d
+		 acceleration (
+			void
+		 ) const = 0;
+
+		 public: virtual
+		 double
+		 angular_acceleration (
+			void
+		 ) const = 0;
+
+		 public: virtual
+		 void
+		 wheelCommand (
+			const std::vector<double> &
+		 ) = 0;
+
+		 public: virtual
+		 unsigned int
+		 wheelCount (
+			void
+		 ) const = 0;
+
+		 public: virtual
+		 double
+		 averageWheelRadius (
 			void
 		 ) const = 0;
 

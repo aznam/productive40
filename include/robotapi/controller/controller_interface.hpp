@@ -21,6 +21,7 @@
 */
 #include "../robotapi_defines.hpp"
 #include "../hardware/robot_information.hpp"
+#include <Eigen/Dense>
 
 /*
 ===================================================================================================
@@ -94,6 +95,30 @@ namespace lis::pecase::productive40::robotapi::controller {
 		 robot_informations (
 			void
 		 ) const = 0;
+
+		 public: virtual
+		 void
+		 setTrajectory (
+			const std::vector<Eigen::Vector2d> &
+		 ) = 0;
+
+		 public: virtual
+		 void
+		 update (
+			double
+		 ) = 0;
+
+		 public: virtual
+		 void
+		 startTravel (
+			void
+		 ) = 0;
+
+		 public: virtual
+		 void
+		 stopTravel (
+			void
+		 ) = 0;
 
 		#pragma endregion
 

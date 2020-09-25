@@ -25,6 +25,8 @@
 #include "controller_interface.hpp"
 #include "../hardware/hardware_interface.hpp"
 
+#include <common/pattern/generic_fsm.hpp>
+
 /*
 ===================================================================================================
     Code
@@ -44,7 +46,180 @@ namespace lis::pecase::productive40::robotapi::controller {
 	 * \nosubgrouping
 	 */
 	class ROBOTAPI_LIB DefaultController :
-		public ControllerInterface {
+		public ControllerInterface,
+		public common::pattern::GenericFSM<DefaultController> {
+
+		class BaseState :
+			public DefaultController::State {
+
+			protected:
+			double
+			m_maxTime;
+
+			protected:
+			double
+			m_currentTime;
+
+			public:
+			BaseState (
+				DefaultController &
+			);
+
+			public:
+			void
+			setMaxTime (
+				double
+			);
+
+			protected:
+			void
+			computeCommand (
+				double,
+				double,
+				double
+			);
+
+		};
+
+		class IdleState :
+			public BaseState {
+
+			public:
+			IdleState (
+				DefaultController &
+			);
+
+			protected:
+			void
+			enter (
+				void
+			) override;
+
+			protected:
+			void
+			update (
+				void
+			) override;
+
+			protected:
+			void
+			exit (
+				void
+			) override;
+
+		};
+
+		class PrepareState :
+			public BaseState {
+
+			public:
+			PrepareState (
+				DefaultController &
+			);
+
+			protected:
+			void
+			enter (
+				void
+			) override;
+
+			protected:
+			void
+			update (
+				void
+			) override;
+
+			protected:
+			void
+			exit (
+				void
+			) override;
+
+		};
+
+		class AccelState :
+			public BaseState {
+
+			public:
+			AccelState (
+				DefaultController &
+			);
+
+			protected:
+			void
+			enter (
+				void
+			) override;
+
+			protected:
+			void
+			update (
+				void
+			) override;
+
+			protected:
+			void
+			exit (
+				void
+			) override;
+
+		};
+
+		class CruiseState :
+			public BaseState {
+
+			public:
+			CruiseState (
+				DefaultController &
+			);
+
+			protected:
+			void
+			enter (
+				void
+			) override;
+
+			protected:
+			void
+			update (
+				void
+			) override;
+
+			protected:
+			void
+			exit (
+				void
+			) override;
+
+		};
+
+		class DeccelState :
+			public BaseState {
+
+			public:
+			DeccelState (
+				DefaultController &
+			);
+
+			protected:
+			void
+			enter (
+				void
+			) override;
+
+			protected:
+			void
+			update (
+				void
+			) override;
+
+			protected:
+			void
+			exit (
+				void
+			) override;
+
+		};
 
 	/**
 	 * \name Instance Data Members
@@ -59,6 +234,36 @@ namespace lis::pecase::productive40::robotapi::controller {
 		private:
 		const hardware::RobotInformation
 		m_robotInformations;
+
+		private:
+		hardware::HardwareInterface &
+		m_hardware;
+
+		private:
+		std::vector<Eigen::Vector2d>
+		m_trajectoryPoints;
+
+		private:
+		Eigen::Vector2d
+		m_initialPosition;
+
+		private:
+		Eigen::Vector2d
+		m_destination;
+
+		private:
+		double
+		m_refreshTime;
+
+		private:
+		double
+		m_elapsedTime;
+
+		private:
+		double
+		m_profile [5];
+
+
 
 	/**@}*/
 	#pragma endregion
@@ -117,6 +322,46 @@ namespace lis::pecase::productive40::robotapi::controller {
 		 robot_informations (
 			void
 		 ) const override;
+
+		 public: virtual
+		 void
+		 setTrajectory (
+			const std::vector<Eigen::Vector2d> &
+		 ) override;
+
+		 public: virtual
+		 void update (
+			double
+		 ) override;
+
+		 public: virtual
+		 void startTravel (
+			void
+		 ) override;
+
+		 public: virtual
+		 void stopTravel (
+			void
+		 ) override;
+
+		 public:
+		 void
+		 setTimeMax (
+			unsigned int,
+			double
+		 );
+
+		 private:
+		 double
+		 coeffA (
+			void
+		 ) const;
+
+		 private:
+		 double
+		 coeffB (
+			void
+		 ) const;
 
 		#pragma endregion
 
