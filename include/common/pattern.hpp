@@ -40,6 +40,8 @@ namespace lis {
 
 					template<typename> class GenericFSM;
 
+					template<typename> class Observable;
+
 				#pragma endregion
 
 				}; // namespace pattern
@@ -54,8 +56,9 @@ namespace lis {
 
 /*
 ===================================================================================================
-	Projects Includes
+	Project Includes
 ===================================================================================================
 */
 #include "pattern/singleton.hpp"
 #include "pattern/generic_fsm.hpp"
+#include "pattern/observable.hpp"

@@ -12,8 +12,9 @@
 	Project Includes
 ===================================================================================================
 */
+#include <rosproxy.hpp>
+#include "../../../include/missionplanner.hpp"
 #include "../../../include/missionplanner/application/application.hpp"
-#include "../../../include/missionplanner/application.hpp"
 #include "../../../include/missionplanner/network.hpp"
 
 /*
@@ -38,9 +39,13 @@ namespace lis::pecase::productive40::missionplanner::application {
 		);
 
 		// Setup the network manager for ROS Communication
-		//this->m_networkManager.addNetworkDelegate(
-		//	new network::delegate::RosCommunicationImpl
-		//);
+	#if !defined(_DEBUG)
+
+		this->m_networkManager.addNetworkDelegate(
+			new network::delegate::ROSCommunicationImpl(argc, argv)
+		);
+
+	#endif
 
 		// Setup the network manager for INET Communication
 		//this->m_networkManager.addNetworkDelegate(
@@ -63,8 +68,17 @@ namespace lis::pecase::productive40::missionplanner::application {
 
 		}
 
+		// Setup view subscriber
+		this->m_networkManager.subscribe(&this->m_mainWindow);
+
 		// Show the main window
 		this->m_mainWindow.show();
+
+		// Test cpde
+		this->m_mainWindow.robotConnected(
+			this->m_networkManager,
+			"af512341cd67he"
+		);
 	}
 
 	Application::~Application (

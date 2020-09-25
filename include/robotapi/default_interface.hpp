@@ -92,6 +92,22 @@ namespace lis::pecase::productive40::robotapi {
 			void
 		);
 
+		public: virtual
+		void
+		sendWelcome (
+			void
+		);
+
+		/**
+		 * \brief Send robot informations to the client.
+		 * \details Send robot informations to the client.
+		 */
+		public: virtual
+		void
+		sendInformations (
+			void
+		);
+
 	/**@}*/
 	#pragma endregion
 

@@ -16,7 +16,7 @@
 
 /*
 ===================================================================================================
-	Standard includes
+	Standard Includes
 ===================================================================================================
 */
 #include <string>
@@ -48,10 +48,10 @@ namespace lis {
 					/**
 					 * \brief Converts a hex string to an array of bytes.
 					 * \details Converts a hex string to an array of bytes.
-					 * \param hex_str (std::string) The string to convert.
-					 * \param arr (unsigned char *) A pointer to an array of bytes.
+					 * \param[in] hex_str (std::string) The string to convert.
+					 * \param[out] arr (unsigned char *) A pointer to an array of bytes.
+					 * \note : The output array must have been preallocated.
 					 */
-					extern
 					void
 					hextoa (
 						std::string,
@@ -61,11 +61,10 @@ namespace lis {
 					/**
 					 * \brief Converts an array of bytes to an hex string.
 					 * \details Converts an array of bytes to an hex string
-					 * \param array (const unsigned char *) The array of bytes.
-					 * \param size (size_t) Size of the array.
+					 * \param[in] array (const unsigned char *) The array of bytes.
+					 * \param[in] size (size_t) Size of the array.
 * 					 * \returns (std::string) A string which contains the hex value.
 					 */
-					extern
 					std::string
 					atohex (
 						const unsigned char *,

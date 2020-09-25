@@ -86,6 +86,12 @@
     <Filter Include="Source Files\network\delegate">
       <UniqueIdentifier>{7c3773a5-2b69-489e-9a67-5cf8e545b18c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\ui\widget">
+      <UniqueIdentifier>{3cd7dc42-bb0a-4aa0-af3e-132c1235bed8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ui\widget">
+      <UniqueIdentifier>{235401bc-dcaf-4bf6-89fb-6e7bd8d7b528}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\missionplanner.hpp">
@@ -114,6 +120,24 @@
     </ClInclude>
     <ClInclude Include="..\..\include\missionplanner\network\delegate.hpp">
       <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\missionplanner\robot\robot_manager.hpp">
+      <Filter>Header Files\robot</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\missionplanner\robot\robot.hpp">
+      <Filter>Header Files\robot</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\missionplanner\network\network_interface.hpp">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\missionplanner\ui\widget.hpp">
+      <Filter>Header Files\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\missionplanner\robot\robot_interface.hpp">
+      <Filter>Header Files\robot</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\missionplanner\ui\widget\robot_widget.hpp">
+      <Filter>Header Files\ui\widget</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -146,6 +170,15 @@
     </ClCompile>
     <ClCompile Include="..\..\source\missionplanner\network\delegate\fake_communication_impl.cpp">
       <Filter>Source Files\network\delegate</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\missionplanner\network\delegate\ros_communication_impl.cpp">
+      <Filter>Source Files\network\delegate</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\missionplanner\ui\widget\robot_widget.cpp">
+      <Filter>Source Files\ui\widget</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\missionplanner\ui\widget\mission_scene.cpp">
+      <Filter>Source Files\ui\widget</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -192,6 +225,12 @@
     </QtMoc>
     <QtMoc Include="..\..\include\missionplanner\application\robot\fake_communication.hpp">
       <Filter>Header Files\application\robot</Filter>
+    </QtMoc>
+    <QtMoc Include="..\..\include\missionplanner\network\delegate\ros_communication_impl.hpp">
+      <Filter>Header Files\network\delegate</Filter>
+    </QtMoc>
+    <QtMoc Include="..\..\include\missionplanner\ui\widget\mission_scene.hpp">
+      <Filter>Header Files\ui\widget</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>

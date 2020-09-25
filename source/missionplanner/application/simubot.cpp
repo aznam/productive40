@@ -66,6 +66,18 @@ namespace lis::pecase::productive40::missionplanner::application {
 	) {
 		if(this->m_robotInterface.communication()->connected() == false)
 			this->m_robotInterface.broadcastIdentifier();
+		else {
+			// Check if an order came from the network
+			if(this->m_robotInterface.communication()->requested()) {
+				//this->m_robotInterface.communication()->recv();
+			}
+
+			// Process the next computation
+
+			// Update the controller
+
+			// Send message
+		}
 	}
 
 #pragma endregion

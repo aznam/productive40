@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <ROS_INC>D:\Libraries\ros\melodic\$(PLATFORM)\include</ROS_INC>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemDefinitionGroup />
+  <ItemGroup>
+    <BuildMacro Include="ROS_INC">
+      <Value>$(ROS_INC)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

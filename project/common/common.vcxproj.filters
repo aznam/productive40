@@ -31,6 +31,18 @@
     <Filter Include="Documentation Files\include">
       <UniqueIdentifier>{892c4fe4-415e-4d4b-8da4-5435a7260305}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\logger">
+      <UniqueIdentifier>{55bbc3fa-c4dd-4c9c-8993-c85617eaf641}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\logging">
+      <UniqueIdentifier>{c5c8a0e6-0c37-4b70-ab38-818b46ad44e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Documentation Files\source">
+      <UniqueIdentifier>{b5c325d3-b936-43ec-ba58-3cb14eafcf12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Template Files\logging">
+      <UniqueIdentifier>{8e38fa3a-a217-43ec-ad2b-50dcd08a3a68}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\common.hpp">
@@ -51,6 +63,21 @@
     <ClInclude Include="..\..\include\common\strutils.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\common\logging.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\common\logging\logger.hpp">
+      <Filter>Header Files\logging</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\common\logging\logger_impl.hpp">
+      <Filter>Header Files\logging</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\common\logging\console_logger_impl.hpp">
+      <Filter>Header Files\logging</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\common\pattern\observable.hpp">
+      <Filter>Header Files\pattern</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\include\common\pattern\generic_fsm.tpp">
@@ -62,6 +89,15 @@
     <None Include="..\..\include\common\pattern\singleton.tpp">
       <Filter>Template Files\pattern</Filter>
     </None>
+    <None Include="..\..\source\common\DIRECTORY.md">
+      <Filter>Documentation Files\source</Filter>
+    </None>
+    <None Include="..\..\include\common\logging\logger.tpp">
+      <Filter>Template Files\logging</Filter>
+    </None>
+    <None Include="..\..\include\common\pattern\observable.tpp">
+      <Filter>Template Files\pattern</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\source\common\math.cpp">
@@ -69,6 +105,12 @@
     </ClCompile>
     <ClCompile Include="..\..\source\common\strutils.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\common\logging\logger.cpp">
+      <Filter>Source Files\logger</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\common\logging\console_logger_impl.cpp">
+      <Filter>Source Files\logger</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

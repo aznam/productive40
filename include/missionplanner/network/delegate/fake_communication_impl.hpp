@@ -128,7 +128,7 @@ namespace lis::pecase::productive40::missionplanner::network::delegate {
 		 */
 		protected:
 		void
-		broadcastRead (
+		readFromBroadcast (
 			unsigned char *,
 			size_t &
 		) override;
@@ -150,9 +150,62 @@ namespace lis::pecase::productive40::missionplanner::network::delegate {
 		 */
 		protected:
 		void
-		connectClient (
+		connectToRobot (
 			const unsigned char *
 		) override;
+
+		/**
+		 * \brief Read a message from a client.
+		 * \details Allocate a buffer and store a message from the queue.
+		 * \param[in] client (const std::string &) Address of the client.
+		 * \param[out] buffer (unsigned char *) Buffer where the message will be stored.
+		 * \param[out] size (size_t &) Size of the buffer.
+		 */
+		protected:
+		void
+		recvFromRobot (
+			const std::string &,
+			unsigned char *,
+			size_t &
+		) override;
+
+		protected:
+		void
+		sendToRobot (
+			const std::string &,
+			unsigned char *,
+			size_t &
+		) override;
+
+		#pragma endregion
+
+		#pragma region Slots
+
+		/**
+		 * \brief Client connected.
+		 * \details Client connected.
+		 * \param[in] socket (QLocalSocket *) Socket associated to the client.
+		 * \param[in] address (std::string) Address of the client.
+		 */
+		protected slots:
+		void
+		robotConnected (
+			QLocalSocket *,
+			std::string
+		);
+
+		/**
+		 * \brief Client disconnected.
+		 * \details Client disconnected.
+		 * \param[in] socket (QLocalSocket *) Socket associated to the client.
+		 * \param[in] address (std::string) Address of the client.
+		 */
+		protected slots:
+		void
+		robotDisconnected (
+			QLocalSocket *,
+			std::string
+		);
 
 		#pragma endregion
 

@@ -13,20 +13,27 @@
 ===================================================================================================
 */
 #include <QtWidgets/QApplication>
+#include <iostream>
 
 /*
 ===================================================================================================
 	Project Includes
 ===================================================================================================
 */
-#include "../../include/missionplanner/application/application.hpp"
+#include "../../include/missionplanner.hpp"
 
 /*
 ===================================================================================================
 	Code
 ===================================================================================================
 */
-using namespace lis::pecase::productive40::missionplanner;
+using namespace lis::pecase::productive40;
+
+namespace lis::pecase::productive40::missionplanner {
+
+	common::logging::Logger console_log_;
+
+};
 
 #pragma region Functions Definitions
 
@@ -43,7 +50,8 @@ main(
     int argc, 
     char * argv []
 ) {
-    application::Application app(argc, argv);
+	missionplanner::console_log_.addlogger(*(new common::logging::ConsoleLoggerImpl));
+    missionplanner::application::Application app(argc, argv);
 	return app.exec();
 }
 

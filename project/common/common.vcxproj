@@ -110,6 +110,8 @@
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS; WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -140,6 +142,8 @@
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS; _DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -165,18 +169,28 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\common.hpp" />
+    <ClInclude Include="..\..\include\common\logging.hpp" />
+    <ClInclude Include="..\..\include\common\logging\console_logger_impl.hpp" />
+    <ClInclude Include="..\..\include\common\logging\logger.hpp" />
+    <ClInclude Include="..\..\include\common\logging\logger_impl.hpp" />
     <ClInclude Include="..\..\include\common\math.hpp" />
     <ClInclude Include="..\..\include\common\pattern.hpp" />
     <ClInclude Include="..\..\include\common\pattern\generic_fsm.hpp" />
+    <ClInclude Include="..\..\include\common\pattern\observable.hpp" />
     <ClInclude Include="..\..\include\common\pattern\singleton.hpp" />
     <ClInclude Include="..\..\include\common\strutils.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\include\common\DIRECTORY.md" />
+    <None Include="..\..\include\common\logging\logger.tpp" />
     <None Include="..\..\include\common\pattern\generic_fsm.tpp" />
+    <None Include="..\..\include\common\pattern\observable.tpp" />
     <None Include="..\..\include\common\pattern\singleton.tpp" />
+    <None Include="..\..\source\common\DIRECTORY.md" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\source\common\logging\console_logger_impl.cpp" />
+    <ClCompile Include="..\..\source\common\logging\logger.cpp" />
     <ClCompile Include="..\..\source\common\math.cpp" />
     <ClCompile Include="..\..\source\common\strutils.cpp" />
   </ItemGroup>

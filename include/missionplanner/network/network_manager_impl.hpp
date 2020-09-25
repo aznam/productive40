@@ -98,37 +98,37 @@ namespace lis::pecase::productive40::missionplanner::network {
 	#pragma region Broadcast Handler
 	/**@{*/
 
-		#pragma region Abstract Methods
-
-		/**
-		 * \brief Read a message from the queue.
-		 * \details Allocate a buffer and store a message from the queue.
-		 * \param[out] buffer (char **) Buffer where the message will be stored.
-		 * \param[out] size (size_t &) Size of the buffer.
-		 */
-		protected: virtual
-		void
-		broadcastRead (
-			unsigned char *,
-			size_t &
-		) = 0;
-
-		#pragma endregion
-
 		#pragma region Signals
 
 		/**
 		 * \brief A network interface is ready to read message from broadcast.
 		 * \details This signal should be trigger when a network delegate received a broadcasted
 		 * message and is ready to dispatch it.
-		 * \param[in] index (const NetworkManagerImpl &) Network delegate from which messages
+		 * \param[in] interface (const NetworkManagerImpl &) Network delegate from which messages
 		 * are ready.
 		 */
 		signals:
 		void
-		broadcastAvailable (
+		broadcastMessageReceived (
 			NetworkManagerImpl &
 		);
+
+		#pragma endregion
+
+		#pragma region Abstract Methods
+
+		/**
+		 * \brief Read a broadcasted message.
+		 * \details Allocate a buffer and store a message from the queue.
+		 * \param[out] buffer (unsigned char *) Buffer where the message will be stored.
+		 * \param[out] size (size_t &) Size of the buffer.
+		 */
+		protected: virtual
+		void
+		readFromBroadcast (
+			unsigned char *,
+			size_t &
+		) = 0;
 
 		#pragma endregion
 
@@ -137,6 +137,23 @@ namespace lis::pecase::productive40::missionplanner::network {
 
 	#pragma region Client Management
 	/**@{*/
+
+		#pragma region Signals
+
+		/**
+		 * \brief A network interface received a message from a robot.
+		 * \details This signal is trigger when a connected robot sent a message.
+		 * \param[in] interface (const NetworkManagerImpl &) Network interfce.
+		 * \param[in] address (std::string) Address of the robot.
+		 */
+		signals:
+		void
+		robotMessageReceived (
+			NetworkManagerImpl &,
+			std::string
+		);
+
+		#pragma endregion
 
 		#pragma region Abstract Methods
 
@@ -147,8 +164,31 @@ namespace lis::pecase::productive40::missionplanner::network {
 		 */
 		protected: virtual
 		void
-		connectClient (
+		connectToRobot (
 			const unsigned char *
+		) = 0;
+
+		/**
+		 * \brief Read a message from a client.
+		 * \details Allocate a buffer and store a message from the queue.
+		 * \param[in] client (const std::string &) Address of the client.
+		 * \param[out] buffer (unsigned char *) Buffer where the message will be stored.
+		 * \param[out] size (size_t &) Size of the buffer.
+		 */
+		protected: virtual
+		void
+		recvFromRobot (
+			const std::string &,
+			unsigned char *,
+			size_t &
+		) = 0;
+
+		protected: virtual
+		void
+		sendToRobot (
+			const std::string &,
+			unsigned char *,
+			size_t &
 		) = 0;
 
 		#pragma endregion

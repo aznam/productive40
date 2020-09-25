@@ -75,6 +75,14 @@ namespace lis::pecase::productive40::missionplanner {
 		this->m_environmentData.buffer().remove(0, size);
 	}
 
+	bool
+	Environment::dataAvailable (
+		void
+	) {
+		QMutexLocker lock(&this->m_dataMutex);
+		return this->m_environmentData.bytesAvailable() > 0;
+	}
+
 #pragma endregion
 
 }; // namespace lis::pecase::productive40::missionplanner

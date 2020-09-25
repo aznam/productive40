@@ -148,6 +148,12 @@ namespace lis::pecase::productive40::missionplanner {
 			size_t &
 		);
 
+		public:
+		bool
+		dataAvailable (
+			void
+		);
+
 		#pragma endregion
 
 		#pragma region Signals

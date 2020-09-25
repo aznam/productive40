@@ -24,6 +24,12 @@
 */
 #include "ui_main_window.hpp"
 
+#include <common/pattern/observable.hpp>
+#include "../network/network_interface.hpp"
+
+#include "../../../include/missionplanner/ui/widget/mission_scene.hpp"
+
+
 /*
 ===================================================================================================
     Code
@@ -41,7 +47,8 @@ namespace lis::pecase::productive40::missionplanner::ui {
 	 * \nosubgrouping
 	 */
     class MainWindow : 
-        public QMainWindow {
+        public QMainWindow,
+		public network::NetworkInterface {
 
         Q_OBJECT
 
@@ -58,6 +65,10 @@ namespace lis::pecase::productive40::missionplanner::ui {
         private:
         Ui::MainWindowInternal
         m_internalUI;
+
+		private:
+		widget::MissionScene *
+		m_missionScene;
 
 	/**@}*/
     #pragma endregion
@@ -97,6 +108,34 @@ namespace lis::pecase::productive40::missionplanner::ui {
 
 	/**@}*/
     #pragma endregion
+
+		public:
+		void
+		robotConnected (
+			const common::pattern::Observable<NetworkInterface> &,
+			std::string
+		) override;
+
+		public:
+		void
+		robotDisconnected (
+			const common::pattern::Observable<NetworkInterface> &,
+			std::string
+		) override;
+
+		public slots:
+		void
+		robotsSelectedFromList (
+			void
+		);
+
+		public slots:
+		void
+		robotsSelectedFromScene (
+			QGraphicsItem *,
+			QGraphicsItem *,
+			Qt::FocusReason
+		);
 
     }; // class MainWindow
 

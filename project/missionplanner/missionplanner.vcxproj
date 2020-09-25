@@ -14,6 +14,10 @@
     <ClInclude Include="..\..\include\missionplanner.hpp" />
     <ClInclude Include="..\..\include\missionplanner\application.hpp" />
     <ClInclude Include="..\..\include\missionplanner\application\robot.hpp" />
+    <ClInclude Include="..\..\include\missionplanner\robot\robot_interface.hpp" />
+    <ClInclude Include="..\..\include\missionplanner\ui\widget.hpp" />
+    <QtMoc Include="..\..\include\missionplanner\ui\widget\mission_scene.hpp" />
+    <ClInclude Include="..\..\include\missionplanner\ui\widget\robot_widget.hpp" />
     <QtMoc Include="..\..\include\missionplanner\application\robot\fake_communication.hpp" />
     <ClInclude Include="..\..\include\missionplanner\application\robot\hardware_simulation.hpp" />
     <ClInclude Include="..\..\include\missionplanner\application\robot\simubot_interface.hpp" />
@@ -24,7 +28,11 @@
     <QtMoc Include="..\..\include\missionplanner\network\network_manager_impl.hpp" />
     <ClInclude Include="..\..\include\missionplanner\network\delegate.hpp" />
     <QtMoc Include="..\..\include\missionplanner\network\delegate\fake_communication_impl.hpp" />
+    <QtMoc Include="..\..\include\missionplanner\network\delegate\ros_communication_impl.hpp" />
+    <ClInclude Include="..\..\include\missionplanner\network\network_interface.hpp" />
     <ClInclude Include="..\..\include\missionplanner\robot.hpp" />
+    <ClInclude Include="..\..\include\missionplanner\robot\robot.hpp" />
+    <ClInclude Include="..\..\include\missionplanner\robot\robot_manager.hpp" />
     <ClInclude Include="..\..\include\missionplanner\ui.hpp" />
     <QtMoc Include="..\..\include\missionplanner\ui\main_window.hpp" />
     <QtMoc Include="..\..\include\missionplanner\application\application.hpp" />
@@ -44,8 +52,11 @@
     <ClCompile Include="..\..\source\missionplanner\environment.cpp" />
     <ClCompile Include="..\..\source\missionplanner\main.cpp" />
     <ClCompile Include="..\..\source\missionplanner\network\delegate\fake_communication_impl.cpp" />
+    <ClCompile Include="..\..\source\missionplanner\network\delegate\ros_communication_impl.cpp" />
     <ClCompile Include="..\..\source\missionplanner\network\network_manager.cpp" />
     <ClCompile Include="..\..\source\missionplanner\ui\main_window.cpp" />
+    <ClCompile Include="..\..\source\missionplanner\ui\widget\mission_scene.cpp" />
+    <ClCompile Include="..\..\source\missionplanner\ui\widget\robot_widget.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\include\missionplanner\application\DIRECTORY.md" />
@@ -83,7 +94,6 @@
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="mission_planner.props" />
     <Import Project="missionplanner.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
@@ -123,13 +133,13 @@
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN64;USE_ROBOTAPI;$(Qt_DEFINES_);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN64;USE_ROBOTAPI;USE_ROSPROXY;_DEBUG;$(Qt_DEFINES_);%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>common.lib;robotapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>common.lib;robotapi.lib;rosproxy.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <QtMoc>
       <QtMocDir>$(SolutionDir)\generated\$(Configuration)\$(Platform)\moc</QtMocDir>
@@ -153,13 +163,13 @@
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN64;USE_ROBOTAPI;$(Qt_DEFINES_);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN64;USE_ROBOTAPI;USE_ROSPROXY;$(Qt_DEFINES_);%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>common.lib;robotapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>common.lib;robotapi.lib;rosproxy.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <QtMoc>
       <QtMocDir>$(SolutionDir)\generated\$(Configuration)\$(Platform)\moc</QtMocDir>

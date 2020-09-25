@@ -12,23 +12,29 @@ Commit, Push and Sync Rules
 
 Code Standards & Convention
 ---------------------------------------------------------------------------------------------------
+### Definitions and Lexicon
+- Workspace : Space in which all the subprojects live.
+- Project : An subspace of a workspace from which an artifact can be produced.
+- Package : The source of an artifact, i.e. there is one package per artifact.
+- Namespace : A functional/semantical set of pieces of source code.
+
 ### Global Documentation Guidelines
 - Each file must fully documented, including: filename, author, date, version, brief and detailed
 descriptions. This header is specified before any line of code.
 - Each element should be fully documented at least with a brief and detailed description.
-- The size of each line should not exceed more than 99 characters.
+- The length of each line should not exceed more than 99 characters.
 
-### Packages and folders organization
-- Each subfolder corresponds to a package, associated to a namespace. Packages and namespaces have 
-the same name than the folder they represent.
+### Folders tree and organization
 - Each folder should have a file named `DIRECTORY.md` which describes the tree of this directory.
 This file should contains at least a brief and detailed descriptions of each subdirectory.
+- Each subfolder corresponds to a packae or a namespace. Packages and namespaces have 
+the same name than the folder they represent.
 
 ### Files and Directory names and Extensions
 - Filenames and folder names are in lowercase. Names of folders should contain only alphanumeric 
 symbols. Words in filename are seperated by `_`.
 - Inclusions and references of files should use relative path if it concerns files belonging to the 
-project; absolute path, otherwise.
+same project; absolute path, otherwise.
 
 ### C++ Specific Rules
 
@@ -36,6 +42,10 @@ project; absolute path, otherwise.
 - Header extension: *.hpp
 - Source extension: *.cpp
 - Template extension: *.tpp
+
+#### Packages
+- Each package should have an external header which can be included to interact with the whole
+package.
 
 #### Sections
 - Headers and sources files are divided into preprocessors directives and code sections.

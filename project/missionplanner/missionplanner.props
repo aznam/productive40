@@ -8,7 +8,9 @@
     <ROS_BIN>D:\Libraries\ros\melodic\$(PLATFORM)\bin;D:\Libraries\rosdeps\$(PLATFORM)\bin</ROS_BIN>
     <BOOST_1_66>D:\Libraries\rosdeps\x64\include\boost-1_66</BOOST_1_66>
   </PropertyGroup>
-  <PropertyGroup />
+  <PropertyGroup>
+    <_PropertySheetDisplayName>MissionPlanner</_PropertySheetDisplayName>
+  </PropertyGroup>
   <ItemDefinitionGroup />
   <ItemGroup>
     <BuildMacro Include="EIGEN_INC">

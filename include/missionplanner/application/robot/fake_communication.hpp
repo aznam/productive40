@@ -27,6 +27,7 @@
 ===================================================================================================
 */
 #include <QLocalServer>
+#include <QLocalSocket>
 #include <QObject>
 
 /*
@@ -79,6 +80,10 @@ namespace lis::pecase::productive40::missionplanner::application::robot {
 		private:
 		QLocalSocket *
 		m_client;
+
+		private:
+		bool
+		m_dataAvailable;
 
 	/**@}*/
 	#pragma endregion
@@ -147,7 +152,19 @@ namespace lis::pecase::productive40::missionplanner::application::robot {
 		 */
 		private slots:
 		void
-		pendingConnection (
+		pendingClientConnection (
+			void
+		);
+
+		private slots:
+		void
+		lostClientConnection (
+			void
+		);
+
+		private slots:
+		void
+		readyClientRead (
 			void
 		);
 
@@ -179,6 +196,31 @@ namespace lis::pecase::productive40::missionplanner::application::robot {
 			const unsigned char *,
 			unsigned long
 		) override;
+
+		/**
+		 * \brief Send a message.
+		 * \details Send a message to a client.
+		 * \param[in] message (const char *) Array of bytes to send.
+		 * \param[in] size (unsigned long) Size of the message.
+		 */
+		public:
+		void
+		send (
+			const unsigned char *,
+			unsigned long
+		) override;
+
+		public:
+		void
+		recv (
+			unsigned char *,
+			unsigned long
+		) override;
+
+		public: bool
+		requested (
+			void
+		) const override;
 
 		#pragma endregion
 

@@ -83,136 +83,17 @@
      </layout>
     </widget>
    </widget>
-   <widget class="QWidget" name="gridLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>650</y>
-      <width>871</width>
-      <height>82</height>
-     </rect>
-    </property>
-    <layout class="QGridLayout" name="_lytDiagnostic">
-     <property name="sizeConstraint">
-      <enum>QLayout::SetFixedSize</enum>
-     </property>
-     <item row="2" column="1">
-      <widget class="QPlainTextEdit" name="_txtCommandRR">
-       <property name="maximumSize">
-        <size>
-         <width>213</width>
-         <height>37</height>
-        </size>
-       </property>
-       <property name="readOnly">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="1">
-      <widget class="QPlainTextEdit" name="_txtDiagnosticRR">
-       <property name="maximumSize">
-        <size>
-         <width>213</width>
-         <height>37</height>
-        </size>
-       </property>
-       <property name="readOnly">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="0">
-      <widget class="QPlainTextEdit" name="_txtCommandLR">
-       <property name="maximumSize">
-        <size>
-         <width>213</width>
-         <height>37</height>
-        </size>
-       </property>
-       <property name="readOnly">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="2">
-      <widget class="QPlainTextEdit" name="_txtDiagnosticLF">
-       <property name="maximumSize">
-        <size>
-         <width>213</width>
-         <height>37</height>
-        </size>
-       </property>
-       <property name="readOnly">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="2">
-      <widget class="QPlainTextEdit" name="_txtCommandLF">
-       <property name="maximumSize">
-        <size>
-         <width>213</width>
-         <height>37</height>
-        </size>
-       </property>
-       <property name="readOnly">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="0">
-      <widget class="QPlainTextEdit" name="_txtDiagnosticLR">
-       <property name="maximumSize">
-        <size>
-         <width>213</width>
-         <height>37</height>
-        </size>
-       </property>
-       <property name="readOnly">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="3">
-      <widget class="QPlainTextEdit" name="_txtCommandRF">
-       <property name="maximumSize">
-        <size>
-         <width>213</width>
-         <height>37</height>
-        </size>
-       </property>
-       <property name="readOnly">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="3">
-      <widget class="QPlainTextEdit" name="_txtDiagnosticRF">
-       <property name="maximumSize">
-        <size>
-         <width>213</width>
-         <height>37</height>
-        </size>
-       </property>
-       <property name="readOnly">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
    <widget class="QGraphicsView" name="_grphvwPlanner">
     <property name="geometry">
      <rect>
       <x>10</x>
       <y>10</y>
       <width>871</width>
-      <height>621</height>
+      <height>731</height>
      </rect>
     </property>
    </widget>
-   <widget class="QListView" name="_robotsList">
+   <widget class="QListWidget" name="_robotsList">
     <property name="geometry">
      <rect>
       <x>890</x>

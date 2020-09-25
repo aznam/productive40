@@ -4,7 +4,7 @@
  * \date Sept. 9 2020
  * \version 1.0
  * \brief Robot Namespace File.
- * \details This file declares the Robot namespace of the mission planner.
+ * \details This file declares the robot namespace of the Mission Planner.
  */
 
 /*
@@ -36,6 +36,8 @@ namespace lis {
 
 				#pragma region Forward Declarations
 
+					class RobotInterface;
+
 					class Robot;
 
 					class RobotManager;
@@ -57,11 +59,6 @@ namespace lis {
 	Projects Includes
 ===================================================================================================
 */
-//#include "robot/robot.hpp"
-//#include "robot/robot_manager.hpp"
-
-/*
-===================================================================================================
-    Macros
-===================================================================================================
-*/
+#include "robot/robot_interface.hpp"
+#include "robot/robot.hpp"
+#include "robot/robot_manager.hpp"

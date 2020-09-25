@@ -25,8 +25,7 @@ namespace lis::pecase::productive40::common::pattern {
 
 	template <
 		typename Class
-	>
-	Class &
+	> Class &
 	Singleton<Class>::instance (
 		void
 	) {

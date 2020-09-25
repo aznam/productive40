@@ -34,9 +34,17 @@ namespace lis::pecase::productive40::missionplanner::network {
 	NetworkManager::NetworkManager (
 		void
 	) :
+		common::pattern::Singleton<NetworkManager>(),
+		common::pattern::Observable<NetworkInterface>(),
 		m_delegates() {
-		this->m_messageFunc[robotapi::MessageCode::Discovery] = std::bind(
+		this->m_messageFunc[robotapi::communication::MessageCode::Discovery] = std::bind(
 			&NetworkManager::discoveryHandler,
+			this,
+			std::placeholders::_1,
+			std::placeholders::_2
+		);
+		this->m_messageFunc[robotapi::communication::MessageCode::Welcome] = std::bind(
+			&NetworkManager::welcomeHandler,
 			this,
 			std::placeholders::_1,
 			std::placeholders::_2
@@ -47,12 +55,6 @@ namespace lis::pecase::productive40::missionplanner::network {
 		void
 	) {
 		for(unsigned t = 0; t < this->m_delegates.size(); t++) {
-			disconnect(
-				this->m_delegates[t],
-				&NetworkManagerImpl::broadcastAvailable,
-				this,
-				&NetworkManager::broadcastAvailable
-			);
 			delete this->m_delegates[t];
 		}
 	}
@@ -69,7 +71,7 @@ namespace lis::pecase::productive40::missionplanner::network {
 		// Read the first byte containing the message code
 		unsigned char message_code = buffer[0];
 
-		auto iter = m_messageFunc.find((robotapi::MessageCode) message_code);
+		auto iter = m_messageFunc.find((robotapi::communication::MessageCode) message_code);
 		if(iter != m_messageFunc.end()) {
 			(iter->second)(interface, buffer + 1);
 		}
@@ -80,8 +82,16 @@ namespace lis::pecase::productive40::missionplanner::network {
 		NetworkManagerImpl & interface,
 		const unsigned char * buffer
 	) {
-		std::cout << "Discover Robot " << common::strutils::atohex(buffer, 16) << std::endl;
-		interface.connectClient(buffer);
+		interface.connectToRobot(buffer);
+	}
+
+	void
+	NetworkManager::welcomeHandler (
+		NetworkManagerImpl & interface,
+		const unsigned char * buffer
+	) {
+		std::string robot_name((const char *)buffer);
+		this->notify(&NetworkInterface::robotConnected, robot_name);
 	}
 
 #pragma endregion
@@ -93,12 +103,39 @@ namespace lis::pecase::productive40::missionplanner::network {
 		NetworkManagerImpl * delegate
 	) {
 		this->m_delegates.push_back(delegate);
+
+		// Broadcast Events
 		connect(
 			delegate,
-			&NetworkManagerImpl::broadcastAvailable,
+			&NetworkManagerImpl::broadcastMessageReceived,
 			this,
 			&NetworkManager::broadcastAvailable
 		);
+
+		// Client Events
+		connect(
+			delegate,
+			&NetworkManagerImpl::robotMessageReceived,
+			this,
+			&NetworkManager::dataAvailable
+		);
+	}
+
+#pragma endregion
+
+#pragma region Client Handlers
+
+	void
+	NetworkManager::dataAvailable (
+		NetworkManagerImpl & interface,
+		std::string address
+	) {
+		unsigned char buffer[robotapi::communication::Packet_Size];
+		memset(buffer, 0, robotapi::communication::Packet_Size);
+		size_t size = robotapi::communication::Packet_Size;
+
+		interface.recvFromRobot(address, buffer, size);
+		this->parse(interface, buffer);
 	}
 
 #pragma endregion
@@ -109,11 +146,11 @@ namespace lis::pecase::productive40::missionplanner::network {
 	NetworkManager::broadcastAvailable (
 		NetworkManagerImpl & interface
 	) {
-		unsigned char buffer[robotapi::Packet_Size];
-		memset(buffer, 0, robotapi::Packet_Size);
-		size_t size = robotapi::Packet_Size;
+		unsigned char buffer[robotapi::communication::Packet_Size];
+		memset(buffer, 0, robotapi::communication::Packet_Size);
+		size_t size = robotapi::communication::Packet_Size;
 
-		interface.broadcastRead(buffer, size);
+		interface.readFromBroadcast(buffer, size);
 		this->parse(interface, buffer);
 	}
 

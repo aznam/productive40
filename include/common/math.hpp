@@ -53,7 +53,6 @@ namespace lis {
 					 * \param[in] p2 (const Eigen::Vector2d &) Point 2.
 					 * \return (double) Distance between P1 and P2.
 					 */
-					extern
 					double
 					euclidian_distance (
 						const Eigen::Vector2d &,
@@ -67,7 +66,6 @@ namespace lis {
 					 * \param[in] p2 (const Eigen::Vector3d &) Point 2.
 					 * \return (double) Distance between P1 and P2.
 					 */
-					extern
 					double
 					euclidian_distance (
 						const Eigen::Vector3d &,

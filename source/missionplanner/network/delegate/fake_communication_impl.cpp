@@ -33,17 +33,17 @@ namespace lis::pecase::productive40::missionplanner::network::delegate {
 			&Environment::instance(),
 			&Environment::dataReadyRead,
 			this,
-			[=] () { emit broadcastAvailable(*this); }
+			[=] () { emit broadcastMessageReceived(*this); }
 		);
 	}
 
 	FakeCommunicationImpl::~FakeCommunicationImpl (
 		void
 	) {
-		for(auto i = m_clients.begin(); i != m_clients.end(); i++) {
+		/*for(auto i = m_clients.begin(); i != m_clients.end(); i++) {
 			i->second->disconnectFromServer();
 			delete i->second;
-		}
+		}*/
 	}
 
 #pragma endregion
@@ -51,7 +51,7 @@ namespace lis::pecase::productive40::missionplanner::network::delegate {
 #pragma region Broadcast Handler
 
 	void
-	FakeCommunicationImpl::broadcastRead (
+	FakeCommunicationImpl::readFromBroadcast (
 		unsigned char * message,
 		size_t & size
 	) {
@@ -63,15 +63,84 @@ namespace lis::pecase::productive40::missionplanner::network::delegate {
 #pragma region Client Management
 
 	void
-	FakeCommunicationImpl::connectClient (
+	FakeCommunicationImpl::connectToRobot (
 		const unsigned char * address
 	) {
 		std::string addr_str = common::strutils::atohex(address, 16);
 		if(this->m_clients.find(addr_str) == this->m_clients.end()) {
 			QLocalSocket* socket = new QLocalSocket();
 			this->m_clients[addr_str] = socket;
+
+			connect(
+				socket,
+				&QLocalSocket::connected,
+				this,
+				[=] () { this->robotConnected(socket, addr_str); }
+			);
+
+			connect(
+				socket,
+				&QLocalSocket::disconnected,
+				this,
+				[=] () { this->robotDisconnected(socket, addr_str); }
+			);
+
+			/*connect(
+				socket,
+				&QLocalSocket::errorOccurred,
+				this,
+				[=] () { this->clientError(socket, addr_str); }
+			);*/
+
 			socket->connectToServer(QString::fromStdString(addr_str));
 		}
+	}
+
+	void
+	FakeCommunicationImpl::recvFromRobot (
+		const std::string & client,
+		unsigned char * buffer,
+		size_t & size
+	) {
+		auto socket = this->m_clients.find(client);
+		if(socket != this->m_clients.end()) {
+			socket->second->read((char *)buffer, size);
+		}
+	}
+
+	void
+	FakeCommunicationImpl::sendToRobot (
+		const std::string & client,
+		unsigned char * buffer,
+		size_t & size
+	) {
+		auto socket = this->m_clients.find(client);
+		if(socket != this->m_clients.end()) {
+			socket->second->write((char *)buffer, size);
+		}
+	}
+
+	void
+	FakeCommunicationImpl::robotConnected (
+		QLocalSocket * socket,
+		std::string address
+	) {
+		connect(
+			socket,
+			&QLocalSocket::readyRead,
+			this,
+			[=] () { emit robotMessageReceived(*this, address); }
+		);
+	}
+
+	void
+	FakeCommunicationImpl::robotDisconnected (
+		QLocalSocket * socket,
+		std::string address
+	) {
+		socket->close();
+		this->m_clients.erase(address);
+		delete socket;
 	}
 
 #pragma endregion

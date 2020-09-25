@@ -40,7 +40,7 @@ namespace lis {
 
 						class FakeCommunicationImpl;
 
-						class RosCommunicationImpl;
+						class ROSCommunicationImpl;
 
 						class InetCommunicationImpl;
 
@@ -64,7 +64,7 @@ namespace lis {
 ===================================================================================================
 */
 #include "delegate/fake_communication_impl.hpp"
-//#include "delegate/ros_communication_impl.hpp"
+#include "delegate/ros_communication_impl.hpp"
 //#include "delegate/inet_communication_impl.hpp"
 
 /*

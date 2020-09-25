@@ -96,6 +96,12 @@ namespace lis::pecase::productive40::robotapi::communication {
 			void
 		) const = 0;
 
+		public: virtual
+		bool
+		requested (
+			void
+		) const = 0;
+
 		/**
 		 * \brief Broadast a message.
 		 * \details Broadcast a message on a network or air.
@@ -106,6 +112,26 @@ namespace lis::pecase::productive40::robotapi::communication {
 		void
 		broadcast (
 			const unsigned char *,
+			unsigned long
+		) = 0;
+
+		/**
+		 * \brief Send a message.
+		 * \details Send a message to a client.
+		 * \param[in] message (const char *) Array of bytes to send.
+		 * \param[in] size (unsigned long) Size of the message.
+		 */
+		public: virtual
+		void
+		send (
+			const unsigned char *,
+			unsigned long
+		) = 0;
+
+		public: virtual
+		void
+		recv (
+			unsigned char *,
 			unsigned long
 		) = 0;
 
