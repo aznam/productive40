@@ -91,65 +91,71 @@ namespace lis::pecase::productive40::robotapi::hardware {
 		 * \details Returns basic informations stored in the robot.
 		 * \returns (const hardware::RobotInformation &) Informations about the robot.
 		 */
-		 public: virtual
-		 const RobotInformation &
-		 robot_informations (
-			void
-		 ) const = 0;
+		public: virtual
+		const RobotInformation &
+		robot_informations (
+		void
+		) const = 0;
 
-		 public: virtual
-		 Eigen::Vector2d
-		 position (
+		public: virtual
+		Eigen::Vector2d
+		position (
 			void
-		 ) const = 0;
+		) const = 0;
 
-		 public: virtual
-		 double
-		 orientation (
+		public: virtual
+		double
+		orientation (
 			void
-		 ) const = 0;
+		) const = 0;
 
-		 public: virtual
-		 Eigen::Vector2d
-		 velocity (
+		public: virtual
+		Eigen::Vector2d
+		velocity (
 			void
-		 ) const = 0;
+		) const = 0;
 
-		 public: virtual
-		 double
-		 angular_speed (
+		public: virtual
+		double
+		angular_speed (
 			void
-		 ) const = 0;
+		) const = 0;
 
-		 public: virtual
-		 Eigen::Vector2d
-		 acceleration (
+		public: virtual
+		Eigen::Vector2d
+		acceleration (
 			void
-		 ) const = 0;
+		) const = 0;
 
-		 public: virtual
-		 double
-		 angular_acceleration (
+		public: virtual
+		double
+		angular_acceleration (
 			void
-		 ) const = 0;
+		) const = 0;
 
-		 public: virtual
-		 void
-		 wheelCommand (
+		public: virtual
+		void
+		wheelCommand (
 			const std::vector<double> &
-		 ) = 0;
+		) = 0;
 
-		 public: virtual
-		 unsigned int
-		 wheelCount (
+		public: virtual
+		unsigned int
+		wheelCount (
 			void
-		 ) const = 0;
+		) const = 0;
 
-		 public: virtual
-		 double
-		 averageWheelRadius (
+		public: virtual
+		double
+		averageWheelRadius (
 			void
-		 ) const = 0;
+		) const = 0;
+
+		public: virtual
+		void
+		update(
+			double
+		) = 0;
 
 		#pragma endregion
 

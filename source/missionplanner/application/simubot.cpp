@@ -74,10 +74,14 @@ namespace lis::pecase::productive40::missionplanner::application {
 
 			// Process the next computation
 
-			// Update the controller
-
 			// Send message
 		}
+
+		// Update the controller
+		this->m_robotInterface.controller()->update(this->m_refreshTimer.interval());
+
+		// Simulate the updating hardware
+		this->m_robotInterface.hardware()->update(this->m_refreshTimer.interval());
 	}
 
 #pragma endregion

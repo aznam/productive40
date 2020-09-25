@@ -49,6 +49,42 @@ namespace lis::pecase::productive40::missionplanner::application::robot {
     class HardwareSimulation :
 		public robotapi::hardware::HardwareInterface {
 
+		/**
+		 * \brief Matrix A.
+		 * \details Matrix A.
+		 */
+		private: static const
+		Eigen::Matrix<double, 6, 6>
+		MatrixA_;
+
+		/**
+		 * \brief Matrix C.
+		 * \details Matrix C.
+		 */
+		private: static const
+		Eigen::Matrix<double, 4, 6>
+		MatrixC_;
+
+		/**
+         * \brief
+         * \details [x, y, theta, theta_prime]
+         */
+        private:
+        Eigen::Vector4d 
+        m_Y;
+
+        /**
+         * \brief
+         * \details [x_prime, y_prime, theta_prime, x_second, y_second, theta_second]
+         */
+        private:
+        Eigen::Matrix<double, 6, 1>
+        m_Xdot;
+
+		private:
+		Eigen::Vector4d
+		m_wheelCommands;
+
 	/**
 	 * \name Instance Data Members
 	 */
@@ -116,6 +152,66 @@ namespace lis::pecase::productive40::missionplanner::application::robot {
 		 robot_informations (
 			void
 		 ) const override;
+
+		 public: virtual
+		 Eigen::Vector2d
+		 position (
+			void
+		 ) const override;
+
+		 public: virtual
+		 double
+		 orientation (
+			void
+		 ) const override;
+
+		 public: virtual
+		 Eigen::Vector2d
+		 velocity (
+			void
+		 ) const override;
+
+		 public: virtual
+		 double
+		 angular_speed (
+			void
+		 ) const override;
+
+		 public: virtual
+		 Eigen::Vector2d
+		 acceleration (
+			void
+		 ) const override;
+
+		 public: virtual
+		 double
+		 angular_acceleration (
+			void
+		 ) const override;
+
+		 public: virtual
+		 void
+		 wheelCommand (
+			const std::vector<double> &
+		 ) override;
+
+		 public: virtual
+		 unsigned int
+		 wheelCount (
+			void
+		 ) const override;
+
+		 public: virtual
+		 double
+		 averageWheelRadius (
+			void
+		 ) const override;
+
+		 public:
+		 void
+		 update (
+			double
+		 ) override;
 
 		#pragma endregion
 
