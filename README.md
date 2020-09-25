@@ -1,6 +1,18 @@
 Code Documentation                     {#mainpage}
 ===================================================================================================
 
+Dependencies and Installation
+---------------------------------------------------------------------------------------------------
+The following libraries are needed to build the workspace:
+- Qt 5.14
+- ROS Melodic
+- Gazebo 11.0
+- Boost 1.66
+- Python 3
+
+Build the Common Library, then the RobotAPI, the ROSProxy, and the MissionPlanner. Launch ros and
+gazebo and then run the Mission Planner. And enjoy !
+
 Commit, Push and Sync Rules
 ---------------------------------------------------------------------------------------------------
 - Don't mix reasons when you commit a change.
