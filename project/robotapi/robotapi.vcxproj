@@ -176,12 +176,14 @@
     <ClInclude Include="..\..\include\robotapi\controller.hpp" />
     <ClInclude Include="..\..\include\robotapi\controller\controller_interface.hpp" />
     <ClInclude Include="..\..\include\robotapi\controller\default_controller.hpp" />
-    <ClInclude Include="..\..\include\robotapi\default_interface.hpp" />
     <ClInclude Include="..\..\include\robotapi\hardware.hpp" />
     <ClInclude Include="..\..\include\robotapi\hardware\hardware_interface.hpp" />
     <ClInclude Include="..\..\include\robotapi\hardware\robot_information.hpp" />
+    <ClInclude Include="..\..\include\robotapi\interface.hpp" />
+    <ClInclude Include="..\..\include\robotapi\interface\default_interface.hpp" />
+    <ClInclude Include="..\..\include\robotapi\interface\robot_interface.hpp" />
     <ClInclude Include="..\..\include\robotapi\robotapi_defines.hpp" />
-    <ClInclude Include="..\..\include\robotapi\robot_interface.hpp" />
+    <ClInclude Include="..\..\include\robotapi\watcher\watcher_interface.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\source\robotapi\controller\default_controller.cpp" />

@@ -49,6 +49,7 @@ namespace lis::pecase::productive40::robotapi::hardware {
 		 * \brief Vendor name.
 		 * \details Vendor name.
 		 */
+		public:
 		const char
 		_vendorName [16];
 
@@ -56,6 +57,7 @@ namespace lis::pecase::productive40::robotapi::hardware {
 		 * \brief identifier.
 		 * \details identifier.
 		 */
+		public:
 		const unsigned char
 		_identifier [16];
 
@@ -63,6 +65,7 @@ namespace lis::pecase::productive40::robotapi::hardware {
 		 * \brief Base dimensions.
 		 * \details Base dimensions [length; width; height] (in meters).
 		 */
+		public:
 		const double
 		_dimensions [3];
 
@@ -70,6 +73,7 @@ namespace lis::pecase::productive40::robotapi::hardware {
 		 * \brief Base Mass.
 		 * \details Base Mass (in kilograms).
 		 */
+		public:
 		const double
 		_mass;
 
@@ -77,6 +81,7 @@ namespace lis::pecase::productive40::robotapi::hardware {
 		 * \brief Maximum linear speed.
 		 * \details Maximum linear speed (in m.s-1).
 		 */
+		public:
 		const double
 		_maxLinearSpeed;
 
@@ -84,6 +89,7 @@ namespace lis::pecase::productive40::robotapi::hardware {
 		 * \brief Maximum linear acceleration.
 		 * \details Maximum linear acceleration (in m.s-2).
 		 */
+		public:
 		const double
 		_maxLinearAccel;
 
@@ -91,6 +97,7 @@ namespace lis::pecase::productive40::robotapi::hardware {
 		 * \brief Moment of inertia.
 		 * \details Moment of inertia (in kg.m2).
 		 */
+		public:
 		const double
 		_inertiaMoment;
 
@@ -113,6 +120,7 @@ namespace lis::pecase::productive40::robotapi::hardware {
 		 * \param[in] max_linear_accel (double) Maximum linear acceleration.
 		 * \param[in] inertia_moment (double) Moment of inertia.
 		 */
+		public:
 		RobotInformation (
 			const unsigned char (&) [16],
 			const double (&) [3],
@@ -127,6 +135,7 @@ namespace lis::pecase::productive40::robotapi::hardware {
 		 * \details Copy initializer.
 		 * \param[in] robot_informations Informations to copy.
 		 */
+		public:
 		RobotInformation (
 			const RobotInformation &
 		);
@@ -145,9 +154,3 @@ namespace lis::pecase::productive40::robotapi::hardware {
 #pragma endregion
 
 }; // namespace lis::pecase::productive40::robotapi::hardware
-
-/*
-===================================================================================================
-    Macros
-===================================================================================================
-*/

@@ -91,7 +91,7 @@ namespace lis::pecase::productive40::missionplanner::network {
 		const unsigned char * buffer
 	) {
 		std::string robot_name((const char *)buffer);
-		this->notify(&NetworkInterface::robotConnected, robot_name);
+		// this->notify(&NetworkInterface::robotConnected, robot_name);
 	}
 
 #pragma endregion

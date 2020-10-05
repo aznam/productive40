@@ -95,7 +95,7 @@ namespace lis::pecase::productive40::missionplanner::application {
 		 * \brief Interface to interact the robot.
 		 * \details Interface to interact with the robot.
 		 */
-        private:
+        public:
         robot::SimubotInterface
         m_robotInterface;
 

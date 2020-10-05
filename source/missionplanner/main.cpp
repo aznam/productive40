@@ -28,12 +28,7 @@
 ===================================================================================================
 */
 using namespace lis::pecase::productive40;
-
-namespace lis::pecase::productive40::missionplanner {
-
-	common::logging::Logger console_log_;
-
-};
+namespace logging = common::logging;
 
 #pragma region Functions Definitions
 
@@ -50,7 +45,7 @@ main(
     int argc, 
     char * argv []
 ) {
-	missionplanner::console_log_.addlogger(*(new common::logging::ConsoleLoggerImpl));
+	missionplanner::logger_.addlogger(logging::ConsoleLoggerImpl::instance());
     missionplanner::application::Application app(argc, argv);
 	return app.exec();
 }

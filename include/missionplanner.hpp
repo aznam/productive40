@@ -17,13 +17,6 @@
 
 /*
 ===================================================================================================
-	Project Include
-===================================================================================================
-*/
-#include <common/logging.hpp>
-
-/*
-===================================================================================================
     Code
 ===================================================================================================
 */
@@ -40,18 +33,6 @@ namespace lis {
 			 */
 			namespace missionplanner {
 
-			#pragma region Forward Declarations
-
-				/**
-				 * \brief Console logger.
-				 * \details Console logger.
-				 */
-				extern
-				common::logging::Logger
-				console_log_;
-
-			#pragma endregion
-
 			}; // namespace missionplanner
 
 		}; // namespace productive40
@@ -62,9 +43,10 @@ namespace lis {
 
 /*
 ===================================================================================================
-	Project Includes
+	Package Includes
 ===================================================================================================
 */
+#include "missionplanner/globals.hpp"
 #include "missionplanner/application.hpp"
 #include "missionplanner/network.hpp"
 #include "missionplanner/ui.hpp"

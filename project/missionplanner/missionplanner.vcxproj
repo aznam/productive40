@@ -14,6 +14,7 @@
     <ClInclude Include="..\..\include\missionplanner.hpp" />
     <ClInclude Include="..\..\include\missionplanner\application.hpp" />
     <ClInclude Include="..\..\include\missionplanner\application\robot.hpp" />
+    <ClInclude Include="..\..\include\missionplanner\globals.hpp" />
     <ClInclude Include="..\..\include\missionplanner\robot\robot_interface.hpp" />
     <ClInclude Include="..\..\include\missionplanner\ui\widget.hpp" />
     <QtMoc Include="..\..\include\missionplanner\ui\widget\mission_scene.hpp" />
@@ -50,6 +51,7 @@
     <ClCompile Include="..\..\source\missionplanner\application\robot\simubot_interface.cpp" />
     <ClCompile Include="..\..\source\missionplanner\application\simubot.cpp" />
     <ClCompile Include="..\..\source\missionplanner\environment.cpp" />
+    <ClCompile Include="..\..\source\missionplanner\globals.cpp" />
     <ClCompile Include="..\..\source\missionplanner\main.cpp" />
     <ClCompile Include="..\..\source\missionplanner\network\delegate\fake_communication_impl.cpp" />
     <ClCompile Include="..\..\source\missionplanner\network\delegate\ros_communication_impl.cpp" />

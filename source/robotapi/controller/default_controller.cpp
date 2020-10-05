@@ -339,7 +339,7 @@ namespace lis::pecase::productive40::robotapi::controller {
 				this->m_context.m_robotInformations._dimensions[1]
 			) / this->m_context.coeffB();
 
-		Eigen::MatrixXd betaTheta;
+		Eigen::MatrixXd betaTheta(3, 4);
         betaTheta(0,0) = cmd;  
         betaTheta(0,1) = cpd;
         betaTheta(0,2) = cmd;

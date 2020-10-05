@@ -19,13 +19,6 @@
 
 /*
 ===================================================================================================
-	Projects Includes
-===================================================================================================
-*/
-#include "robotapi/robotapi_defines.hpp"
-
-/*
-===================================================================================================
     Code
 ===================================================================================================
 */
@@ -42,14 +35,6 @@ namespace lis {
 			 */
 			namespace robotapi {
 
-			#pragma region Forward Declarations
-
-				class ROBOTAPI_LIB RobotInterface;
-
-				class ROBOTAPI_LIB DefaultInterface;
-
-			#pragma endregion
-
 			}; // namespace robotapi
 
 		}; // namespace productive40
@@ -60,17 +45,8 @@ namespace lis {
 
 /*
 ===================================================================================================
-	Projects Includes
+	Package Includes
 ===================================================================================================
 */
-#include "robotapi/hardware.hpp"
-#include "robotapi/controller.hpp"
-#include "robotapi/communication.hpp"
-#include "robotapi/robot_interface.hpp"
-#include "robotapi/default_interface.hpp"
-
-/*
-===================================================================================================
-    Macros
-===================================================================================================
-*/
+#include "robotapi/robotapi_defines.hpp"
+#include "robotapi/interface.hpp"

@@ -139,6 +139,9 @@
     <ClInclude Include="..\..\include\missionplanner\ui\widget\robot_widget.hpp">
       <Filter>Header Files\ui\widget</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\missionplanner\globals.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\source\missionplanner\main.cpp">
@@ -179,6 +182,9 @@
     </ClCompile>
     <ClCompile Include="..\..\source\missionplanner\application\robot\simubot_interface.cpp">
       <Filter>Source Files\application\robot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\missionplanner\globals.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

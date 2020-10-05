@@ -19,7 +19,7 @@
 	Project Includes
 ===================================================================================================
 */
-#include "robotapi_defines.hpp"
+#include "../robotapi_defines.hpp"
 #include "robot_interface.hpp"
 
 /*
@@ -27,13 +27,13 @@
     Code
 ===================================================================================================
 */
-namespace lis::pecase::productive40::robotapi {
+namespace lis::pecase::productive40::robotapi::interface {
 	
 #pragma region Types Definitions
 
 	/**
-	 * \class DefaultInterface include/robotapi/default_interface.hpp \
-	 * <productive40/robotapi/default_interface.hpp>
+	 * \class DefaultInterface include/robotapi/interface/default_interface.hpp \
+	 * <productive40/robotapi/interface/default_interface.hpp>
 	 * \brief Class with default function to interact with the robot.
 	 * \details The abstract class implements default functionnality to interact with the robot.
 	 * \nosubgrouping
@@ -66,7 +66,7 @@ namespace lis::pecase::productive40::robotapi {
 		 * \brief Default dtor.
 		 * \details Default destructor.
 		 */
-		public: virtual
+		protected: virtual
 		~DefaultInterface (
 			void
 		);
@@ -86,7 +86,7 @@ namespace lis::pecase::productive40::robotapi {
 		 * \brief Broadcast identifier.
 		 * \details Send the identifier of the robot through the network.
 		 */
-		public: virtual
+		/*public: virtual
 		void
 		broadcastIdentifier (
 			void
@@ -96,17 +96,17 @@ namespace lis::pecase::productive40::robotapi {
 		void
 		sendWelcome (
 			void
-		);
+		);*/
 
 		/**
 		 * \brief Send robot informations to the client.
 		 * \details Send robot informations to the client.
 		 */
-		public: virtual
+		/*public: virtual
 		void
 		sendInformations (
 			void
-		);
+		);*/
 
 	/**@}*/
 	#pragma endregion
@@ -115,4 +115,4 @@ namespace lis::pecase::productive40::robotapi {
 
 #pragma endregion
 
-}; // namespace lis::pecase::productive40::robotapi
+}; // namespace lis::pecase::productive40::robotapi::interface

@@ -67,6 +67,18 @@ namespace lis::pecase::productive40::missionplanner::application::robot {
 			xml_config.setContent(&file);
 			file.close();
 			QDomElement root = xml_config.documentElement();
+
+			QDomElement sensors = root.firstChildElement("sensors");
+			QDomElement position = sensors.firstChildElement("position");
+
+			QDomElement x = position.firstChildElement("x");
+			double x_value = x.text().toDouble();
+			m_Y(0,0) = x_value;
+
+			QDomElement y = position.firstChildElement("y");
+			double y_value = y.text().toDouble();
+			m_Y(1, 0) = y_value;
+
 			QDomElement infos = root.firstChildElement("informations");
 			if(infos.hasChildNodes()) {
 				QDomElement vendor = infos.firstChildElement("vendor");
@@ -87,9 +99,9 @@ namespace lis::pecase::productive40::missionplanner::application::robot {
 
 				QDomElement mass = infos.firstChildElement("mass");
 				double mass_value = mass.text().toDouble();
-				memset(
+				memcpy(
 					(void *)&this->m_informations._mass,
-					*reinterpret_cast<int*>(&mass_value),
+					&mass_value,
 					sizeof(double)
 				);
 
@@ -246,7 +258,8 @@ namespace lis::pecase::productive40::missionplanner::application::robot {
 				this->m_informations._dimensions[1]
 			) / coeffB;
 
-		Eigen::MatrixXd betaTheta;
+		Eigen::MatrixXd betaTheta(3,4);
+		betaTheta.setZero();
 		betaTheta(0, 0) = cmd;
 		betaTheta(0, 1) = cpd;
 		betaTheta(0, 2) = cmd;

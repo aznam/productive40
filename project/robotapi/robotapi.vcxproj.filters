@@ -43,15 +43,18 @@
     <Filter Include="Source Files\communication">
       <UniqueIdentifier>{b524f22d-8d2b-406b-ac7e-11d2a1467a0d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\watcher">
+      <UniqueIdentifier>{1fc9c2d2-6642-4d41-90ae-d475dc0340a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\interface">
+      <UniqueIdentifier>{d17f1e28-bd9e-4774-8978-17a676def91c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\robotapi.hpp">
       <Filter>Package Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\robotapi\robotapi_defines.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\robotapi\robot_interface.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\robotapi\hardware.hpp">
@@ -78,8 +81,17 @@
     <ClInclude Include="..\..\include\robotapi\communication\communication_interface.hpp">
       <Filter>Header Files\communication</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\robotapi\default_interface.hpp">
+    <ClInclude Include="..\..\include\robotapi\watcher\watcher_interface.hpp">
+      <Filter>Header Files\watcher</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\robotapi\interface.hpp">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\robotapi\interface\robot_interface.hpp">
+      <Filter>Header Files\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\robotapi\interface\default_interface.hpp">
+      <Filter>Header Files\interface</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

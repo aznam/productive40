@@ -16,13 +16,18 @@
 
 /*
 ===================================================================================================
+	Eigen Includes
+===================================================================================================
+*/
+#include <Eigen/Dense>
+
+/*
+===================================================================================================
 	Project Includes
 ===================================================================================================
 */
 #include "../robotapi_defines.hpp"
 #include "robot_information.hpp"
-
-#include <Eigen/Dense>
 
 /*
 ===================================================================================================
@@ -81,10 +86,10 @@ namespace lis::pecase::productive40::robotapi::hardware {
 	/**
 	 * \name Robot Information Management
 	 */
-	#pragma region Robot Information Management
+	#pragma region Robot Informations Management
 	/**@{*/
 
-		#pragma region Abstract Methods
+		#pragma region Abstract Getters
 
 		/**
 		 * \brief Returns basic informations about the robot.
@@ -93,68 +98,98 @@ namespace lis::pecase::productive40::robotapi::hardware {
 		 */
 		public: virtual
 		const RobotInformation &
-		robot_informations (
+		robotInformations (
 		void
 		) const = 0;
 
+		/**
+		 * \brief Returns the position of the robot.
+		 * \details Returns the position of the robot.
+		 * \returns (Eigen::Vector2d) Position of the robot.
+		 */
 		public: virtual
 		Eigen::Vector2d
 		position (
 			void
 		) const = 0;
 
+		/**
+		 * \brief Returns the orientation of the robot.
+		 * \details Returns the orientation of the robot.
+		 * \returns (double) Orientation of the robot (in radians).
+		 */
 		public: virtual
 		double
 		orientation (
 			void
 		) const = 0;
 
+		/**
+		 * \brief Returns the velocity of the robot.
+		 * \details Returns the velocity of the robot.
+		 * \returns (Eigen::Vector2d) Velocity vector.
+		 */
 		public: virtual
 		Eigen::Vector2d
 		velocity (
 			void
 		) const = 0;
 
+		/**
+		 * \brief Returns the angular speed.
+		 * \details Returns the angular speed of the robot.
+		 * \returns (double) Angular speed (in radians.s-1).
+		 */
 		public: virtual
 		double
-		angular_speed (
+		angularSpeed (
 			void
 		) const = 0;
 
+		/**
+		 * \brief Returns the acceleration of the robot.
+		 * \details Returns the acceleration of the robot.
+		 * \returns (Eigen::Vector2d) Acceleration vector.
+		 */
 		public: virtual
 		Eigen::Vector2d
 		acceleration (
 			void
 		) const = 0;
 
+		/**
+		 * \brief Returns the angular acceleration.
+		 * \details Returns the angular acceleration of the robot.
+		 * \returns (double) Angular acceleration (in radians.s-2).
+		 */
 		public: virtual
 		double
-		angular_acceleration (
+		angularAcceleration (
 			void
 		) const = 0;
 
+		#pragma endregion
+
+	/**@}*/
+	#pragma endregion
+
+	/**
+	 * \name Harware Managements
+	 */
+	#pragma region Hardware Management
+	/**@{*/
+
+		#pragma region Abstract Methods
+
+		/**
+		 * \brief Send a command to the robot.
+		 * \details Send a wheel command to control the robot.
+		 * \param[in] command (const std::vector<double> &) List of command.
+		 */
 		public: virtual
 		void
 		wheelCommand (
 			const std::vector<double> &
-		) = 0;
-
-		public: virtual
-		unsigned int
-		wheelCount (
-			void
-		) const = 0;
-
-		public: virtual
-		double
-		averageWheelRadius (
-			void
-		) const = 0;
-
-		public: virtual
-		void
-		update(
-			double
 		) = 0;
 
 		#pragma endregion
@@ -167,9 +202,3 @@ namespace lis::pecase::productive40::robotapi::hardware {
 #pragma endregion
 
 }; // namespace lis::pecase::productive40::robotapi::hardware
-
-/*
-===================================================================================================
-    Macros
-===================================================================================================
-*/

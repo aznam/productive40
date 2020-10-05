@@ -3,8 +3,8 @@
  * \author Aznam Yacoub (aznam.yacoub@lis-lab.fr)
  * \date Sept. 9 2020
  * \version 1.0
- * \brief Controller Namespace File.
- * \details This file declares the controller namespace of the RobotAPI library.
+ * \brief Interface Namespace File.
+ * \details This file declares the interface namespace of the RobotAPI library.
  */
 
 /*
@@ -28,21 +28,37 @@ namespace lis {
 			namespace robotapi {
 
 				/**
-				 * \namespace lis::pecase::productive40::robotapi::controller
-				 * \brief Contains the code related to the controller namespace.
- 				 * \details This namespace provides implementations of the controller components.
+				 * \namespace lis::pecase::productive40::robotapi::interface
+				 * \brief Provides interfaces to manipulate the robots.
+ 				 * \details This namespace provides interfaces to interact with the robots.
 				 */
-				namespace controller {
+				namespace interface {
 
-				#pragma region Types Forward Declarations
+				#pragma region Class Forward Declarations
 
-					class ControllerInterface;
+					class RobotInterface;
 
-					class DefaultController;
+					class DefaultInterface;
 
 				#pragma endregion
 
-				}; // namespace controller
+				}; // namespace interface
+
+				#pragma region Types Definitions
+
+				/**
+				 * \brief Alias for interface::RobotInterface.
+				 * \details Alias for interface::RobotInterface.
+				 */
+				using RobotInterface = interface::RobotInterface;
+
+				/**
+				 * \brief Alias for interface::DefaultInterface.
+				 * \details Alias for interface::DefaultInterface.
+				 */
+				using RobotInterface = interface::DefaultInterface;
+
+				#pragma endregion
 
 			}; // namespace robotapi
 
@@ -57,5 +73,5 @@ namespace lis {
 	Namespace Includes
 ===================================================================================================
 */
-#include "controller/controller_interface.hpp"
-#include "controller/default_controller.hpp"
+#include "interface/robot_interface.hpp"
+#include "interface/default_interface.hpp"

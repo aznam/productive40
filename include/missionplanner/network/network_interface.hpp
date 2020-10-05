@@ -1,5 +1,7 @@
 #pragma once
 
+#include <Eigen/Dense>
+
 namespace lis::pecase::productive40::missionplanner::network {
 
 	class NetworkInterface {
@@ -18,7 +20,8 @@ namespace lis::pecase::productive40::missionplanner::network {
 		void
 		robotConnected (
 			const common::pattern::Observable<NetworkInterface> &,
-			std::string
+			std::string,
+			Eigen::Vector2d
 		) = 0;
 
 		public: virtual

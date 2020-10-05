@@ -17,6 +17,8 @@
 #include "../../../include/missionplanner/application/application.hpp"
 #include "../../../include/missionplanner/network.hpp"
 
+#include <common/strutils.hpp>
+
 /*
 ===================================================================================================
 	Code
@@ -62,6 +64,14 @@ namespace lis::pecase::productive40::missionplanner::application {
 					Simubot* robot = new Simubot(this, r + 1);
 					connect(robot, &Simubot::finished, this, &Application::robotTerminated);
 					this->m_simubots.append(robot);
+					this->m_mainWindow.robotConnected(
+						this->m_networkManager,
+						common::strutils::atohex(
+							robot->m_robotInterface.hardware()->robot_informations()._identifier,
+							sizeof(robot->m_robotInterface.hardware()->robot_informations()._identifier)
+						),
+						robot->m_robotInterface.hardware()->position()
+					);
 					robot->start();
 				}
 			}
@@ -75,10 +85,7 @@ namespace lis::pecase::productive40::missionplanner::application {
 		this->m_mainWindow.show();
 
 		// Test cpde
-		this->m_mainWindow.robotConnected(
-			this->m_networkManager,
-			"af512341cd67he"
-		);
+		
 	}
 
 	Application::~Application (

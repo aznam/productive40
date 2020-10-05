@@ -69,10 +69,12 @@ namespace lis::pecase::productive40::missionplanner::ui {
 	void
 	MainWindow::robotConnected (
 		const common::pattern::Observable<NetworkInterface> & notifier,
-		std::string robot_name
+		std::string robot_name,
+		Eigen::Vector2d position
 	) {
 		this->m_internalUI._robotsList->addItem(QString::fromStdString(robot_name));
-		widget::RobotWidget * robot_widget = this->m_missionScene->createRobotWidget(robot_name);
+		//widget::RobotWidget * robot_widget = this->m_missionScene->createRobotWidget(robot_name);
+		//robot_widget->setPos(position(0,0)*50.0, position(1,0)*50.0);
 	}
 
 	void

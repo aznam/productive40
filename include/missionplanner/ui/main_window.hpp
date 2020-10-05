@@ -113,7 +113,8 @@ namespace lis::pecase::productive40::missionplanner::ui {
 		void
 		robotConnected (
 			const common::pattern::Observable<NetworkInterface> &,
-			std::string
+			std::string,
+			Eigen::Vector2d
 		) override;
 
 		public:

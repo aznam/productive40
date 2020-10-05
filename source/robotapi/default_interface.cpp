@@ -26,7 +26,7 @@
     Code
 ===================================================================================================
 */
-namespace lis::pecase::productive40::robotapi {
+namespace lis::pecase::productive40::robotapi::interface {
 	
 #pragma region Constructors / Destructor
 	
@@ -43,9 +43,11 @@ namespace lis::pecase::productive40::robotapi {
 
 #pragma endregion
 
-#pragma region Communication Operations
+#pragma region Methods Definitions and Implementations
 
-	void
+	#pragma region Communication Operations
+
+	/*void
 	DefaultInterface::broadcastIdentifier (
 		void
 	) {
@@ -88,8 +90,10 @@ namespace lis::pecase::productive40::robotapi {
 			sizeof(this->hardware()->robot_informations())
 		);
 		this->communication()->send(buffer, communication::Packet_Size);
-	}
+	}*/
+
+	#pragma endregion
 
 #pragma endregion
 
-}; // namespace lis::pecase::productive40::robotapi
+}; // namespace lis::pecase::productive40::robotapi::interface

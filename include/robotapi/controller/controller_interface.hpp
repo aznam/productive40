@@ -16,12 +16,18 @@
 
 /*
 ===================================================================================================
+	Eigen Includes
+===================================================================================================
+*/
+#include <Eigen/Dense>
+
+/*
+===================================================================================================
 	Project Includes
 ===================================================================================================
 */
 #include "../robotapi_defines.hpp"
-#include "../hardware/robot_information.hpp"
-#include <Eigen/Dense>
+#include "../hardware.hpp"
 
 /*
 ===================================================================================================
@@ -92,28 +98,35 @@ namespace lis::pecase::productive40::robotapi::controller {
 		 */
 		 public: virtual
 		 const hardware::RobotInformation &
-		 robot_informations (
+		 robotInformations (
 			void
 		 ) const = 0;
 
-		 public: virtual
-		 void
-		 setTrajectory (
-			const std::vector<Eigen::Vector2d> &
-		 ) = 0;
-
+		 /**
+		  * \brief Update the controller.
+		  * \details Update the controller.
+		  * \param[in] t (double) Elapsed time since the last update.
+		  */
 		 public: virtual
 		 void
 		 update (
 			double
 		 ) = 0;
 
+		 /**
+		  * \brief Ask the robot to travel.
+		  * \details Ask the robot to travel.
+		  */
 		 public: virtual
 		 void
 		 startTravel (
 			void
 		 ) = 0;
 
+		  /**
+		  * \brief Ask the robot to stop travel.
+		  * \details Ask the robot to stop travel.
+		  */
 		 public: virtual
 		 void
 		 stopTravel (
@@ -125,14 +138,32 @@ namespace lis::pecase::productive40::robotapi::controller {
 	/**@}*/
 	#pragma endregion
 
+	/**
+	 * \name Trajectory Management
+	 */
+	#pragma region Trajectory Management
+	/**@{*/
+
+		#pragma region Abstract Methods
+
+		 /**
+		  * \brief Set a trajectory for the robot.
+		  * \details Set a trajectory for the robot.
+		  * \param[in] trajectory (const std::vector<Eigen::Vector2d> &) Set of trajectory points.
+		  */
+		public: virtual
+		void
+		setTrajectory (
+			const std::vector<Eigen::Vector2d> &
+		) = 0;
+
+		#pragma endregion
+
+	/**@}*/
+	#pragma endregion
+
 	}; // class ControllerInterface
 
 #pragma endregion
 
 }; // namespace lis::pecase::productive40::robotapi::controller
-
-/*
-===================================================================================================
-    Macros
-===================================================================================================
-*/

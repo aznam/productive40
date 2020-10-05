@@ -20,23 +20,23 @@
 	Project Includes
 ===================================================================================================
 */
-#include "robotapi_defines.hpp"
-#include "controller/controller_interface.hpp"
-#include "hardware/hardware_interface.hpp"
-#include "communication/communication_interface.hpp"
+#include "../robotapi_defines.hpp"
+#include "../controller.hpp"
+#include "../hardware.hpp"
+#include "../communication.hpp"
 
 /*
 ===================================================================================================
     Code
 ===================================================================================================
 */
-namespace lis::pecase::productive40::robotapi {
+namespace lis::pecase::productive40::robotapi::interface {
 	
 #pragma region Types Definitions
 
 	/**
-	 * \interface RobotInterface include/robotapi/robot_interface.hpp \
-	 * <productive40/robotapi/robot_interface.hpp>
+	 * \interface RobotInterface include/robotapi/interface/robot_interface.hpp \
+	 * <productive40/robotapi/interface/robot_interface.hpp>
 	 * \brief Interface to interact with the robot.
 	 * \details The following high-level interface allows access to components and interactions
 	 * with the robot. For each kind of robot, this interface must be implemented to provide an
@@ -57,7 +57,7 @@ namespace lis::pecase::productive40::robotapi {
 		 * \brief Default ctor.
 		 * \details Default ctor.
 		 */
-		protected:
+		public:
 		RobotInterface (
 			void
 		) = default;
@@ -126,4 +126,4 @@ namespace lis::pecase::productive40::robotapi {
 
 #pragma endregion
 
-}; // namespace lis::pecase::productive40::robotapi
+}; // namespace lis::pecase::productive40::robotapi::interface

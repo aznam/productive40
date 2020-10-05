@@ -4,7 +4,7 @@
  * \date Sept. 9 2020
  * \version 1.0
  * \brief Hardware Namespace File.
- * \details This file declares the Hardware namespace of the RobotAPI library.
+ * \details This file declares the hardware namespace of the RobotAPI library.
  */
 
 /*
@@ -13,13 +13,6 @@
 ===================================================================================================
 */
 #pragma once
-
-/*
-===================================================================================================
-	Projects Includes
-===================================================================================================
-*/
-#include "robotapi_defines.hpp"
 
 /*
 ===================================================================================================
@@ -43,9 +36,9 @@ namespace lis {
 
 				#pragma region Types Forward Declarations
 
-					struct ROBOTAPI_LIB RobotInformation;
+					struct RobotInformation;
 
-					class ROBOTAPI_LIB HardwareInterface;
+					class HardwareInterface;
 
 				#pragma endregion
 
@@ -61,14 +54,8 @@ namespace lis {
 
 /*
 ===================================================================================================
-	Projects Includes
+	Namespace Includes
 ===================================================================================================
 */
 #include "hardware/robot_information.hpp"
 #include "hardware/hardware_interface.hpp"
-
-/*
-===================================================================================================
-    Macros
-===================================================================================================
-*/
