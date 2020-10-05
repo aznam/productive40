@@ -43,6 +43,18 @@
     <Filter Include="Template Files\logging">
       <UniqueIdentifier>{8e38fa3a-a217-43ec-ad2b-50dcd08a3a68}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\strutils">
+      <UniqueIdentifier>{7833211e-beee-459e-9664-477e919cd9ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\strutils">
+      <UniqueIdentifier>{3f1ddcb6-5b8c-4283-8979-918eabe84825}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\math">
+      <UniqueIdentifier>{22bc24cd-3c09-401f-b9f2-2c873d998401}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\math">
+      <UniqueIdentifier>{2d53398d-1a5f-486e-b97c-7ab45423bebf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\common.hpp">
@@ -78,6 +90,12 @@
     <ClInclude Include="..\..\include\common\pattern\observable.hpp">
       <Filter>Header Files\pattern</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\common\strutils\functions.hpp">
+      <Filter>Header Files\strutils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\common\math\functions.hpp">
+      <Filter>Header Files\math</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\include\common\pattern\generic_fsm.tpp">
@@ -100,17 +118,17 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\source\common\math.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\source\common\strutils.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\source\common\logging\logger.cpp">
       <Filter>Source Files\logger</Filter>
     </ClCompile>
     <ClCompile Include="..\..\source\common\logging\console_logger_impl.cpp">
       <Filter>Source Files\logger</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\common\strutils\functions.cpp">
+      <Filter>Source Files\strutils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\common\math\functions.cpp">
+      <Filter>Source Files\math</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -16,13 +16,6 @@
 
 /*
 ===================================================================================================
-	Standard Includes
-===================================================================================================
-*/
-#include <string>
-
-/*
-===================================================================================================
     Code
 ===================================================================================================
 */
@@ -41,40 +34,6 @@ namespace lis {
 				 */
 				namespace strutils {
 
-				#pragma region Functions Forward Declarations
-
-					#pragma region Conversions
-
-					/**
-					 * \brief Converts a hex string to an array of bytes.
-					 * \details Converts a hex string to an array of bytes.
-					 * \param[in] hex_str (std::string) The string to convert.
-					 * \param[out] arr (unsigned char *) A pointer to an array of bytes.
-					 * \note : The output array must have been preallocated.
-					 */
-					void
-					hextoa (
-						std::string,
-						unsigned char *
-					);
-
-					/**
-					 * \brief Converts an array of bytes to an hex string.
-					 * \details Converts an array of bytes to an hex string
-					 * \param[in] array (const unsigned char *) The array of bytes.
-					 * \param[in] size (size_t) Size of the array.
-* 					 * \returns (std::string) A string which contains the hex value.
-					 */
-					std::string
-					atohex (
-						const unsigned char *,
-						size_t
-					);
-
-					#pragma endregion
-
-				#pragma endregion
-
 				}; // namespace strutils
 
 			}; // namespace common
@@ -84,3 +43,10 @@ namespace lis {
 	}; // namespace pecase
 
 }; // namespace lis
+
+/*
+===================================================================================================
+	Namespace Includes
+===================================================================================================
+*/
+#include "strutils/functions.hpp"

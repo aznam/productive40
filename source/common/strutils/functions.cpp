@@ -3,8 +3,8 @@
  * \author Aznam Yacoub (aznam.yacoub@lis-lab.fr)
  * \date Sept. 9 2020
  * \version 1.0
- * \brief Strutils Implementation File.
- * \details This file implements the functions of the strutils namespace.
+ * \brief Implementations of string manipulations functions.
+ * \details This file implements the functions to help string manipulations.
  */
 #pragma once
 
@@ -17,26 +17,26 @@
 
 /*
 ===================================================================================================
-    Package Includes
+    Project Includes
 ===================================================================================================
 */
-#include "../../include/common.hpp"
+#include "../../../include/common/strutils/functions.hpp"
 
 /*
 ===================================================================================================
     Code
 ===================================================================================================
 */
-namespace lis::pecase::productive40::common::strutils {
-	
-#pragma region Functions Definitions
+namespace lis::pecase::productive40::common::strutils::functions {
 
-	#pragma region Conversions
+#pragma region Functions Definitions & Implementations
+
+	#pragma region String Content Conversions
 
 	void
 	hextoa (
 		std::string hex_str,
-		unsigned char * arr
+		byte * arr
 	) {
 		if(hex_str.length() % 2 != 0) {
 			hex_str.append("0");
@@ -49,7 +49,7 @@ namespace lis::pecase::productive40::common::strutils {
 
 	std::string
 	atohex (
-		const unsigned char * array,
+		const byte * array,
 		size_t size
 	) {
 		std::string hex_str;
@@ -65,4 +65,4 @@ namespace lis::pecase::productive40::common::strutils {
 
 #pragma endregion
 
-}; // namespace lis::pecase::productive40::common::strutils
+}; // namespace lis::pecase::productive40::common::strutils::functions

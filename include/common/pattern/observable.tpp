@@ -1,7 +1,24 @@
-#pragma once
+/**
+ * \file
+ * \author Aznam Yacoub (aznam.yacoub@lis-lab.fr)
+ * \date Sept. 9 2020
+ * \version 1.0
+ * \brief Observable Implementation.
+ * \details This file provides an implementation for observable objects.
+ */
 
+/*
+===================================================================================================
+	Project Includes
+===================================================================================================
+*/
 #include "observable.hpp"
 
+/*
+===================================================================================================
+	Code
+===================================================================================================
+*/
 namespace lis::pecase::productive40::common::pattern {
 
 #pragma region Constructors / Destructor
@@ -10,7 +27,8 @@ namespace lis::pecase::productive40::common::pattern {
 		typename ObserverInterface
 	> Observable<ObserverInterface>::Observable (
 			void
-	) {
+	) :
+		m_observers() {
 	}
 
 	template <
@@ -23,8 +41,9 @@ namespace lis::pecase::productive40::common::pattern {
 
 #pragma endregion
 
-#pragma region Observer Handling
+#pragma region Methods Definitions & Implementations
 
+	#pragma region Observer Handling
 
 	template <
 		typename ObserverInterface
@@ -60,9 +79,9 @@ namespace lis::pecase::productive40::common::pattern {
 			((*iter)->*func)(*this, params...);
 		}
 	}
-	
+
+	#pragma endregion
+
 #pragma endregion
 
 }; // namespace lis::pecase::productive40::common::pattern
-
-#include "observable.tpp"

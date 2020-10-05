@@ -34,7 +34,9 @@ namespace lis::pecase::productive40::common::logging {
 	ConsoleLoggerImpl::ConsoleLoggerImpl (
 		void
 	) :
-		LoggerImpl() {
+		LoggerImpl(),
+		m_consoleMutex(),
+		m_consoleLock(m_consoleMutex, std::defer_lock) {
 	}
 
 	ConsoleLoggerImpl::~ConsoleLoggerImpl(
@@ -44,7 +46,27 @@ namespace lis::pecase::productive40::common::logging {
 
 #pragma endregion
 
-#pragma region Logging Operations
+#pragma region Methods Definitions & Implementations
+
+	#pragma region Resources Handling
+
+	void
+	ConsoleLoggerImpl::acquireResource (
+		void
+	) {
+		this->m_consoleLock.lock();
+	}
+
+	void
+	ConsoleLoggerImpl::releaseResource (
+			void
+	) {
+		this->m_consoleLock.release();
+	}
+
+	#pragma endregion
+
+	#pragma region Logging Operations
 
 	void
 	ConsoleLoggerImpl::write (
@@ -95,6 +117,8 @@ namespace lis::pecase::productive40::common::logging {
 	) {
 		std::cout << std::endl;
 	}
+
+	#pragma endregion
 
 #pragma endregion
 

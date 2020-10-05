@@ -16,10 +16,18 @@
 
 /*
 ===================================================================================================
+	Standard Includes
+===================================================================================================
+*/
+#include <mutex>
+
+/*
+===================================================================================================
 	Project Includes
 ===================================================================================================
 */
 #include "logger_impl.hpp"
+#include "../pattern/singleton.hpp"
 
 /*
 ===================================================================================================
@@ -38,7 +46,33 @@ namespace lis::pecase::productive40::common::logging {
 	 * \nosubgrouping
 	 */
 	class ConsoleLoggerImpl :
-		public LoggerImpl {
+		public LoggerImpl,
+		public pattern::Singleton<ConsoleLoggerImpl> {
+
+		friend class pattern::Singleton<ConsoleLoggerImpl>;
+
+	/**
+	 * \name Instance Data Members
+	 */
+	#pragma region Instance Data Members
+	/**@{*/
+
+		/**
+		 * \brief Console mutex.
+		 * \details Console mutex.
+		 */
+		std::mutex
+		m_consoleMutex;
+
+		/**
+		 * \brief Console locker.
+		 * \details Console locker.
+		 */
+		std::unique_lock<std::mutex>
+		m_consoleLock;
+
+	/**@}*/
+	#pragma endregion
 
 	/**
 	 * \name Constructors / Destructor
@@ -52,7 +86,7 @@ namespace lis::pecase::productive40::common::logging {
 		 * \brief Default ctor.
 		 * \details Default constructor.
 		 */
-		public:
+		private:
 		ConsoleLoggerImpl (
 			void
 		);
@@ -65,10 +99,43 @@ namespace lis::pecase::productive40::common::logging {
 		 * \brief Default dtor.
 		 * \details Default destructor.
 		 */
-		public:
+		private:
 		~ConsoleLoggerImpl (
 			void
 		);
+
+		#pragma endregion
+
+	/**@}*/
+	#pragma endregion
+
+	/**
+	 * \name Resource Handling
+	 */
+	#pragma region Resource Handling
+	/**@{*/
+
+		#pragma region Overriden Methods
+
+		/**
+		 * \brief Acquire a resource mutex.
+		 * \details Acquire a resource mutex.
+		 */
+		public:
+		void
+		acquireResource (
+			void
+		) override;
+
+		/**
+		 * \brief Release a resource mutex.
+		 * \details Release a resource mutex.
+		 */
+		public: virtual
+		void
+		releaseResource (
+			void
+		) override;
 
 		#pragma endregion
 

@@ -8,9 +8,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.catkin_workspace = .catkin_workspace
 		.editorconfig = .editorconfig
 		.gitignore = .gitignore
-		DIRECTORY.md = DIRECTORY.md
-		productive40.hpp = productive40.hpp
-		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CATKIN_WORKSPACE", "project\CATKIN_WORKSPACE\CATKIN_WORKSPACE.vcxproj", "{AE9DACCE-7859-4CAB-A8FF-99E6F981A03D}"
@@ -39,7 +36,20 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MissionPlanner", "project\m
 		{AF7133E2-F8EF-4BBB-9AAE-3F08F8E07587} = {AF7133E2-F8EF-4BBB-9AAE-3F08F8E07587}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "rosproxy", "project\rosproxy\rosproxy.vcxproj", "{851850B7-E2FE-4739-89B4-D90FD3D78B37}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ROSProxy", "project\rosproxy\rosproxy.vcxproj", "{851850B7-E2FE-4739-89B4-D90FD3D78B37}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation Files", "Documentation Files", "{01DEF476-830E-4C80-B33A-4691C39CC2DB}"
+	ProjectSection(SolutionItems) = preProject
+		DIRECTORY.md = DIRECTORY.md
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Header Files", "Header Files", "{81190581-9088-4C0A-A4B1-87F12BDAC8B4}"
+	ProjectSection(SolutionItems) = preProject
+		include\constants.hpp = include\constants.hpp
+		include\productive40.hpp = include\productive40.hpp
+		include\types.hpp = include\types.hpp
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -100,8 +110,10 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{865EA28A-EEAF-44D3-82F3-6F5665ABB37F} = {F1ACEF06-73E2-4B1A-93CF-B39319FEEE56}
-		{E11E8A58-6289-4847-AF50-90A23C1BE76E} = {F1ACEF06-73E2-4B1A-93CF-B39319FEEE56}
+		{865EA28A-EEAF-44D3-82F3-6F5665ABB37F} = {01DEF476-830E-4C80-B33A-4691C39CC2DB}
+		{E11E8A58-6289-4847-AF50-90A23C1BE76E} = {01DEF476-830E-4C80-B33A-4691C39CC2DB}
+		{01DEF476-830E-4C80-B33A-4691C39CC2DB} = {F1ACEF06-73E2-4B1A-93CF-B39319FEEE56}
+		{81190581-9088-4C0A-A4B1-87F12BDAC8B4} = {F1ACEF06-73E2-4B1A-93CF-B39319FEEE56}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CD337F5F-FF23-4B39-9661-81BB94E56D61}

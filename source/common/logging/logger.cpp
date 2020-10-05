@@ -32,7 +32,7 @@ namespace lis::pecase::productive40::common::logging {
 		m_loggerLock(m_loggerMutex, std::defer_lock) {
 	}
 
-	Logger::~Logger(
+	Logger::~Logger (
 		void
 	) {
 		for(auto l = m_loggersImpl.begin(); l < m_loggersImpl.end(); l++) {
@@ -43,7 +43,9 @@ namespace lis::pecase::productive40::common::logging {
 
 #pragma endregion
 
-#pragma region Loggers Management
+#pragma region Methods Definitions & Implementations
+
+	#pragma region Loggers Management
 
 	void
 	Logger::addlogger (
@@ -52,9 +54,9 @@ namespace lis::pecase::productive40::common::logging {
 		m_loggersImpl.push_back((LoggerImpl *)&logger);
 	}
 
-#pragma endregion
+	#pragma endregion
 
-#pragma region Logging Operations
+	#pragma region Logging Operations
 
 	Logger &
 	Logger::endl (
@@ -73,6 +75,30 @@ namespace lis::pecase::productive40::common::logging {
 	) {
 		return func_ptr(*this);
 	}
+
+	#pragma endregion
+
+	#pragma region Resources Management
+
+	void
+	Logger::lock (
+		void
+	) {
+		for(auto l = this->m_loggersImpl.begin(); l < this->m_loggersImpl.end(); l++) {
+			(*l)->acquireResource();
+		}
+	}
+
+	void
+	Logger::unlock (
+		void
+	) {
+		for(auto l = this->m_loggersImpl.begin(); l < this->m_loggersImpl.end(); l++) {
+			(*l)->releaseResource();
+		}
+	}
+
+	#pragma endregion
 
 #pragma endregion
 

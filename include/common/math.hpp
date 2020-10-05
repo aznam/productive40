@@ -16,13 +16,6 @@
 
 /*
 ===================================================================================================
-	Eigen Includes
-===================================================================================================
-*/
-#include <Eigen/Dense>
-
-/*
-===================================================================================================
     Code
 ===================================================================================================
 */
@@ -42,40 +35,6 @@ namespace lis {
 				 */
 				namespace math {
 
-				#pragma region Functions Forward Declarations
-
-					#pragma region Distance Computation
-
-					/**
-					 * \brief Compute the euclidian distance between two points.
-					 * \details Compute the euclidian distance between two points.
-					 * \param[in] p1 (const Eigen::Vector2d &) Point 1.
-					 * \param[in] p2 (const Eigen::Vector2d &) Point 2.
-					 * \return (double) Distance between P1 and P2.
-					 */
-					double
-					euclidian_distance (
-						const Eigen::Vector2d &,
-						const Eigen::Vector2d &
-					);
-
-					/**
-					 * \brief Compute the euclidian distance between two points.
-					 * \details Compute the euclidian distance between two points.
-					 * \param[in] p1 (const Eigen::Vector3d &) Point 1.
-					 * \param[in] p2 (const Eigen::Vector3d &) Point 2.
-					 * \return (double) Distance between P1 and P2.
-					 */
-					double
-					euclidian_distance (
-						const Eigen::Vector3d &,
-						const Eigen::Vector3d &
-					);
-
-					#pragma endregion
-
-				#pragma endregion
-
 				}; // namespace math
 
 			}; // namespace common
@@ -85,3 +44,10 @@ namespace lis {
 	}; // namespace pecase
 
 }; // namespace lis
+
+/*
+===================================================================================================
+	Namespace Includes
+===================================================================================================
+*/
+#include "math/functions.hpp"

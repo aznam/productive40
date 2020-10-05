@@ -77,6 +77,39 @@ namespace lis::pecase::productive40::common::logging {
 	#pragma endregion
 
 	/**
+	 * \name Resource Handling
+	 */
+	#pragma region Resource Handling
+	/**@{*/
+
+		#pragma region Abstract Methods
+
+		/**
+		 * \brief Acquire a resource mutex.
+		 * \details Acquire a resource mutex.
+		 */
+		public: virtual
+		void
+		acquireResource (
+			void
+		) = 0;
+
+		/**
+		 * \brief Release a resource mutex.
+		 * \details Release a resource mutex.
+		 */
+		public: virtual
+		void
+		releaseResource (
+			void
+		) = 0;
+
+		#pragma endregion
+
+	/**@}*/
+	#pragma endregion
+
+	/**
 	 * \name Logging Operations
 	 */
 	#pragma region Logging Operations

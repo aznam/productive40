@@ -140,6 +140,39 @@ namespace lis::pecase::productive40::common::logging {
 	#pragma endregion
 
 	/**
+	 * \name Resources Management
+	 */
+	#pragma region Resources Management
+	/**@{*/
+
+		#pragma region Instance Methods
+
+		/**
+		 * \brief Lock all resources.
+		 * \details Lock all resources
+		 */
+		public:
+		void
+		lock ( 
+			void
+		);
+
+		/**
+		 * \brief Unlock all resources.
+		 * \details Unlock all resources
+		 */
+		public:
+		void
+		unlock ( 
+			void
+		);
+
+		#pragma endregion
+
+	/**@}*/
+	#pragma endregion
+
+	/**
 	 * \name Logging Operations
 	 */
 	#pragma region Logging Operations

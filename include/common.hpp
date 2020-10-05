@@ -27,13 +27,12 @@ namespace lis {
 
 		namespace productive40 {
 
+			/**
+			 * \namespace lis::pecase::productive40::common
+			 * \brief Contains the code related to the "Common" library.
+			 * \details Contains the code related to the "Common" library.
+			 */
 			namespace common {
-
-			#pragma region Forward Declarations
-
-				// Forward declare types, global variables, functions...
-
-			#pragma endregion
 
 			}; // namespace common
 
@@ -45,7 +44,7 @@ namespace lis {
 
 /*
 ===================================================================================================
-	Namespace Includes
+	Package Includes
 ===================================================================================================
 */
 #include "common/strutils.hpp"

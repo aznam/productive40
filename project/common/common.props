@@ -4,6 +4,8 @@
   <PropertyGroup Label="UserMacros">
     <EIGEN_INC>D:\Libraries\eigen</EIGEN_INC>
     <BOOST_1_66>D:\Libraries\rosdeps\x64\include\boost-1_66</BOOST_1_66>
+    <PYTHON_INC>D:\Python\include</PYTHON_INC>
+    <PYTHON_LIB>D:\Python\libs</PYTHON_LIB>
   </PropertyGroup>
   <PropertyGroup>
     <_PropertySheetDisplayName>Common</_PropertySheetDisplayName>
@@ -16,6 +18,14 @@
     </BuildMacro>
     <BuildMacro Include="BOOST_1_66">
       <Value>$(BOOST_1_66)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="PYTHON_INC">
+      <Value>$(PYTHON_INC)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="PYTHON_LIB">
+      <Value>$(PYTHON_LIB)</Value>
       <EnvironmentVariable>true</EnvironmentVariable>
     </BuildMacro>
   </ItemGroup>

@@ -21,7 +21,9 @@
 */
 namespace lis::pecase::productive40::common::pattern {
 
-#pragma region Singleton Management
+#pragma region Methods Defitions & Implementations
+
+	#pragma region Singleton Management 
 
 	template <
 		typename Class
@@ -32,6 +34,8 @@ namespace lis::pecase::productive40::common::pattern {
 		static Class instance;
 		return instance;
 	}
+
+	#pragma endregion
 
 #pragma endregion
 

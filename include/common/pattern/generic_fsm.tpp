@@ -9,12 +9,6 @@
 
 /*
 ===================================================================================================
-	Macros
-===================================================================================================
-*/
-
-/*
-===================================================================================================
 	Project Includes
 ===================================================================================================
 */
@@ -74,7 +68,9 @@ namespace lis::pecase::productive40::common::pattern {
 	
 #pragma endregion
 
-#pragma region States Management
+#pragma region Functions Definitions & Implementations
+
+	#pragma region States Management
 
 	template <
 		typename Context
@@ -96,9 +92,9 @@ namespace lis::pecase::productive40::common::pattern {
 		m_states.erase(iterator);
 	}
 
-#pragma endregion
+	#pragma endregion
 
-#pragma region Machine Management
+	#pragma region Machine Management
 
 	template <
 		typename Context
@@ -120,6 +116,8 @@ namespace lis::pecase::productive40::common::pattern {
 	) {
 		if(m_currentState != nullptr) m_currentState->update();
 	}
+
+	#pragma endregion
 
 #pragma endregion
 

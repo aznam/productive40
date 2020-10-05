@@ -47,7 +47,6 @@ the same name than the folder they represent.
 symbols. Words in filename are seperated by `_`.
 - Inclusions and references of files should use relative path if it concerns files belonging to the 
 same project; absolute path, otherwise.
-
 ### C++ Specific Rules
 
 #### Extensions
@@ -58,6 +57,27 @@ same project; absolute path, otherwise.
 #### Packages
 - Each package should have an external header which can be included to interact with the whole
 package.
+
+#### Namespaces
+- A namespace corresponds to a directory.
+- Namespace names are in lowercase.
+- Create a specific header file (namespace header) to declare the namespace. This file should:
+ - Be place at the same level that the directory which corresponds to the namespace.
+ - Document the namespace (brief and detailed description).
+ - Predeclare or Declare the elements of the namespace.
+ - Include the header files declaring the elements belonging to this namespace.
+- Use nested namespace declaration in namespace headers.
+- Namespace documentation is done before the declaration of the namespace.
+- Namespace declaration follow block convention. Example:
+  ```cpp
+  namespace mynamespace {
+      ... content ...
+  }; // namespace mynamespace
+  ```
+
+#### Headers
+*A header file should always declare or define a package a namespace, a class, or a structure.
+
 
 #### Sections
 - Headers and sources files are divided into preprocessors directives and code sections.
@@ -100,23 +120,6 @@ is blank line before and after the beginning of a region, before and after the e
 - Content is indented.
 - Last line: closing symbol unidented + optional semi-colon + optional comment.
 
-#### Namespaces
-- A namespace corresponds to a directory.
-- Namespace names are in lowercase.
-- Create a specific header file (namespace header) to declare the namespace. This file should:
- - Be place at the same level that the directory which corresponds to the namespace.
- - Document the namespace (brief and detailed description).
- - Predeclare or Declare the elements of the namespace.
- - Include the header files declaring the elements belonging to this namespace.
-- Use nested namespace declaration in namespace headers.
-- Namespace documentation is done before the declaration of the namespace.
-- Namespace declaration follow block convention. Example:
-  ```cpp
-  namespace mynamespace {
-      ... content ...
-  }; // namespace mynamespace
-  ```
-
 #### Variables naming
 - Local variables are named using lowercases symbols only, and each word is separated with `_`.
 - Global variables ends with `_`.
@@ -124,6 +127,8 @@ is blank line before and after the beginning of a region, before and after the e
 
 #### Enum & Define values
 - Enum values and define values are full upercase.
+- Each word in a define identifier are separated by `_`.
+- Enum values don't contain `_`.
 
 #### Functions
 - Function names follow the local variable naming convention.

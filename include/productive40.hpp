@@ -41,23 +41,19 @@ namespace lis {
 		 */
 		namespace productive40 {
 
-		#pragma region Forward Declarations
-
-			const char* Project_Name = "Productive 4.0";
-
-			const unsigned int Version = 10;
-
-			const unsigned int Major_Version = 1;
-
-			const unsigned int Minor_Version = 0;
-
-		#pragma endregion
-
 		}; // namespace productive40
 
 	}; // namespace pecase
 
 }; // namespace lis
+
+/*
+===================================================================================================
+	Workspace Includes
+===================================================================================================
+*/
+#include "types.hpp"
+#include "constants.hpp"
 
 /*
 ===================================================================================================
@@ -67,9 +63,3 @@ namespace lis {
 #include <common.hpp>
 #include <robotapi.hpp>
 #include <missionplanner.hpp>
-
-/*
-===================================================================================================
-    Macros
-===================================================================================================
-*/
