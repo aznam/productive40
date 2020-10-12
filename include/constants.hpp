@@ -76,9 +76,9 @@ namespace lis {
 
 			#pragma endregion
 
-			};
+			}; // namespace constants
 
-		#pragma region Types Definitions
+		#pragma region Constants Definitions
 
 			/**
 			 * \brief Alias for workspace name.

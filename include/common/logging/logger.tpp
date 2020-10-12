@@ -31,8 +31,8 @@ namespace lis::pecase::productive40::common::logging {
 		const Type & object
 	) {
 		this->m_loggerLock.lock();
-		for(auto l = m_loggersImpl.begin(); l < m_loggersImpl.end(); l++) {
-			(*l)->write(object);
+		for(auto l : this->m_loggersImpl) {
+			l.first->write(object);
 		}
 		this->m_loggerLock.unlock();
 	}

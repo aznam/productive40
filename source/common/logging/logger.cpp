@@ -35,10 +35,10 @@ namespace lis::pecase::productive40::common::logging {
 	Logger::~Logger (
 		void
 	) {
-		for(auto l = m_loggersImpl.begin(); l < m_loggersImpl.end(); l++) {
-			delete *l;
+		for(auto l : this->m_loggersImpl) {
+			if(l.second) delete l.first;
 		}
-		m_loggersImpl.clear();
+		this->m_loggersImpl.clear();
 	}
 
 #pragma endregion
@@ -49,9 +49,10 @@ namespace lis::pecase::productive40::common::logging {
 
 	void
 	Logger::addlogger (
-		const LoggerImpl & logger
+		const LoggerImpl & logger,
+		bool destroy_on_delete
 	) {
-		m_loggersImpl.push_back((LoggerImpl *)&logger);
+		this->m_loggersImpl.push_back(std::make_pair((LoggerImpl *)&logger, destroy_on_delete));
 	}
 
 	#pragma endregion
@@ -62,8 +63,8 @@ namespace lis::pecase::productive40::common::logging {
 	Logger::endl (
 		const Logger & logger
 	) {
-		for(auto l = logger.m_loggersImpl.begin(); l < logger.m_loggersImpl.end(); l++) {
-			(*l)->endl();
+		for(auto l : logger.m_loggersImpl) {
+			l.first->endl();
 		}
 
 		return (Logger &)logger;
@@ -84,8 +85,8 @@ namespace lis::pecase::productive40::common::logging {
 	Logger::lock (
 		void
 	) {
-		for(auto l = this->m_loggersImpl.begin(); l < this->m_loggersImpl.end(); l++) {
-			(*l)->acquireResource();
+		for(auto l : this->m_loggersImpl) {
+			l.first->acquireResource();
 		}
 	}
 
@@ -93,8 +94,8 @@ namespace lis::pecase::productive40::common::logging {
 	Logger::unlock (
 		void
 	) {
-		for(auto l = this->m_loggersImpl.begin(); l < this->m_loggersImpl.end(); l++) {
-			(*l)->releaseResource();
+		for(auto l : this->m_loggersImpl) {
+			l.first->releaseResource();
 		}
 	}
 

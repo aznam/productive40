@@ -20,6 +20,7 @@
 ===================================================================================================
 */
 #include <vector>
+#include <utility>
 #include <mutex>
 
 /*
@@ -58,7 +59,7 @@ namespace lis::pecase::productive40::common::logging {
 		 * \details List of loggers.
 		 */
 		private:
-		std::vector<LoggerImpl *>
+		std::vector<std::pair<LoggerImpl *, bool>>
 		m_loggersImpl;
 
 		/**
@@ -127,11 +128,14 @@ namespace lis::pecase::productive40::common::logging {
 		 * \brief Add a logger.
 		 * \details Add a logger.
 		 * \param[in] logger (const LoggerImpl &) Logger.
+		 * \param[in] destroy_on_delete (bool) Flag indicating if the logger should handle the
+		 * lifespan of the delegate.
 		 */
 		public:
 		void
 		addlogger (
-			const LoggerImpl &
+			const LoggerImpl &,
+			bool = true
 		);
 
 		#pragma endregion

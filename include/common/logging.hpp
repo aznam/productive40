@@ -42,6 +42,8 @@ namespace lis {
 
 					class ConsoleLoggerImpl;
 
+					class FileLoggerImpl;
+
 				#pragma endregion
 
 				}; // namespace logging
@@ -62,3 +64,4 @@ namespace lis {
 #include "logging/logger.hpp"
 #include "logging/logger_impl.hpp"
 #include "logging/console_logger_impl.hpp"
+#include "logging/file_logger_impl.hpp"

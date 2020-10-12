@@ -34,3 +34,4 @@ project/missionplanner/obj/
 /project/catkin/catkin_generated/version
 /project/atomic_configure
 /generated
+/share/rosproxy/cmake

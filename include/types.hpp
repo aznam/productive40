@@ -85,7 +85,7 @@ namespace lis {
 
 			#pragma endregion
 
-			};
+			}; // namespace types
 
 		#pragma region Types Definitions
 

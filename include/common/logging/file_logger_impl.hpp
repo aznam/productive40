@@ -3,8 +3,8 @@
  * \author Aznam Yacoub (aznam.yacoub@lis-lab.fr)
  * \date Sept. 9 2020
  * \version 1.0
- * \brief This file provides the interface of a console logger implementation.
- * \details This file provides the interface of a console logger implementation.
+ * \brief This file provides the interface of a file logger implementation.
+ * \details This file provides the interface of a file logger implementation.
  */
 
 /*
@@ -20,6 +20,7 @@
 ===================================================================================================
 */
 #include <mutex>
+#include <fstream>
 
 /*
 ===================================================================================================
@@ -27,7 +28,6 @@
 ===================================================================================================
 */
 #include "logger_impl.hpp"
-#include "../pattern/singleton.hpp"
 
 /*
 ===================================================================================================
@@ -39,17 +39,14 @@ namespace lis::pecase::productive40::common::logging {
 #pragma region Types Definitions
 
 	/**
-	 * \class ConsoleLoggerImpl include/common/logging/console_logger_impl.hpp \
-	 * <productive40/common/logging/console_logger_impl.hpp>
-	 * \brief Console Logger Implementation Interface.
-	 * \details This class implements a logging in the console.
+	 * \class FileLoggerImpl include/common/logging/file_logger_impl.hpp \
+	 * <productive40/common/logging/file_logger_impl.hpp>
+	 * \brief File Logger Implementation Interface.
+	 * \details This class implements a logging in a file.
 	 * \nosubgrouping
 	 */
-	class ConsoleLoggerImpl :
-		public LoggerImpl,
-		public pattern::Singleton<ConsoleLoggerImpl> {
-
-		friend class pattern::Singleton<ConsoleLoggerImpl>;
+	class FileLoggerImpl :
+		public LoggerImpl {
 
 	/**
 	 * \name Instance Data Members
@@ -58,20 +55,28 @@ namespace lis::pecase::productive40::common::logging {
 	/**@{*/
 
 		/**
-		 * \brief Console mutex.
-		 * \details Console mutex.
+		 * \brief File mutex.
+		 * \details File mutex.
 		 */
 		private:
 		std::mutex
-		m_consoleMutex;
+		m_fileMutex;
 
 		/**
-		 * \brief Console locker.
-		 * \details Console locker.
+		 * \brief File locker.
+		 * \details File locker.
 		 */
 		private:
 		std::unique_lock<std::mutex>
-		m_consoleLock;
+		m_fileLock;
+
+		/*
+		 * \brief Stream object.
+		 * \details Internal Stream object.
+		 */
+		private:
+		std::ofstream
+		m_fileStream;
 
 	/**@}*/
 	#pragma endregion
@@ -88,9 +93,9 @@ namespace lis::pecase::productive40::common::logging {
 		 * \brief Default ctor.
 		 * \details Default constructor.
 		 */
-		private:
-		ConsoleLoggerImpl (
-			void
+		public:
+		FileLoggerImpl (
+			const char* filename
 		);
 
 		#pragma endregion
@@ -101,8 +106,8 @@ namespace lis::pecase::productive40::common::logging {
 		 * \brief Default dtor.
 		 * \details Default destructor.
 		 */
-		private:
-		~ConsoleLoggerImpl (
+		public:
+		~FileLoggerImpl (
 			void
 		);
 
@@ -233,7 +238,7 @@ namespace lis::pecase::productive40::common::logging {
 	/**@}*/
 	#pragma endregion
 
-	}; // class ConsoleLoggerImpl
+	}; // class FileLoggerImpl
 
 #pragma endregion
 

@@ -3,8 +3,8 @@
  * \author Aznam Yacoub (aznam.yacoub@lis-lab.fr)
  * \date Sept. 9 2020
  * \version 1.0
- * \brief This file provides the implementation of a console logger.
- * \details This file provides the implementation of a console logger.
+ * \brief This file provides the implementation of a file logger.
+ * \details This file provides the implementation of a file logger.
  */
 #pragma once
 
@@ -14,13 +14,14 @@
 ===================================================================================================
 */
 #include <iostream>
+#include <exception>
 
 /*
 ===================================================================================================
     Project Includes
 ===================================================================================================
 */
-#include "../../../include/common/logging/console_logger_impl.hpp"
+#include "../../../include/common/logging/file_logger_impl.hpp"
 
 /*
 ===================================================================================================
@@ -31,18 +32,25 @@ namespace lis::pecase::productive40::common::logging {
 	
 #pragma region Constructors / Destructor
 
-	ConsoleLoggerImpl::ConsoleLoggerImpl (
-		void
+	FileLoggerImpl::FileLoggerImpl (
+		const char* filename
 	) :
 		LoggerImpl(),
-		pattern::Singleton<ConsoleLoggerImpl>(),
-		m_consoleMutex(),
-		m_consoleLock(m_consoleMutex, std::defer_lock) {
+		m_fileMutex(),
+		m_fileLock(m_fileMutex, std::defer_lock),
+		m_fileStream() {
+		m_fileStream.open(filename, std::ofstream::out | std::ofstream::trunc);
+
+		if(m_fileStream.fail() || m_fileStream.bad() || m_fileStream.is_open() == false) {
+			throw std::exception("LoggerFile: Cannot open file.");
+		}
 	}
 
-	ConsoleLoggerImpl::~ConsoleLoggerImpl(
+	FileLoggerImpl::~FileLoggerImpl(
 		void
 	) {
+		m_fileStream.flush();
+		m_fileStream.close();
 	}
 
 #pragma endregion
@@ -52,17 +60,17 @@ namespace lis::pecase::productive40::common::logging {
 	#pragma region Resources Handling
 
 	void
-	ConsoleLoggerImpl::acquireResource (
+	FileLoggerImpl::acquireResource (
 		void
 	) {
-		this->m_consoleLock.lock();
+		this->m_fileLock.lock();
 	}
 
 	void
-	ConsoleLoggerImpl::releaseResource (
+	FileLoggerImpl::releaseResource (
 			void
 	) {
-		this->m_consoleLock.release();
+		this->m_fileLock.release();
 	}
 
 	#pragma endregion
@@ -70,53 +78,53 @@ namespace lis::pecase::productive40::common::logging {
 	#pragma region Logging Operations
 
 	void
-	ConsoleLoggerImpl::write (
+	FileLoggerImpl::write (
 		unsigned long object
 	) {
-		std::cout << object;
+		m_fileStream << object;
 	}
 
 
 	void
-	ConsoleLoggerImpl::write (
+	FileLoggerImpl::write (
 		long object
 	) {
-		std::cout << object;
+		m_fileStream << object;
 	}
 
 	void
-	ConsoleLoggerImpl::write (
+	FileLoggerImpl::write (
 		double object
 	) {
-		std::cout << object;
+		m_fileStream << object;
 	}
 
 	void
-	ConsoleLoggerImpl::write (
+	FileLoggerImpl::write (
 		char object
 	) {
-		std::cout << object;
+		m_fileStream << object;
 	}
 
 	void
-	ConsoleLoggerImpl::write (
+	FileLoggerImpl::write (
 		const char * object
 	) {
-		std::cout << object;
+		m_fileStream << object;
 	}
 
 	void
-	ConsoleLoggerImpl::write (
+	FileLoggerImpl::write (
 		const std::string & object
 	) {
-		std::cout << object;
+		m_fileStream << object;
 	}
 
 	void
-	ConsoleLoggerImpl::endl (
+	FileLoggerImpl::endl (
 		void
 	) {
-		std::cout << std::endl;
+		m_fileStream << std::endl;
 	}
 
 	#pragma endregion

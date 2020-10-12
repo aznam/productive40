@@ -46,9 +46,7 @@ namespace lis {
 	Package Includes
 ===================================================================================================
 */
+#include "missionplanner/defines.hpp"
 #include "missionplanner/globals.hpp"
+#include "missionplanner/constants.hpp"
 #include "missionplanner/application.hpp"
-#include "missionplanner/network.hpp"
-#include "missionplanner/ui.hpp"
-#include "missionplanner/robot.hpp"
-#include "missionplanner/environment.hpp"
