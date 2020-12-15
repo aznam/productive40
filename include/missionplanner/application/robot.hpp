@@ -38,11 +38,11 @@ namespace lis {
 
 					#pragma region Forward Declarations
 
-						class FakeCommunication;
+						class SimubotInterface;
 
 						class HardwareSimulation;
 
-						class SimubotInterface;
+						class FakeCommunication;
 
 					#pragma endregion
 
@@ -60,15 +60,9 @@ namespace lis {
 
 /*
 ===================================================================================================
-	Projects Includes
+	Namespace Includes
 ===================================================================================================
 */
 #include "robot/hardware_simulation.hpp"
-#include "robot/simubot_interface.hpp"
 #include "robot/fake_communication.hpp"
-
-/*
-===================================================================================================
-    Macros
-===================================================================================================
-*/
+#include "robot/simubot_interface.hpp"

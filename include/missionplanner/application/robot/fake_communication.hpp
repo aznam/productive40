@@ -26,13 +26,13 @@
 	Qt Includes
 ===================================================================================================
 */
+#include <QObject>
 #include <QLocalServer>
 #include <QLocalSocket>
-#include <QObject>
 
 /*
 ===================================================================================================
-    Project Includes
+    Workspace Includes
 ===================================================================================================
 */
 #include <robotapi/communication.hpp>
@@ -81,6 +81,10 @@ namespace lis::pecase::productive40::missionplanner::application::robot {
 		QLocalSocket *
 		m_client;
 
+		/**
+		 * \brief Flag indicating that data is available.
+		 * \details Flag indicating that data is available.
+		 */
 		private:
 		bool
 		m_dataAvailable;
@@ -99,10 +103,11 @@ namespace lis::pecase::productive40::missionplanner::application::robot {
 		/**
 		 * \brief Default ctor.
 		 * \details Default constructor.
+		 * \param[in] parent (QObject *) Parent.
 		 */
 		public:
 		FakeCommunication (
-			void
+			QObject *
 		);
 
 		#pragma endregion
@@ -140,32 +145,6 @@ namespace lis::pecase::productive40::missionplanner::application::robot {
 		void
 		listen (
 			const std::string &
-		);
-
-		#pragma endregion
-
-		#pragma region Slots
-
-		/**
-		 * \brief Accept pending connections.
-		 * \details Accept pending connections.
-		 */
-		private slots:
-		void
-		pendingClientConnection (
-			void
-		);
-
-		private slots:
-		void
-		lostClientConnection (
-			void
-		);
-
-		private slots:
-		void
-		readyClientRead (
-			void
 		);
 
 		#pragma endregion
@@ -210,6 +189,12 @@ namespace lis::pecase::productive40::missionplanner::application::robot {
 			unsigned long
 		) override;
 
+		/**
+		 * \brief Receive a unicast message.
+		 * \details Receive a unicast message from a client.
+		 * \param[in] message (const char *) Array of bytes to send.
+		 * \param[in] size (unsigned long) Size of the message.
+		 */
 		public:
 		void
 		recv (
@@ -217,10 +202,44 @@ namespace lis::pecase::productive40::missionplanner::application::robot {
 			unsigned long
 		) override;
 
-		public: bool
+		/*public: bool
 		requested (
 			void
-		) const override;
+		) const override;*/
+
+		#pragma endregion
+
+		#pragma region Slots
+
+		/**
+		 * \brief Accept pending connections.
+		 * \details Accept pending connections.
+		 */
+		private slots:
+		void
+		pendingClientConnection (
+			void
+		);
+
+		/**
+		 * \brief Lost connections.
+		 * \details Lost connections.
+		 */
+		private slots:
+		void
+		lostClientConnection (
+			void
+		);
+
+		/**
+		 * \brief Ready read.
+		 * \details Ready read.
+		 */
+		private slots:
+		void
+		readyClientRead (
+			void
+		);
 
 		#pragma endregion
 

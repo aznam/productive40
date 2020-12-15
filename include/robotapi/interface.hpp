@@ -56,7 +56,7 @@ namespace lis {
 				 * \brief Alias for interface::DefaultInterface.
 				 * \details Alias for interface::DefaultInterface.
 				 */
-				using RobotInterface = interface::DefaultInterface;
+				using DefaultInterface = interface::DefaultInterface;
 
 				#pragma endregion
 
@@ -74,4 +74,3 @@ namespace lis {
 ===================================================================================================
 */
 #include "interface/robot_interface.hpp"
-#include "interface/default_interface.hpp"

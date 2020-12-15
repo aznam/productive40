@@ -69,9 +69,9 @@ namespace lis::pecase::productive40::missionplanner::application {
 		 * \brief Simubot Update Frequency.
 		 * \details This constant simulates the CPU frequency of a simulated robot (in ms).
 		 */
-		private: const
+		private: static const
 		unsigned long
-		m_CPUfrequency = 300;
+		CPU_Frequency_;
 
 
 	/**@}*/
@@ -82,14 +82,6 @@ namespace lis::pecase::productive40::missionplanner::application {
 	 */
     #pragma region Instance Data Members
 	/**@{*/
-
-		/**
-		 * \brief Identifier of the robot.
-		 * \details Identifier of the robot.
-		 */
-		private:
-		unsigned int
-		m_identifier;
 
 		/**
 		 * \brief Interface to interact the robot.
@@ -169,20 +161,6 @@ namespace lis::pecase::productive40::missionplanner::application {
 		run (
 			void
 		) override;
-
-		#pragma endregion
-
-		#pragma region Slots
-
-		/**
-		 * \brief Robot refresh.
-		 * \details Refresh the robot state.
-		 */
-		private slots:
-		void
-		refresh (
-			void
-		);
 
 		#pragma endregion
 

@@ -27,6 +27,7 @@ namespace lis::pecase::productive40::robotapi::hardware {
 		const unsigned char (& identifier) [16],
 		const double (& dimensions) [3],
 		double mass,
+		double wheel,
 		double max_linear_speed,
 		double max_linear_accel,
 		double inertia_moment
@@ -52,6 +53,7 @@ namespace lis::pecase::productive40::robotapi::hardware {
 		},
 		_dimensions{dimensions[0], dimensions[1], dimensions[2]},
 		_mass(mass),
+		_wheel(wheel),
 		_maxLinearSpeed(max_linear_speed),
 		_maxLinearAccel(max_linear_accel),
 		_inertiaMoment(inertia_moment) {
@@ -85,6 +87,7 @@ namespace lis::pecase::productive40::robotapi::hardware {
 			robot_informations._dimensions[2],
 		},
 		_mass(robot_informations._mass),
+		_wheel(robot_informations._wheel),
 		_maxLinearSpeed(robot_informations._maxLinearSpeed),
 		_maxLinearAccel(robot_informations._maxLinearAccel),
 		_inertiaMoment(robot_informations._inertiaMoment) {

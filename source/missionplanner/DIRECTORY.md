@@ -6,6 +6,10 @@
 \brief This folder contains implementations of network components.
 \details This folder contains implementations of network components.
 
+\dir source\missionplanner\environment
+\brief This folder contains implementations of environment components.
+\details This folder contains implementations of environment components.
+
 \dir source\missionplanner\robot
 \brief This folder contains implementations of robot components.
 \details This folder contains implementations of robot components.

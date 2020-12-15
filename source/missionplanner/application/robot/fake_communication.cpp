@@ -12,7 +12,7 @@
 	Project Includes
 ===================================================================================================
 */
-#include "../../../../include/missionplanner/environment.hpp"
+#include "../../../../include/missionplanner/globals.hpp"
 #include "../../../../include/missionplanner/application/robot/fake_communication.hpp"
 
 /*
@@ -25,15 +25,15 @@ namespace lis::pecase::productive40::missionplanner::application::robot {
 #pragma region Constructors / Destructor
 	
 	FakeCommunication::FakeCommunication (
-		void
+		QObject * parent
 	) :
-		QObject(),
+		QObject(parent),
 		robotapi::communication::CommunicationInterface(),
-		m_server(),
+		m_server(this),
 		m_client(nullptr),
 		m_dataAvailable(false) {
 		this->m_server.setMaxPendingConnections(1);
-		connect(
+		QObject::connect(
 			&this->m_server,
 			&QLocalServer::newConnection,
 			this,
@@ -49,12 +49,8 @@ namespace lis::pecase::productive40::missionplanner::application::robot {
 			delete this->m_client;
 		}
 		this->m_server.close();
-		disconnect(
-			&this->m_server,
-			&QLocalServer::newConnection,
-			this,
-			&FakeCommunication::pendingClientConnection
-		);
+		QObject::disconnect(&this->m_server);
+		QObject::disconnect(this);
 	}
 
 #pragma endregion
@@ -66,40 +62,6 @@ namespace lis::pecase::productive40::missionplanner::application::robot {
 		const std::string & name
 	) {
 		this->m_server.listen(QString::fromStdString(name));
-	}
-
-	void
-	FakeCommunication::pendingClientConnection (
-		void
-	) {
-		this->m_client = this->m_server.nextPendingConnection();
-		connect(
-			this->m_client,
-			&QLocalSocket::readyRead,
-			this,
-			&FakeCommunication::readyClientRead
-		);
-		connect(
-			this->m_client,
-			&QLocalSocket::disconnected,
-			this,
-			&FakeCommunication::lostClientConnection
-		);
-	}
-
-	void
-	FakeCommunication::lostClientConnection (
-		void
-	) {
-		this->m_client->deleteLater();
-		this->m_client = nullptr;
-	}
-
-	void
-	FakeCommunication::readyClientRead (
-		void
-	) {
-		m_dataAvailable = true;
 	}
 
 	bool
@@ -114,7 +76,7 @@ namespace lis::pecase::productive40::missionplanner::application::robot {
 		const unsigned char * message,
 		unsigned long size
 	) {
-		Environment::instance().sendData(message, size);
+		virtual_network_->sendData(message, size);
 	}
 
 	void
@@ -135,14 +97,48 @@ namespace lis::pecase::productive40::missionplanner::application::robot {
 		if(!this->connected()) return;
 
 		this->m_client->read((char *)message, size);
-		m_dataAvailable = this->m_client->bytesAvailable() > 0;
+		this->m_dataAvailable = this->m_client->bytesAvailable() > 0;
 	}
 
-	bool
+	/*bool
 	FakeCommunication::requested (
 		void
 	) const {
 		return this->m_dataAvailable || this->m_client->bytesAvailable() > 0;
+	}*/
+
+	void
+	FakeCommunication::pendingClientConnection (
+		void
+	) {
+		this->m_client = this->m_server.nextPendingConnection();
+		QObject::connect(
+			this->m_client,
+			&QLocalSocket::readyRead,
+			this,
+			&FakeCommunication::readyClientRead
+		);
+		QObject::connect(
+			this->m_client,
+			&QLocalSocket::disconnected,
+			this,
+			&FakeCommunication::lostClientConnection
+		);
+	}
+
+	void
+	FakeCommunication::lostClientConnection (
+		void
+	) {
+		this->m_client->deleteLater();
+		this->m_client = nullptr;
+	}
+
+	void
+	FakeCommunication::readyClientRead (
+		void
+	) {
+		this->m_dataAvailable = true;
 	}
 
 #pragma endregion

@@ -92,100 +92,92 @@
     <Filter Include="Source Files\ui\widget">
       <UniqueIdentifier>{235401bc-dcaf-4bf6-89fb-6e7bd8d7b528}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\environment">
+      <UniqueIdentifier>{1f58da2b-121b-4853-9333-9cb6c3959438}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\environment">
+      <UniqueIdentifier>{6e921949-b671-47ee-8db7-47fa72b20bb5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Documentation Files\include\ui">
+      <UniqueIdentifier>{106c61ff-338b-4e17-8ff2-d7402568957b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Documentation Files\source\ui">
+      <UniqueIdentifier>{05def6e0-6cc8-4496-8999-f1029f83a928}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ui\tool">
+      <UniqueIdentifier>{7b1e9bf4-a6c7-4561-a859-cc75d6c2abee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ui\tool">
+      <UniqueIdentifier>{cbf715f2-2d04-4faf-8685-0182afd4b184}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\missionplanner.hpp">
       <Filter>Package Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\missionplanner\globals.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\include\missionplanner\application.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\missionplanner\constants.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\missionplanner\ui.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\missionplanner\application\robot\hardware_simulation.hpp">
-      <Filter>Header Files\application\robot</Filter>
+    <ClInclude Include="..\..\include\missionplanner\defines.hpp">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\missionplanner\application\robot\simubot_interface.hpp">
-      <Filter>Header Files\application\robot</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\missionplanner\robot.hpp">
+    <ClInclude Include="..\..\include\missionplanner\environment.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\missionplanner\application\robot.hpp">
       <Filter>Header Files\application</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\missionplanner\network.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\missionplanner\network\delegate.hpp">
-      <Filter>Header Files\network</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\missionplanner\robot\robot_manager.hpp">
-      <Filter>Header Files\robot</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\missionplanner\robot\robot.hpp">
-      <Filter>Header Files\robot</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\missionplanner\network\network_interface.hpp">
-      <Filter>Header Files\network</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\missionplanner\ui\widget.hpp">
       <Filter>Header Files\ui</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\missionplanner\robot\robot_interface.hpp">
+    <ClInclude Include="..\..\include\missionplanner\robot.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\missionplanner\robot\robot_model.hpp">
       <Filter>Header Files\robot</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\missionplanner\ui\widget\robot_widget.hpp">
       <Filter>Header Files\ui\widget</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\missionplanner\globals.hpp">
+    <ClInclude Include="..\..\include\missionplanner\ui\tool.hpp">
+      <Filter>Header Files\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\missionplanner\ui\tool\selection_tool.hpp">
+      <Filter>Header Files\ui\tool</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\missionplanner\ui\widget\robot_element.hpp">
+      <Filter>Header Files\ui\widget</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\missionplanner\ui\tool\add_trajectory_tool.hpp">
+      <Filter>Header Files\ui\tool</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\missionplanner\robot\trajectory.hpp">
+      <Filter>Header Files\robot</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\missionplanner\ui\widget\trajectory_widget.hpp">
+      <Filter>Header Files\ui\widget</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\missionplanner\ui\tool\rem_trajectory_tool.hpp">
+      <Filter>Header Files\ui\tool</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\missionplanner\application\robot\hardware_simulation.hpp">
+      <Filter>Header Files\application\robot</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\missionplanner\network\delegate.hpp">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\missionplanner\network.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\source\missionplanner\main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\source\missionplanner\application\application.cpp">
-      <Filter>Source Files\application</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\source\missionplanner\ui\main_window.cpp">
-      <Filter>Source Files\ui</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\source\missionplanner\application\robot\hardware_simulation.cpp">
-      <Filter>Source Files\application\robot</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\source\missionplanner\application\simubot.cpp">
-      <Filter>Source Files\application</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\source\missionplanner\network\network_manager.cpp">
-      <Filter>Source Files\network</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\source\missionplanner\application\robot\fake_communication.cpp">
-      <Filter>Source Files\application\robot</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\source\missionplanner\environment.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\source\missionplanner\network\delegate\fake_communication_impl.cpp">
-      <Filter>Source Files\network\delegate</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\source\missionplanner\network\delegate\ros_communication_impl.cpp">
-      <Filter>Source Files\network\delegate</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\source\missionplanner\ui\widget\robot_widget.cpp">
-      <Filter>Source Files\ui\widget</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\source\missionplanner\ui\widget\mission_scene.cpp">
-      <Filter>Source Files\ui\widget</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\source\missionplanner\application\robot\simubot_interface.cpp">
-      <Filter>Source Files\application\robot</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\source\missionplanner\globals.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\include\missionplanner\DIRECTORY.md">
@@ -206,6 +198,102 @@
     <None Include="..\..\source\missionplanner\network\DIRECTORY.md">
       <Filter>Documentation Files\source\network</Filter>
     </None>
+    <None Include="..\..\include\missionplanner\ui\DIRECTORY.md">
+      <Filter>Documentation Files\include\ui</Filter>
+    </None>
+    <None Include="..\..\source\missionplanner\ui\DIRECTORY.md">
+      <Filter>Documentation Files\source\ui</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="..\..\ui\main_window.ui">
+      <Filter>UI Files</Filter>
+    </QtUic>
+    <QtUic Include="..\..\ui\logger_window.ui">
+      <Filter>UI Files</Filter>
+    </QtUic>
+    <QtUic Include="..\..\ui\inspector_window.ui">
+      <Filter>UI Files</Filter>
+    </QtUic>
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="..\..\resource\main_window.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\source\missionplanner\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\missionplanner\globals.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\missionplanner\application\application.cpp">
+      <Filter>Source Files\application</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\missionplanner\ui\main_window.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\missionplanner\ui\logger_window.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\missionplanner\application\window_logger_impl.cpp">
+      <Filter>Source Files\application</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\missionplanner\environment\virtual_network.cpp">
+      <Filter>Source Files\environment</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\missionplanner\application\simubot.cpp">
+      <Filter>Source Files\application</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\missionplanner\application\robot\simubot_interface.cpp">
+      <Filter>Source Files\application\robot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\missionplanner\ui\widget\mission_scene.cpp">
+      <Filter>Source Files\ui\widget</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\missionplanner\ui\inspector_window.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\missionplanner\robot\robot_manager.cpp">
+      <Filter>Source Files\robot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\missionplanner\ui\widget\robot_widget.cpp">
+      <Filter>Source Files\ui\widget</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\missionplanner\ui\tool\selection_tool.cpp">
+      <Filter>Source Files\ui\tool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\missionplanner\ui\widget\robot_element.cpp">
+      <Filter>Source Files\ui\widget</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\missionplanner\ui\tool\add_trajectory_tool.cpp">
+      <Filter>Source Files\ui\tool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\missionplanner\robot\trajectory.cpp">
+      <Filter>Source Files\robot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\missionplanner\ui\widget\trajectory_widget.cpp">
+      <Filter>Source Files\ui\widget</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\missionplanner\ui\tool\rem_trajectory_tool.cpp">
+      <Filter>Source Files\ui\tool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\missionplanner\application\robot\hardware_simulation.cpp">
+      <Filter>Source Files\application\robot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\missionplanner\application\robot\fake_communication.cpp">
+      <Filter>Source Files\application\robot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\missionplanner\network\network_manager.cpp">
+      <Filter>Source Files\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\missionplanner\network\delegate\fake_communication_impl.cpp">
+      <Filter>Source Files\network\delegate</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\missionplanner\network\delegate\ros_communication_impl.cpp">
+      <Filter>Source Files\network\delegate</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="..\..\include\missionplanner\application\application.hpp">
@@ -214,8 +302,32 @@
     <QtMoc Include="..\..\include\missionplanner\ui\main_window.hpp">
       <Filter>Header Files\ui</Filter>
     </QtMoc>
+    <QtMoc Include="..\..\include\missionplanner\ui\logger_window.hpp">
+      <Filter>Header Files\ui</Filter>
+    </QtMoc>
+    <QtMoc Include="..\..\include\missionplanner\environment\virtual_network.hpp">
+      <Filter>Header Files\environment</Filter>
+    </QtMoc>
     <QtMoc Include="..\..\include\missionplanner\application\simubot.hpp">
       <Filter>Header Files\application</Filter>
+    </QtMoc>
+    <QtMoc Include="..\..\include\missionplanner\application\robot\simubot_interface.hpp">
+      <Filter>Header Files\application\robot</Filter>
+    </QtMoc>
+    <QtMoc Include="..\..\include\missionplanner\application\window_logger_impl.hpp">
+      <Filter>Header Files\application</Filter>
+    </QtMoc>
+    <QtMoc Include="..\..\include\missionplanner\ui\widget\mission_scene.hpp">
+      <Filter>Header Files\ui\widget</Filter>
+    </QtMoc>
+    <QtMoc Include="..\..\include\missionplanner\ui\inspector_window.hpp">
+      <Filter>Header Files\ui</Filter>
+    </QtMoc>
+    <QtMoc Include="..\..\include\missionplanner\robot\robot_manager.hpp">
+      <Filter>Header Files\robot</Filter>
+    </QtMoc>
+    <QtMoc Include="..\..\include\missionplanner\application\robot\fake_communication.hpp">
+      <Filter>Header Files\application\robot</Filter>
     </QtMoc>
     <QtMoc Include="..\..\include\missionplanner\network\network_manager_impl.hpp">
       <Filter>Header Files\network</Filter>
@@ -223,30 +335,11 @@
     <QtMoc Include="..\..\include\missionplanner\network\delegate\fake_communication_impl.hpp">
       <Filter>Header Files\network\delegate</Filter>
     </QtMoc>
-    <QtMoc Include="..\..\include\missionplanner\environment.hpp">
-      <Filter>Header Files</Filter>
-    </QtMoc>
     <QtMoc Include="..\..\include\missionplanner\network\network_manager.hpp">
       <Filter>Header Files\network</Filter>
-    </QtMoc>
-    <QtMoc Include="..\..\include\missionplanner\application\robot\fake_communication.hpp">
-      <Filter>Header Files\application\robot</Filter>
     </QtMoc>
     <QtMoc Include="..\..\include\missionplanner\network\delegate\ros_communication_impl.hpp">
       <Filter>Header Files\network\delegate</Filter>
     </QtMoc>
-    <QtMoc Include="..\..\include\missionplanner\ui\widget\mission_scene.hpp">
-      <Filter>Header Files\ui\widget</Filter>
-    </QtMoc>
-  </ItemGroup>
-  <ItemGroup>
-    <QtUic Include="..\..\ui\main_window.ui">
-      <Filter>UI Files</Filter>
-    </QtUic>
-  </ItemGroup>
-  <ItemGroup>
-    <QtRcc Include="..\..\resource\main_window.qrc">
-      <Filter>Resource Files</Filter>
-    </QtRcc>
   </ItemGroup>
 </Project>

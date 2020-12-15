@@ -63,7 +63,7 @@ namespace lis::pecase::productive40::robotapi::controller {
 		protected:
 		ControllerInterface (
 			void
-		) = default;
+		);
 
 		#pragma endregion
 
@@ -76,7 +76,7 @@ namespace lis::pecase::productive40::robotapi::controller {
 		public: virtual
 		~ControllerInterface (
 			void
-		) = default;
+		);
 
 		#pragma endregion
 
@@ -84,54 +84,54 @@ namespace lis::pecase::productive40::robotapi::controller {
 	#pragma endregion
 
 	/**
-	 * \name Robot Manipulation
+	 * \name Robot Manipulation & Handling
 	 */
-	#pragma region Robot Manipulation
+	#pragma region Robot Manipulation & Handling
 	/**@{*/
 
 		#pragma region Abstract Methods
+
+		/**
+		 * \brief Update the controller.
+		 * \details Update the controller.
+		 * \param[in] t (double) Elapsed time since the last update.
+		 */
+		public: virtual
+		void
+		update (
+			double
+		) = 0;
+
+		/**
+		 * \brief Ask the robot to travel.
+		 * \details Ask the robot to travel.
+		 */
+		public: virtual
+		void
+		startTravel (
+			void
+		) = 0;
+
+		/**
+		 * \brief Ask the robot to stop travel.
+		 * \details Ask the robot to stop travel.
+		 */
+		public: virtual
+		void
+		stopTravel (
+			void
+		) = 0;
 
 		/**
 		 * \brief Returns basic informations about the robot.
 		 * \details Returns basic informations about the robot.
 		 * \returns (const hardware::RobotInformation &) Informations about the robot.
 		 */
-		 public: virtual
-		 const hardware::RobotInformation &
-		 robotInformations (
+		public: virtual
+		const hardware::RobotInformation &
+		robotInformations (
 			void
-		 ) const = 0;
-
-		 /**
-		  * \brief Update the controller.
-		  * \details Update the controller.
-		  * \param[in] t (double) Elapsed time since the last update.
-		  */
-		 public: virtual
-		 void
-		 update (
-			double
-		 ) = 0;
-
-		 /**
-		  * \brief Ask the robot to travel.
-		  * \details Ask the robot to travel.
-		  */
-		 public: virtual
-		 void
-		 startTravel (
-			void
-		 ) = 0;
-
-		  /**
-		  * \brief Ask the robot to stop travel.
-		  * \details Ask the robot to stop travel.
-		  */
-		 public: virtual
-		 void
-		 stopTravel (
-			void
-		 ) = 0;
+		) const = 0;
 
 		#pragma endregion
 
@@ -146,16 +146,27 @@ namespace lis::pecase::productive40::robotapi::controller {
 
 		#pragma region Abstract Methods
 
-		 /**
-		  * \brief Set a trajectory for the robot.
-		  * \details Set a trajectory for the robot.
-		  * \param[in] trajectory (const std::vector<Eigen::Vector2d> &) Set of trajectory points.
-		  */
+		/**
+		 * \brief Set a trajectory for the robot.
+		 * \details Set a trajectory for the robot.
+		 * \param[in] trajectory (const std::vector<Eigen::Vector2d> &) Set of trajectory points.
+		 */
 		public: virtual
 		void
 		setTrajectory (
 			const std::vector<Eigen::Vector2d> &
 		) = 0;
+
+		/**
+		 * \brief Returns the target orientation.
+		 * \details Returns the target orientation.
+		 * \return (double) The target orientation (in radians).
+		 */
+		public: virtual
+		double
+		targetOrientation (
+			void
+		) const = 0;
 
 		#pragma endregion
 

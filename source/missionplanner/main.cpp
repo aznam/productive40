@@ -45,8 +45,10 @@ main(
     int argc, 
     char * argv []
 ) {
-	missionplanner::logger_.addlogger(logging::ConsoleLoggerImpl::instance());
+	missionplanner::logger_.addlogger(logging::ConsoleLoggerImpl::instance(), false);
+	missionplanner::logger_.addlogger(*new logging::FileLoggerImpl(missionplanner::Log_Filename));
     missionplanner::application::Application app(argc, argv);
+
 	return app.exec();
 }
 

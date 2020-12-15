@@ -36,8 +36,7 @@ namespace lis::pecase::productive40::common::logging {
 	) :
 		LoggerImpl(),
 		pattern::Singleton<ConsoleLoggerImpl>(),
-		m_consoleMutex(),
-		m_consoleLock(m_consoleMutex, std::defer_lock) {
+		m_consoleMutex() {
 	}
 
 	ConsoleLoggerImpl::~ConsoleLoggerImpl(
@@ -55,14 +54,14 @@ namespace lis::pecase::productive40::common::logging {
 	ConsoleLoggerImpl::acquireResource (
 		void
 	) {
-		this->m_consoleLock.lock();
+		this->m_consoleMutex.lock();
 	}
 
 	void
 	ConsoleLoggerImpl::releaseResource (
 			void
 	) {
-		this->m_consoleLock.release();
+		this->m_consoleMutex.unlock();
 	}
 
 	#pragma endregion
@@ -71,7 +70,7 @@ namespace lis::pecase::productive40::common::logging {
 
 	void
 	ConsoleLoggerImpl::write (
-		unsigned long object
+		uint32 object
 	) {
 		std::cout << object;
 	}
@@ -79,7 +78,22 @@ namespace lis::pecase::productive40::common::logging {
 
 	void
 	ConsoleLoggerImpl::write (
-		long object
+		int32 object
+	) {
+		std::cout << object;
+	}
+
+	void
+	ConsoleLoggerImpl::write (
+		uint64 object
+	) {
+		std::cout << object;
+	}
+
+
+	void
+	ConsoleLoggerImpl::write (
+		int64 object
 	) {
 		std::cout << object;
 	}

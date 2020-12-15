@@ -21,6 +21,7 @@
 */
 #include <mutex>
 
+
 /*
 ===================================================================================================
 	Project Includes
@@ -64,14 +65,6 @@ namespace lis::pecase::productive40::common::logging {
 		private:
 		std::mutex
 		m_consoleMutex;
-
-		/**
-		 * \brief Console locker.
-		 * \details Console locker.
-		 */
-		private:
-		std::unique_lock<std::mutex>
-		m_consoleLock;
 
 	/**@}*/
 	#pragma endregion
@@ -155,23 +148,45 @@ namespace lis::pecase::productive40::common::logging {
 		/**
 		 * \brief Logging.
 		 * \details Logging.
-		 * \param[in] object (unsigned long) Object to log.
+		 * \param[in] object (uint32) Object to log.
 		 */
 		public:
 		void
 		write (
-			unsigned long
+			uint32
 		) override;
 
 		/**
 		 * \brief Logging.
 		 * \details Logging.
-		 * \param[in] object (long) Object to log.
+		 * \param[in] object (int32) Object to log.
 		 */
 		public:
 		void
 		write (
-			long
+			int32
+		) override;
+
+		/**
+		 * \brief Logging.
+		 * \details Logging.
+		 * \param[in] object (uint64) Object to log.
+		 */
+		public:
+		void
+		write (
+			uint64
+		) override;
+
+		/**
+		 * \brief Logging.
+		 * \details Logging.
+		 * \param[in] object (int64) Object to log.
+		 */
+		public:
+		void
+		write (
+			int64
 		) override;
 
 		/**

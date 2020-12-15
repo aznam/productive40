@@ -56,7 +56,7 @@ namespace lis::pecase::productive40::robotapi::communication {
 		protected:
 		CommunicationInterface (
 			void
-		) = default;
+		);
 
 		#pragma endregion
 
@@ -69,7 +69,7 @@ namespace lis::pecase::productive40::robotapi::communication {
 		public: virtual
 		~CommunicationInterface (
 			void
-		) = default;
+		);
 
 		#pragma endregion
 
@@ -96,12 +96,6 @@ namespace lis::pecase::productive40::robotapi::communication {
 			void
 		) const = 0;
 
-		public: virtual
-		bool
-		requested (
-			void
-		) const = 0;
-
 		/**
 		 * \brief Broadast a message.
 		 * \details Broadcast a message on a network or air.
@@ -116,8 +110,8 @@ namespace lis::pecase::productive40::robotapi::communication {
 		) = 0;
 
 		/**
-		 * \brief Send a message.
-		 * \details Send a message to a client.
+		 * \brief Send a unicast message.
+		 * \details Send a unicast message to a client.
 		 * \param[in] message (const char *) Array of bytes to send.
 		 * \param[in] size (unsigned long) Size of the message.
 		 */
@@ -128,6 +122,12 @@ namespace lis::pecase::productive40::robotapi::communication {
 			unsigned long
 		) = 0;
 
+		/**
+		 * \brief Receive a unicast message.
+		 * \details Receive a unicast message from a client.
+		 * \param[in] message (const char *) Array of bytes to send.
+		 * \param[in] size (unsigned long) Size of the message.
+		 */
 		public: virtual
 		void
 		recv (
@@ -145,9 +145,3 @@ namespace lis::pecase::productive40::robotapi::communication {
 #pragma endregion
 
 }; // namespace lis::pecase::productive40::robotapi::communication
-
-/*
-===================================================================================================
-    Macros
-===================================================================================================
-*/

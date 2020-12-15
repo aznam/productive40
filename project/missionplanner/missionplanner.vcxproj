@@ -13,36 +13,59 @@
   <ItemGroup>
     <ClInclude Include="..\..\include\missionplanner.hpp" />
     <ClInclude Include="..\..\include\missionplanner\application.hpp" />
-    <ClInclude Include="..\..\include\missionplanner\application\robot.hpp" />
-    <ClInclude Include="..\..\include\missionplanner\globals.hpp" />
-    <ClInclude Include="..\..\include\missionplanner\robot\robot_interface.hpp" />
-    <ClInclude Include="..\..\include\missionplanner\ui\widget.hpp" />
-    <QtMoc Include="..\..\include\missionplanner\ui\widget\mission_scene.hpp" />
-    <ClInclude Include="..\..\include\missionplanner\ui\widget\robot_widget.hpp" />
     <QtMoc Include="..\..\include\missionplanner\application\robot\fake_communication.hpp" />
     <ClInclude Include="..\..\include\missionplanner\application\robot\hardware_simulation.hpp" />
-    <ClInclude Include="..\..\include\missionplanner\application\robot\simubot_interface.hpp" />
-    <QtMoc Include="..\..\include\missionplanner\application\simubot.hpp" />
-    <QtMoc Include="..\..\include\missionplanner\environment.hpp" />
     <ClInclude Include="..\..\include\missionplanner\network.hpp" />
-    <QtMoc Include="..\..\include\missionplanner\network\network_manager.hpp" />
-    <QtMoc Include="..\..\include\missionplanner\network\network_manager_impl.hpp" />
     <ClInclude Include="..\..\include\missionplanner\network\delegate.hpp" />
     <QtMoc Include="..\..\include\missionplanner\network\delegate\fake_communication_impl.hpp" />
+    <QtMoc Include="..\..\include\missionplanner\network\network_manager.hpp" />
+    <QtMoc Include="..\..\include\missionplanner\network\network_manager_impl.hpp" />
     <QtMoc Include="..\..\include\missionplanner\network\delegate\ros_communication_impl.hpp" />
-    <ClInclude Include="..\..\include\missionplanner\network\network_interface.hpp" />
+    <ClInclude Include="..\..\include\missionplanner\robot\trajectory.hpp" />
+    <ClInclude Include="..\..\include\missionplanner\ui\tool.hpp" />
+    <ClInclude Include="..\..\include\missionplanner\ui\tool\add_trajectory_tool.hpp" />
+    <ClInclude Include="..\..\include\missionplanner\ui\tool\rem_trajectory_tool.hpp" />
+    <ClInclude Include="..\..\include\missionplanner\ui\tool\selection_tool.hpp" />
+    <ClInclude Include="..\..\include\missionplanner\ui\widget\robot_element.hpp" />
+    <ClInclude Include="..\..\include\missionplanner\ui\widget\robot_widget.hpp" />
+    <ClInclude Include="..\..\include\missionplanner\ui\widget\trajectory_widget.hpp" />
+    <QtMoc Include="..\..\include\missionplanner\ui\inspector_window.hpp" />
     <ClInclude Include="..\..\include\missionplanner\robot.hpp" />
-    <ClInclude Include="..\..\include\missionplanner\robot\robot.hpp" />
-    <ClInclude Include="..\..\include\missionplanner\robot\robot_manager.hpp" />
+    <QtMoc Include="..\..\include\missionplanner\robot\robot_manager.hpp" />
+    <ClInclude Include="..\..\include\missionplanner\robot\robot_model.hpp" />
+    <ClInclude Include="..\..\include\missionplanner\ui\widget.hpp" />
+    <QtMoc Include="..\..\include\missionplanner\ui\widget\mission_scene.hpp" />
+    <QtMoc Include="..\..\include\missionplanner\application\simubot.hpp" />
+    <ClInclude Include="..\..\include\missionplanner\application\robot.hpp" />
+    <QtMoc Include="..\..\include\missionplanner\application\robot\simubot_interface.hpp" />
+    <QtMoc Include="..\..\include\missionplanner\application\window_logger_impl.hpp" />
+    <ClInclude Include="..\..\include\missionplanner\defines.hpp" />
+    <ClInclude Include="..\..\include\missionplanner\environment.hpp" />
+    <QtMoc Include="..\..\include\missionplanner\environment\virtual_network.hpp" />
     <ClInclude Include="..\..\include\missionplanner\ui.hpp" />
+    <QtMoc Include="..\..\include\missionplanner\ui\logger_window.hpp" />
     <QtMoc Include="..\..\include\missionplanner\ui\main_window.hpp" />
     <QtMoc Include="..\..\include\missionplanner\application\application.hpp" />
+    <ClInclude Include="..\..\include\missionplanner\constants.hpp" />
+    <ClInclude Include="..\..\include\missionplanner\globals.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <QtUic Include="..\..\ui\inspector_window.ui" />
+    <QtUic Include="..\..\ui\logger_window.ui" />
     <QtUic Include="..\..\ui\main_window.ui" />
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="..\..\resource\main_window.qrc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\include\missionplanner\application\DIRECTORY.md" />
+    <None Include="..\..\include\missionplanner\DIRECTORY.md" />
+    <None Include="..\..\include\missionplanner\network\DIRECTORY.md" />
+    <None Include="..\..\include\missionplanner\ui\DIRECTORY.md" />
+    <None Include="..\..\source\missionplanner\application\DIRECTORY.md" />
+    <None Include="..\..\source\missionplanner\DIRECTORY.md" />
+    <None Include="..\..\source\missionplanner\network\DIRECTORY.md" />
+    <None Include="..\..\source\missionplanner\ui\DIRECTORY.md" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\source\missionplanner\application\application.cpp" />
@@ -50,27 +73,29 @@
     <ClCompile Include="..\..\source\missionplanner\application\robot\hardware_simulation.cpp" />
     <ClCompile Include="..\..\source\missionplanner\application\robot\simubot_interface.cpp" />
     <ClCompile Include="..\..\source\missionplanner\application\simubot.cpp" />
-    <ClCompile Include="..\..\source\missionplanner\environment.cpp" />
+    <ClCompile Include="..\..\source\missionplanner\application\window_logger_impl.cpp" />
+    <ClCompile Include="..\..\source\missionplanner\environment\virtual_network.cpp" />
     <ClCompile Include="..\..\source\missionplanner\globals.cpp" />
     <ClCompile Include="..\..\source\missionplanner\main.cpp" />
     <ClCompile Include="..\..\source\missionplanner\network\delegate\fake_communication_impl.cpp" />
     <ClCompile Include="..\..\source\missionplanner\network\delegate\ros_communication_impl.cpp" />
     <ClCompile Include="..\..\source\missionplanner\network\network_manager.cpp" />
+    <ClCompile Include="..\..\source\missionplanner\robot\robot_manager.cpp" />
+    <ClCompile Include="..\..\source\missionplanner\robot\trajectory.cpp" />
+    <ClCompile Include="..\..\source\missionplanner\ui\inspector_window.cpp" />
+    <ClCompile Include="..\..\source\missionplanner\ui\logger_window.cpp" />
     <ClCompile Include="..\..\source\missionplanner\ui\main_window.cpp" />
+    <ClCompile Include="..\..\source\missionplanner\ui\tool\add_trajectory_tool.cpp" />
+    <ClCompile Include="..\..\source\missionplanner\ui\tool\rem_trajectory_tool.cpp" />
+    <ClCompile Include="..\..\source\missionplanner\ui\tool\selection_tool.cpp" />
     <ClCompile Include="..\..\source\missionplanner\ui\widget\mission_scene.cpp" />
+    <ClCompile Include="..\..\source\missionplanner\ui\widget\robot_element.cpp" />
     <ClCompile Include="..\..\source\missionplanner\ui\widget\robot_widget.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\..\include\missionplanner\application\DIRECTORY.md" />
-    <None Include="..\..\include\missionplanner\DIRECTORY.md" />
-    <None Include="..\..\include\missionplanner\network\DIRECTORY.md" />
-    <None Include="..\..\source\missionplanner\application\DIRECTORY.md" />
-    <None Include="..\..\source\missionplanner\DIRECTORY.md" />
-    <None Include="..\..\source\missionplanner\network\DIRECTORY.md" />
+    <ClCompile Include="..\..\source\missionplanner\ui\widget\trajectory_widget.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{A4F8DFEA-297E-436E-B2E6-2624470D9F36}</ProjectGuid>
-    <Keyword>QtVS_v302</Keyword>
+    <Keyword>QtVS_v303</Keyword>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <QtMsBuild Condition="'$(QtMsBuild)'=='' OR !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
     <ProjectName>MissionPlanner</ProjectName>
@@ -99,30 +124,34 @@
     <Import Project="missionplanner.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>$(SolutionDir)\bin\$(Configuration)\$(PlatformShortName)\</OutDir>
-    <IntDir>$(ProjectDir)\obj\$(Configuration)\$(PlatformShortName)\</IntDir>
-    <IncludePath>$(EIGEN_INC);$(ROS_INC);$(BOOST_1_66);$(SolutionDir)\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ROS_LIB);$(SolutionDir)\lib\$(Configuration)\$(Platform);$(LibraryPath)</LibraryPath>
-    <TargetName>$(MSBuildProjectName)</TargetName>
-  </PropertyGroup>
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt_defaults.props')">
+    <Import Project="$(QtMsBuild)\qt_defaults.props" />
+  </ImportGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)\bin\$(Configuration)\$(PlatformShortName)\</OutDir>
     <IntDir>$(ProjectDir)\obj\$(Configuration)\$(PlatformShortName)\</IntDir>
     <IncludePath>$(EIGEN_INC);$(ROS_INC);$(BOOST_1_66);$(SolutionDir)\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ROS_LIB);$(SolutionDir)\lib\$(Configuration)\$(Platform);$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(ROS_LIB);$(PYTHON_LIB);$(SolutionDir)\lib\$(Configuration)\$(Platform);$(LibraryPath)</LibraryPath>
     <TargetName>$(MSBuildProjectName)</TargetName>
   </PropertyGroup>
-  <ImportGroup Condition="Exists('$(QtMsBuild)\qt_defaults.props')">
-    <Import Project="$(QtMsBuild)\qt_defaults.props" />
-  </ImportGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)\bin\$(Configuration)\$(PlatformShortName)\</OutDir>
+    <IntDir>$(ProjectDir)\obj\$(Configuration)\$(PlatformShortName)\</IntDir>
+    <IncludePath>$(EIGEN_INC);$(ROS_INC);$(BOOST_1_66);$(SolutionDir)\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ROS_LIB);$(PYTHON_LIB);$(SolutionDir)\lib\$(Configuration)\$(Platform);$(LibraryPath)</LibraryPath>
+    <TargetName>$(MSBuildProjectName)</TargetName>
+  </PropertyGroup>
   <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <QtInstall>msvc2017_64</QtInstall>
+    <QtInstall>5.15.1_x64</QtInstall>
     <QtModules>core;gui;widgets;xml;network</QtModules>
+    <QMakeExtraArgs>
+    </QMakeExtraArgs>
   </PropertyGroup>
   <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <QtInstall>msvc2017_64</QtInstall>
+    <QtInstall>5.15.1_x64</QtInstall>
     <QtModules>core;gui;widgets;xml;network</QtModules>
+    <QMakeExtraArgs>
+    </QMakeExtraArgs>
   </PropertyGroup>
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.props')">
     <Import Project="$(QtMsBuild)\qt.props" />
@@ -136,12 +165,13 @@
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN64;USE_ROBOTAPI;USE_ROSPROXY;_DEBUG;$(Qt_DEFINES_);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>common.lib;robotapi.lib;rosproxy.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>common.lib;robotapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <QtMoc>
       <QtMocDir>$(SolutionDir)\generated\$(Configuration)\$(Platform)\moc</QtMocDir>
@@ -166,12 +196,13 @@
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN64;USE_ROBOTAPI;USE_ROSPROXY;$(Qt_DEFINES_);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>common.lib;robotapi.lib;rosproxy.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>common.lib;robotapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <QtMoc>
       <QtMocDir>$(SolutionDir)\generated\$(Configuration)\$(Platform)\moc</QtMocDir>

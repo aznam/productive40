@@ -3,7 +3,7 @@
  * \author Aznam Yacoub (aznam.yacoub@lis-lab.fr)
  * \date Sept. 9 2020
  * \version 1.0
- * \brief Common Library Project Main Include File.
+ * \brief Common Library Project Module File.
  * \details The project "Common" is a library which gathers all the common components between
  * the projects. It contains pattern implementations, mathematical operations, etc.
  * Use this file if you need to interact with this library.
@@ -11,7 +11,7 @@
 
 /*
 ===================================================================================================
-	Macros
+	Module declaration
 ===================================================================================================
 */
 #pragma once

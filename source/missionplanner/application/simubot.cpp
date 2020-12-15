@@ -13,12 +13,14 @@
 ===================================================================================================
 */
 #include <iostream>
+#include <sstream>
 
 /*
 ===================================================================================================
 	Project Includes
 ===================================================================================================
 */
+#include "../../../include/missionplanner/globals.hpp"
 #include "../../../include/missionplanner/application/simubot.hpp"
 
 /*
@@ -26,7 +28,17 @@
 	Code
 ===================================================================================================
 */
+namespace logging = lis::pecase::productive40::common::logging;
+
 namespace lis::pecase::productive40::missionplanner::application {
+
+#pragma region Static Attributes Initializations
+
+	const
+	unsigned long
+	Simubot::CPU_Frequency_ = 30;
+
+#pragma endregion
 
 #pragma region Constructors / Destructor
 
@@ -34,55 +46,61 @@ namespace lis::pecase::productive40::missionplanner::application {
 		QObject * parent,
 		unsigned int identifier
 	) :
-		QThread(parent),
-		m_refreshTimer(this),
-		m_identifier(identifier),
+		QThread(),
+		m_refreshTimer(),
 		m_robotInterface(identifier) {
-		connect(&this->m_refreshTimer, &QTimer::timeout, this, &Simubot::refresh);
-		this->m_refreshTimer.start(this->m_CPUfrequency);
+		this->m_robotInterface.moveToThread(this);
+		this->m_refreshTimer.moveToThread(this);
 	}
 
 	Simubot::~Simubot (
 		void
 	) {
-		this->m_refreshTimer.stop();
-		disconnect(&this->m_refreshTimer, &QTimer::timeout, this, &Simubot::refresh);
+		QObject::disconnect(this);
 	}
 
 #pragma endregion
 
-#pragma region Thread Operations
+#pragma region Methods Definitions & Implementations
+
+	#pragma region Thread Operations
 
 	void
 	Simubot::run (
 		void
 	) {
+
+	#ifdef _DEBUG
+
+		std::ostringstream oss;
+		oss << "0x" << std::hex << this;
+
+		logger_.lock();
+		logger_ << "Run Simubot Thread : " << oss.str() << common::logging::Logger::endl;
+		logger_.unlock();
+
+	#endif
+
+		QObject::connect(
+			&this->m_refreshTimer,
+			&QTimer::timeout,
+			&this->m_robotInterface,
+			&robot::SimubotInterface::update
+		);
+		this->m_refreshTimer.start(Simubot::CPU_Frequency_);
+
 		QThread::run();
+
+		this->m_refreshTimer.stop();
+		QObject::disconnect(
+			&this->m_refreshTimer,
+			nullptr,
+			&this->m_robotInterface,
+			nullptr
+		);
 	}
 
-	void
-	Simubot::refresh (
-		void
-	) {
-		if(this->m_robotInterface.communication()->connected() == false)
-			this->m_robotInterface.broadcastIdentifier();
-		else {
-			// Check if an order came from the network
-			if(this->m_robotInterface.communication()->requested()) {
-				//this->m_robotInterface.communication()->recv();
-			}
-
-			// Process the next computation
-
-			// Send message
-		}
-
-		// Update the controller
-		this->m_robotInterface.controller()->update(this->m_refreshTimer.interval());
-
-		// Simulate the updating hardware
-		this->m_robotInterface.hardware()->update(this->m_refreshTimer.interval());
-	}
+	#pragma endregion
 
 #pragma endregion
 

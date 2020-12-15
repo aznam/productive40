@@ -3,8 +3,9 @@
  * \author Aznam Yacoub (aznam.yacoub@lis-lab.fr)
  * \date Sept. 9 2020
  * \version 1.0
- * \brief This file provides the interface of a common environment for the Mission Planner.
- * \details This file provides the interface of a common environment for the Mission Planner.
+ * \brief Application Namespace File.
+ * \details This file declares the environment namespace of the Mission Planner. This namespace
+ * contains elements related to the model of the environment.
  */
 
 /*
@@ -16,165 +17,43 @@
 
 /*
 ===================================================================================================
-    Qt Include
-===================================================================================================
-*/
-#include <QObject>
-#include <QBuffer>
-#include <QMutex>
-
-/*
-===================================================================================================
-    Project Includes
-===================================================================================================
-*/
-#include <common/pattern.hpp>
-
-/*
-===================================================================================================
     Code
 ===================================================================================================
 */
-namespace lis::pecase::productive40::missionplanner {
+namespace lis {
+	
+	namespace pecase {
 
-#pragma region Types Definitions
+		namespace productive40 {
 
-	/**
-	 * \class Environment include/missionplanner/environment.hpp \
-	 * <productive40/missionplanner/environment.hpp>
-	 * \brief Environment Class.
-	 * \details This class implements a common environment in the Mission Planner.
-	 * \nosubgrouping
-	 */
-    class Environment :
-		public QObject,
-		public common::pattern::Singleton<Environment> {
+			namespace missionplanner {
 
-		friend class common::pattern::Singleton<Environment>;
+				/**
+				 * \namespace lis::pecase::productive40::missionplanner::environment
+				 * \brief Contains the code related to the environment in the mission planner.
+				 * \details Contains the code related to the environment the mission planner.
+				 */
+				namespace environment {
 
-		Q_OBJECT
+				#pragma region Forward Declarations
 
-	/**
-	 * \name Instance Data Members
-	 */
-    #pragma region Instance Data Members
-	/**@{*/
+					class VirtualNetwork;
 
-		/**
-		 * \brief Buffer which simulates wireless transmission.
-		 * \details Buffer which simulates wireless transmission.
-		 */
-		private:
-		QBuffer
-		m_environmentData;
+				#pragma endregion
 
-		/**
-		 * \brief Mutex for data transmission.
-		 * \details Mutex for data transmission.
-		 */
-		private:
-		QMutex
-		m_dataMutex;
+				}; //namespace environment
 
-	/**@}*/
-    #pragma endregion
+			}; // namespace missionplanner
 
-	/**
-	 * \name Constructors / Destructor
-	 */
-    #pragma region Constructors / Destructor
-	/**@{*/
+		}; // namespace productive40
 
-        #pragma region Constructors
+	}; // namespace pecase
 
-		/**
-		 * \brief Default ctor.
-		 * \details Default constructor.
-		 */
-        private:
-        Environment (
-            void
-        );
+}; // namespace lis
 
-        #pragma endregion
-
-        #pragma region Destructor
-
-		/**
-		 * \brief Default dtor.
-		 * \details Default destructor.
-		 */
-        private:
-        ~Environment (
-            void
-        );
-
-        #pragma endregion
-
-	/**@}*/
-    #pragma endregion
-
-	/**
-	 * \name Data Transmission
-	 */
-	#pragma region Data Transmission
-	/**@{*/
-
-		#pragma region Instance Methods
-
-		/**
-		 * \brief Sends a message through the environment.
-		 * \details Sends a message through the environment.
-		 * \param[in] data (const unsigned char *) Data to send through the environment.
-		 * \param[in] size (size_t) Size of the data.
-		 */
-		public:
-		void
-		sendData (
-			const unsigned char *,
-			size_t
-		);
-
-		/**
-		 * \brief Sends a message through the environment.
-		 * \details Sends a message through the environment.
-		 * \param[in] data (const unsigned char **) Pointer to a buffer where data will be stored.
-		 * \param[in] size (size_t) Size of the read data.
-		 */
-		public:
-		void
-		readData (
-			unsigned char *,
-			size_t &
-		);
-
-		public:
-		bool
-		dataAvailable (
-			void
-		);
-
-		#pragma endregion
-
-		#pragma region Signals
-
-		/**
-		 * \brief Signal emitted when data is ready to be read.
-		 * \details Signal emitted when data is ready to be read.
-		 */
-		signals:
-		void
-		dataReadyRead (
-			void
-		);
-
-		#pragma endregion
-
-	/**@}*/
-	#pragma endregion
-
-    }; // class Environment
-
-#pragma endregion
-
-}; // namespace lis::pecase::productive40::missionplanner
+/*
+===================================================================================================
+	Namespace Includes
+===================================================================================================
+*/
+#include "environment/virtual_network.hpp"

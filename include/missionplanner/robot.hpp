@@ -36,9 +36,9 @@ namespace lis {
 
 				#pragma region Forward Declarations
 
-					class RobotInterface;
+					class Trajectory;
 
-					class Robot;
+					struct RobotModel;
 
 					class RobotManager;
 
@@ -56,9 +56,9 @@ namespace lis {
 
 /*
 ===================================================================================================
-	Projects Includes
+	Namespace Includes
 ===================================================================================================
 */
-#include "robot/robot_interface.hpp"
-#include "robot/robot.hpp"
+#include "robot/trajectory.hpp"
+#include "robot/robot_model.hpp"
 #include "robot/robot_manager.hpp"

@@ -4,6 +4,7 @@
 		<vendor>LIS</vendor>
 		<identifier>ae005ac2-7cf6-4d05-b336-864236b73c74</identifier>
 		<mass>390.0</mass>
+		<wheel>0.125</wheel>
 		<dimensions>
 			<length>0.56</length>
 			<width>0.365</width>
@@ -17,8 +18,8 @@
 	</informations>
 	<sensors>
 		<position>
-			<x></x>
-			<y></y>
+			<x>0.0</x>
+			<y>0.0</y>
 		</position>
 	</sensors>
 </simubot>

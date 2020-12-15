@@ -7,6 +7,7 @@
     <ROS_LIB>D:\Libraries\ros\melodic\$(PLATFORM)\lib</ROS_LIB>
     <ROS_BIN>D:\Libraries\ros\melodic\$(PLATFORM)\bin;D:\Libraries\rosdeps\$(PLATFORM)\bin</ROS_BIN>
     <BOOST_1_66>D:\Libraries\rosdeps\x64\include\boost-1_66</BOOST_1_66>
+    <PYTHON_LIB>D:\Python\libs</PYTHON_LIB>
   </PropertyGroup>
   <PropertyGroup>
     <_PropertySheetDisplayName>MissionPlanner</_PropertySheetDisplayName>
@@ -31,6 +32,10 @@
     </BuildMacro>
     <BuildMacro Include="BOOST_1_66">
       <Value>$(BOOST_1_66)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="PYTHON_LIB">
+      <Value>$(PYTHON_LIB)</Value>
       <EnvironmentVariable>true</EnvironmentVariable>
     </BuildMacro>
   </ItemGroup>

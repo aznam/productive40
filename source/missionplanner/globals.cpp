@@ -33,6 +33,9 @@ namespace lis::pecase::productive40::missionplanner::globals {
 	common::logging::Logger
 	logger_;
 
+	environment::VirtualNetwork *
+	virtual_network_ = nullptr;
+
 #pragma endregion
 
 }; // namespace lis::pecase::productive40::missionplanner::globals

@@ -9,10 +9,16 @@
 
 /*
 ===================================================================================================
-	Project Includes
+	Workspace Includes
 ===================================================================================================
 */
 #include <common/strutils.hpp>
+
+/*
+===================================================================================================
+	Project Includes
+===================================================================================================
+*/
 #include "../../../../include/missionplanner/network/delegate/ros_communication_impl.hpp"
 
 /*
@@ -28,35 +34,37 @@ namespace lis::pecase::productive40::missionplanner::network::delegate {
 		int argc,
 		char ** argv
 	) :
-		network::NetworkManagerImpl(),
-		m_rosManager(rosproxy::ROSManager::instance()) {
+		network::NetworkManagerImpl()/*,
+		m_rosManager(rosproxy::ROSManager::instance())*/ {
 
-		m_rosManager.init(argc, argv, "mission_planner");
+		//this->m_rosManager.init(argc, argv, "mission_planner");
 		//m_rosManager.subscribeTopic(rosproxy::Environment_Topic);
 	}
 
 	ROSCommunicationImpl::~ROSCommunicationImpl (
 		void
 	) {
+		//this->m_rosManager.close();
 	}
 
 #pragma endregion
 
-#pragma region Broadcast Handler
+#pragma region Methods Definitions and Implementations
 
-	void
-	ROSCommunicationImpl::readFromBroadcast (
-		unsigned char * message,
-		size_t & size
-	) {
-		//m_rosManager.readTopic(rosproxy::Environment_Topic, message, size);
-	}
+	#pragma region Broadcast Handler
 
-#pragma endregion
+		void
+		ROSCommunicationImpl::readFromBroadcast (
+			unsigned char * message,
+			size_t & size
+		) {
+		}
 
-#pragma region Client Management
+	#pragma endregion
 
-	void
+	#pragma region Client Management
+
+	/*void
 	ROSCommunicationImpl::connectToRobot (
 		const unsigned char * address
 	) {
@@ -76,7 +84,9 @@ namespace lis::pecase::productive40::missionplanner::network::delegate {
 		unsigned char * buffer,
 		size_t & size
 	) {
-	}
+	}*/
+
+	#pragma endregion
 
 #pragma endregion
 

@@ -47,11 +47,7 @@ namespace lis::pecase::productive40::common::pattern {
 		typename Context
 	> class GenericFSM {
 
-	/**
-	 * \name Nested Types
-	 */
-	#pragma region Nested Types
-	/**@{*/
+	#pragma region Nested Types Definitions
 
 		/**
 		 * \class State include/common/pattern/generic_fsm.hpp \
@@ -164,7 +160,6 @@ namespace lis::pecase::productive40::common::pattern {
 
 		}; // class GenericFSM<Context>::State
 
-	/**@}*/
 	#pragma endregion
 
 	/**
@@ -188,6 +183,14 @@ namespace lis::pecase::productive40::common::pattern {
 		protected:
 		State *
 		m_currentState;
+
+		/**
+		 * \brief Next state.
+		 * \details Next state.
+		 */
+		protected:
+		State *
+		m_nextState;
 
 	/**@}*/
 	#pragma endregion

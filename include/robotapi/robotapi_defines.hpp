@@ -4,7 +4,7 @@
  * \date Sept. 9 2020
  * \version 1.0
  * \brief Defines header for RobotAPI Lib.
- * \details The project contains the definitions of import/export macros and generic macros for
+ * \details The file contains the definitions of import/export macros and generic macros for
  * the "Robot API" library project.
  */
 

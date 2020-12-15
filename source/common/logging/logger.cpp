@@ -6,7 +6,6 @@
  * \brief This file provides the implementation of a logger.
  * \details This file provides the implementation of a logger.
  */
-#pragma once
 
 /*
 ===================================================================================================
@@ -28,8 +27,7 @@ namespace lis::pecase::productive40::common::logging {
 		void
 	) :
 		m_loggersImpl(),
-		m_loggerMutex(),
-		m_loggerLock(m_loggerMutex, std::defer_lock) {
+		m_loggerMutex() {
 	}
 
 	Logger::~Logger (

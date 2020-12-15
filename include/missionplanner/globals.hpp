@@ -23,6 +23,13 @@
 
 /*
 ===================================================================================================
+	Project Includes
+===================================================================================================
+*/
+#include "environment.hpp"
+
+/*
+===================================================================================================
     Code
 ===================================================================================================
 */
@@ -51,6 +58,14 @@ namespace lis {
 					common::logging::Logger
 					logger_;
 
+					/**
+					 * \brief Virtual network.
+					 * \details Virtual network.
+					 */
+					extern
+					environment::VirtualNetwork *
+					virtual_network_;
+
 				#pragma endregion
 
 				}; // namespace globals
@@ -64,6 +79,14 @@ namespace lis {
 				static
 				common::logging::Logger &
 				logger_ = globals::logger_;
+
+				/**
+				 * \brief Alias for virtual network.
+				 * \details Alias for virtual network.
+				 */
+				static
+				environment::VirtualNetwork * &
+				virtual_network_ = globals::virtual_network_;
 
 			#pragma endregion
 

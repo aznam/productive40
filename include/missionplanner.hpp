@@ -50,3 +50,7 @@ namespace lis {
 #include "missionplanner/globals.hpp"
 #include "missionplanner/constants.hpp"
 #include "missionplanner/application.hpp"
+#include "missionplanner/environment.hpp"
+#include "missionplanner/network.hpp"
+#include "missionplanner/ui.hpp"
+#include "missionplanner/robot.hpp"

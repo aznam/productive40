@@ -4,7 +4,7 @@
  * \date Sept. 9 2020
  * \version 1.0
  * \brief Robot Proxy Library Project Main Include File.
- * \details 
+ * \details This library provides a proxy to communicate with ROS.
  */
 
 /*
@@ -34,8 +34,8 @@ namespace lis {
 
 			/**
 			 * \namespace lis::pecase::productive40::rosproxy
-			 * \brief
- 			 * \details
+			 * \brief Contains the code related to the ROSProxy.
+			 * \details Contains the code related to the ROSProxy.
 			 */
 			namespace rosproxy {
 
@@ -52,7 +52,7 @@ namespace lis {
 
 /*
 ===================================================================================================
-	Projects Includes
+	Package Includes
 ===================================================================================================
 */
 #include "rosproxy/rosproxy_defines.hpp"

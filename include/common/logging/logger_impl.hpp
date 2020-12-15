@@ -25,6 +25,13 @@
 
 /*
 ===================================================================================================
+	Workspace Includes
+===================================================================================================
+*/
+#include <types.hpp>
+
+/*
+===================================================================================================
     Code
 ===================================================================================================
 */
@@ -120,23 +127,45 @@ namespace lis::pecase::productive40::common::logging {
 		/**
 		 * \brief Logging.
 		 * \details Logging.
-		 * \param[in] object (unsigned long) Object to log.
+		 * \param[in] object (uint32) Object to log.
 		 */
 		public: virtual
 		void
 		write (
-			unsigned long
+			uint32
 		) = 0;
 
 		/**
 		 * \brief Logging.
 		 * \details Logging.
-		 * \param[in] object (int) Object to log.
+		 * \param[in] object (int32) Object to log.
 		 */
 		public: virtual
 		void
 		write (
-			long
+			int32
+		) = 0;
+
+		/**
+		 * \brief Logging.
+		 * \details Logging.
+		 * \param[in] object (uint64) Object to log.
+		 */
+		public: virtual
+		void
+		write (
+			uint64
+		) = 0;
+
+		/**
+		 * \brief Logging.
+		 * \details Logging.
+		 * \param[in] object (int64) Object to log.
+		 */
+		public: virtual
+		void
+		write (
+			int64
 		) = 0;
 
 		/**

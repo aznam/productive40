@@ -57,9 +57,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\include\common.hpp">
-      <Filter>Package Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\common\math.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -71,9 +68,6 @@
     </ClInclude>
     <ClInclude Include="..\..\include\common\pattern\singleton.hpp">
       <Filter>Header Files\pattern</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\common\strutils.hpp">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\common\logging.hpp">
       <Filter>Header Files</Filter>
@@ -90,11 +84,11 @@
     <ClInclude Include="..\..\include\common\pattern\observable.hpp">
       <Filter>Header Files\pattern</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\common\strutils\functions.hpp">
-      <Filter>Header Files\strutils</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\common\math\functions.hpp">
       <Filter>Header Files\math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\common\logging\file_logger_impl.hpp">
+      <Filter>Header Files\logging</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -129,6 +123,18 @@
     </ClCompile>
     <ClCompile Include="..\..\source\common\math\functions.cpp">
       <Filter>Source Files\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\common\logging\file_logger_impl.cpp">
+      <Filter>Source Files\logger</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\include\common\strutils\functions.hpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\include\common\strutils.hpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\include\common.hpp">
+      <Filter>Package Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

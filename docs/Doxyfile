@@ -326,7 +326,8 @@ OPTIMIZE_OUTPUT_SLICE  = NO
 # the files are not read by doxygen.
 
 EXTENSION_MAPPING      = tpp=c++ \
-                         hpp=c++
+                         hpp=c++ \
+                         ixx=c++
 
 # If the MARKDOWN_SUPPORT tag is enabled then doxygen pre-processes all comments
 # according to the Markdown format, which allows for more readable
@@ -878,7 +879,8 @@ FILE_PATTERNS          = *.cpp \
                          *.hh \
                          *.cc \
                          *.md \
-                         *.tpp
+                         *.tpp \
+                         *.ixx
 
 # The RECURSIVE tag can be used to specify whether or not subdirectories should
 # be searched for input files as well.
@@ -937,7 +939,8 @@ EXAMPLE_PATH           = ../example
 # files are included.
 
 EXAMPLE_PATTERNS       = *.cpp \
-                         *.hpp
+                         *.hpp \
+                         *.ipp
 
 # If the EXAMPLE_RECURSIVE tag is set to YES then subdirectories will be
 # searched for input files to be used with the \include or \dontinclude commands

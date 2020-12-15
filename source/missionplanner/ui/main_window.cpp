@@ -19,7 +19,9 @@
     Project Includes
 ===================================================================================================
 */
+#include "../../../include/missionplanner/globals.hpp"
 #include "../../../include/missionplanner/ui/main_window.hpp"
+#include "../../../include/missionplanner/ui/tool.hpp"
 
 /*
 ===================================================================================================
@@ -34,100 +36,163 @@ namespace lis::pecase::productive40::missionplanner::ui {
         QWidget * parent
     ) :
 		QMainWindow(parent),
-		NetworkInterface() {
-        this->m_internalUI.setupUi(this);
-		this->m_missionScene = new widget::MissionScene(
-			0,
-			0,
-			870,
-			620,
-			this->m_internalUI._grphvwPlanner
-		);
-		this->m_internalUI._grphvwPlanner->setScene(this->m_missionScene);
-		connect(
-			this->m_internalUI._robotsList,
-			&QListWidget::itemSelectionChanged,
+		m_missionScene(this),
+		m_inspectorWindow(this),
+		m_loggerWindow(this) {
+        this->m_internalUITemplate.setupUi(this);
+
+		// Scene
+		this->m_internalUITemplate._mainGraphicsView->setScene(&this->m_missionScene);
+		QObject::connect(
+			&this->m_missionScene,
+			&widget::MissionScene::selectedRobots,
 			this,
-			&MainWindow::robotsSelectedFromList
+			&MainWindow::selectRobots
 		);
 
-		connect(
-			this->m_missionScene,
-			&QGraphicsScene::focusItemChanged,
+		this->m_missionScene.addTool(
+			widget::MissionScene::Tool::SELECTION,
+			new tool::SelectionTool(&this->m_missionScene)
+		);
+
+		this->m_missionScene.addTool(
+			widget::MissionScene::Tool::TRAJADD,
+			new tool::AddTrajectoryTool(&this->m_missionScene)
+		);
+
+		this->m_missionScene.addTool(
+			widget::MissionScene::Tool::TRAJREM,
+			new tool::RemTrajectoryTool(&this->m_missionScene)
+		);
+
+		this->m_missionScene.activateTool(widget::MissionScene::Tool::SELECTION);
+
+		// Toolbox
+		QObject::connect(
+			this->m_internalUITemplate._robotToolsGroup,
+			&QButtonGroup::idToggled,
 			this,
-			&MainWindow::robotsSelectedFromScene
+			[=] (int idx, bool checked) {
+				if(checked) this->m_missionScene.activateTool(std::abs(idx)-2);
+			}
+		);
+
+		// Logger
+		this->addDockWidget(Qt::BottomDockWidgetArea, &this->m_loggerWindow);
+
+	#if !defined(_DEBUG)
+
+		this->m_loggerWindow.close();
+
+	#endif
+
+		// Inspector
+		this->addDockWidget(Qt::RightDockWidgetArea, &this->m_inspectorWindow);
+		QObject::connect(
+			&this->m_inspectorWindow,
+			&InspectorWindow::selectedRobots,
+			this,
+			&MainWindow::selectRobots
+		);
+
+	#if !defined(_DEBUG)
+
+		this->m_inspectorWindow.close();
+
+	#endif
+
+		// Connect Main Menu actions
+		QObject::connect(
+			this->m_internalUITemplate._actionFileExit,
+			&QAction::triggered,
+			this,
+			[=] () { emit this->exitApplication(0); }
+		);
+
+		QObject::connect(
+			this->m_internalUITemplate._actionDisplayLoggerOutput,
+			&QAction::triggered,
+			this,
+			&MainWindow::displayLoggerOutput
+		);
+
+		QObject::connect(
+			this->m_internalUITemplate._actionDisplayRobotInspector,
+			&QAction::triggered,
+			this,
+			&MainWindow::displayInspector
+		);
+
+		QObject::connect (
+			&this->m_inspectorWindow,
+			&InspectorWindow::sendCommand,
+			&this->m_missionScene,
+			&widget::MissionScene::sendCommand
 		);
     }
 
     MainWindow::~MainWindow (
         void
     ) {
+		QObject::disconnect(this->m_internalUITemplate._actionFileExit);
+		QObject::disconnect(this->m_internalUITemplate._actionDisplayLoggerOutput);
+		QObject::disconnect(this->m_internalUITemplate._actionDisplayRobotInspector);
+		QObject::disconnect(&this->m_missionScene);
+		QObject::disconnect(&this->m_inspectorWindow);
+		QObject::disconnect(this);
     }
 
 #pragma endregion
 
-	void
-	MainWindow::robotConnected (
-		const common::pattern::Observable<NetworkInterface> & notifier,
-		std::string robot_name,
-		Eigen::Vector2d position
-	) {
-		this->m_internalUI._robotsList->addItem(QString::fromStdString(robot_name));
-		//widget::RobotWidget * robot_widget = this->m_missionScene->createRobotWidget(robot_name);
-		//robot_widget->setPos(position(0,0)*50.0, position(1,0)*50.0);
-	}
+#pragma region Methods Definitions & Implementations
+
+	#pragma region Main Menu Actions
 
 	void
-	MainWindow::robotDisconnected (
-		const common::pattern::Observable<NetworkInterface> & notifier,
-		std::string robot_name
-	) {
-		QList<QListWidgetItem *> items = this->m_internalUI._robotsList->findItems(
-			QString::fromStdString(robot_name),
-			Qt::MatchExactly
-		);
-		for(auto iter = items.begin(); iter < items.end(); iter++) {
-			this->m_internalUI._robotsList->removeItemWidget(*iter);
-		}
-	}
-
-	void
-	MainWindow::robotsSelectedFromList (
+	MainWindow::displayLoggerOutput (
 		void
 	) {
-		QList<QListWidgetItem *> selected = this->m_internalUI._robotsList->selectedItems();
-		this->m_missionScene->unselectAll();
-		if(selected.size() > 0) {
-			QList<QString> selected_labels;
-			for(auto iter = selected.begin(); iter < selected.end(); iter++) {
-				selected_labels.push_back((*iter)->text());
-			}
-			this->m_missionScene->select(selected_labels);
+		this->m_loggerWindow.show();
+	}
 
-			if(selected.size() == 1) {
-				this->m_internalUI._grphvwPlanner->centerOn(
-					this->m_missionScene->findRobotWidget(selected[0]->text())
-				);
-			}
+	void
+	MainWindow::displayInspector (
+		void
+	) {
+		this->m_inspectorWindow.show();
+	}
+
+	#pragma endregion
+
+	#pragma region Robot-related Events
+
+	void
+	MainWindow::selectRobots (
+		const QList<const robot::RobotModel *> & robots,
+		QObject * signal
+	) {
+		if(signal != &this->m_missionScene) this->m_missionScene.selectRobots(robots);
+		if(signal != &this->m_inspectorWindow) this->m_inspectorWindow.selectRobots(robots);
+
+		bool has_selection = robots.size() > 0;
+		this->m_internalUITemplate._mainToolboxTrajectoryButton->setEnabled(has_selection);
+		this->m_internalUITemplate._mainToolboxCancelTrajectoryButton->setEnabled(has_selection);
+
+		if(this->m_internalUITemplate._robotToolsGroup->checkedButton()->isEnabled() == false) {
+			this->m_internalUITemplate._mainToolboxSelectButton->setChecked(true);
 		}
 	}
 
 	void
-	MainWindow::robotsSelectedFromScene (
-		QGraphicsItem * newFocusItem,
-		QGraphicsItem * oldFocusItem,
-		Qt::FocusReason reason
+	MainWindow::displayRobot (
+		const robot::RobotModel & robot_model
 	) {
-		widget::RobotWidget * robot = dynamic_cast<widget::RobotWidget *>(newFocusItem);
-		this->m_missionScene->unselectAll();
-		this->m_internalUI._robotsList->clearSelection();
-		if(robot == nullptr) return;
-		this->m_missionScene->select(robot);
-		QList<QListWidgetItem *> items = this->m_internalUI._robotsList->findItems(
-			robot->name(),
-			Qt::MatchExactly
-		);
-		this->m_internalUI._robotsList->setCurrentItem(items[0]);
+		this->m_missionScene.addRobot(robot_model);
+		this->m_inspectorWindow.addRobot(robot_model);
 	}
+
+	#pragma endregion
+
+#pragma endregion
 
 }; // namespace lis::pecase::productive40::missionplanner::ui

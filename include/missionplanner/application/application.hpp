@@ -27,9 +27,9 @@
     Project Includes
 ===================================================================================================
 */
-#include "../network/network_manager.hpp"
-#include "../ui/main_window.hpp"
 #include "simubot.hpp"
+#include "../ui.hpp"
+#include "../network.hpp"
 
 /*
 ===================================================================================================
@@ -124,11 +124,50 @@ namespace lis::pecase::productive40::missionplanner::application {
     #pragma endregion
 
 	/**
+	 * \name Application Management
+	 */
+	#pragma region Application Management
+	/**@{*/
+
+		#pragma region Slots
+
+		/**
+		 * \brief Exit the application.
+		 * \details Exit the application.
+		 * \param[in] exit_code (unsigned int) Exit code.
+		 */
+		private slots:
+		void
+		exit (
+			unsigned int
+		);
+
+		#pragma endregion
+
+	/**@}*/
+	#pragma endregion
+
+	/**
 	 * \name Simubot Functions
 	 */
 	#pragma region Simubot Functions
 	/**@{*/
 
+		#pragma region Instance Methods
+
+		/**
+		 * \brief Create a simubot.
+		 * \details Create a simubot.
+		 * \param[in] robot_idx (unsigned int) Index of the robot.
+		 */
+		private:
+		Simubot *
+		createRobot (
+			unsigned int
+		);
+
+		#pragma endregion
+		
 		#pragma region Slots
 
 		/**

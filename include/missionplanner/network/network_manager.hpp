@@ -32,12 +32,17 @@
 
 /*
 ===================================================================================================
-	Project Include
+	Workspace Include
 ===================================================================================================
 */
 #include <common/pattern.hpp>
 #include <robotapi.hpp>
-#include "network_interface.hpp"
+
+/*
+===================================================================================================
+	Project Include
+===================================================================================================
+*/
 #include "network_manager_impl.hpp"
 
 /*
@@ -60,8 +65,8 @@ namespace lis::pecase::productive40::missionplanner::network {
 	 */
     class NetworkManager :
 		public QObject,
-		public common::pattern::Singleton<NetworkManager>,
-		public common::pattern::Observable<NetworkInterface> {
+		public common::pattern::Singleton<NetworkManager>
+		/*public common::pattern::Observable<NetworkInterface>*/ {
 
 		friend class common::pattern::Singleton<NetworkManager>;
 
@@ -207,12 +212,12 @@ namespace lis::pecase::productive40::missionplanner::network {
 		 * \param[in] interface (const NetworkManagerImpl &) Network interfce.
 		 * \param[in] address (std::string) Address of the robot.
 		 */
-		public slots:
+		/*public slots:
 		void
 		dataAvailable (
 			NetworkManagerImpl &,
 			std::string
-		);
+		);*/
 
 		#pragma endregion
 
@@ -244,7 +249,7 @@ namespace lis::pecase::productive40::missionplanner::network {
  		 * \param[in] interface (NetworkManagerImpl &) Source interface.
 		 * \param[in] buffer (const unsigned char *) Buffer containing the message.
 		 */
-		private:
+		/*private:
 		void
 		discoveryHandler (
 			NetworkManagerImpl &,
@@ -256,7 +261,7 @@ namespace lis::pecase::productive40::missionplanner::network {
 		welcomeHandler (
 			NetworkManagerImpl &,
 			const unsigned char *
-		);
+		);*/
 
 	/**@}*/
 	#pragma endregion

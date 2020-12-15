@@ -63,7 +63,7 @@ namespace lis::pecase::productive40::robotapi::hardware {
 		protected:
 		HardwareInterface (
 			void
-		) = default;
+		);
 
 		#pragma endregion
 
@@ -76,7 +76,7 @@ namespace lis::pecase::productive40::robotapi::hardware {
 		public: virtual
 		~HardwareInterface (
 			void
-		) = default;
+		);
 
 		#pragma endregion
 
@@ -99,7 +99,7 @@ namespace lis::pecase::productive40::robotapi::hardware {
 		public: virtual
 		const RobotInformation &
 		robotInformations (
-		void
+			void
 		) const = 0;
 
 		/**
@@ -122,6 +122,18 @@ namespace lis::pecase::productive40::robotapi::hardware {
 		double
 		orientation (
 			void
+		) const = 0;
+
+		/**
+		 * \brief Returns orientation matrix (Matrix B).
+		 * \details Returns orientation matrix (Matrix B).
+		 * \param[in] theta (double) Orientation angle.
+		 * \returns (Eigen::MatrixXd) Orientation matrix.
+		 */
+		public: virtual
+		Eigen::MatrixXd
+		orientationMatrix (
+			double
 		) const = 0;
 
 		/**
@@ -190,6 +202,19 @@ namespace lis::pecase::productive40::robotapi::hardware {
 		void
 		wheelCommand (
 			const std::vector<double> &
+		) = 0;
+
+		/**
+		 * \brief Update method.
+		 * \details Update method.
+		 * \param[in] t (double) Time since last update.
+		 * \param[in] theta (double) Desired orientation.
+		 */
+		public: virtual
+		void
+		update (
+			double,
+			double
 		) = 0;
 
 		#pragma endregion

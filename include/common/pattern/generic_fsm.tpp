@@ -13,6 +13,7 @@
 ===================================================================================================
 */
 #include "generic_fsm.hpp"
+#include <cassert>
 
 /*
 ===================================================================================================
@@ -50,6 +51,7 @@ namespace lis::pecase::productive40::common::pattern {
 		void
 	) :
 		m_currentState(nullptr),
+		m_nextState(nullptr),
 		m_states(std::vector<GenericFSM<Context>::State *>()) {
 	}
 
@@ -103,9 +105,7 @@ namespace lis::pecase::productive40::common::pattern {
 		unsigned int index
 	) {
 		assert(index < m_states.size());
-		if(m_currentState != nullptr) m_currentState->exit();
-		m_currentState = m_states[index];
-		m_currentState->enter();
+		m_nextState = m_states[index];
 	}
 
 	template <
@@ -114,6 +114,12 @@ namespace lis::pecase::productive40::common::pattern {
 	GenericFSM<Context>::update (
 		void
 	) {
+		if(m_nextState != nullptr) {
+			if(m_currentState != nullptr) m_currentState->exit();
+			m_currentState = m_nextState;
+			m_nextState = nullptr;
+			m_currentState->enter();
+		}
 		if(m_currentState != nullptr) m_currentState->update();
 	}
 

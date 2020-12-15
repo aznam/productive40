@@ -9,11 +9,17 @@
 
 /*
 ===================================================================================================
-	Project Includes
+	Workspace Includes
 ===================================================================================================
 */
 #include <common/strutils.hpp>
-#include "../../../../include/missionplanner/environment.hpp"
+
+/*
+===================================================================================================
+	Project Includes
+===================================================================================================
+*/
+#include "../../../../include/missionplanner/globals.hpp"
 #include "../../../../include/missionplanner/network/delegate/fake_communication_impl.hpp"
 
 /*
@@ -29,9 +35,9 @@ namespace lis::pecase::productive40::missionplanner::network::delegate {
 		void
 	) :
 		network::NetworkManagerImpl() {
-		connect(
-			&Environment::instance(),
-			&Environment::dataReadyRead,
+		QObject::connect(
+			virtual_network_,
+			&environment::VirtualNetwork::dataReadyRead,
 			this,
 			[=] () { emit broadcastMessageReceived(*this); }
 		);
@@ -48,21 +54,23 @@ namespace lis::pecase::productive40::missionplanner::network::delegate {
 
 #pragma endregion
 
-#pragma region Broadcast Handler
+#pragma region Methods Definitions and Implementations
+
+	#pragma region Broadcast Handler
 
 	void
 	FakeCommunicationImpl::readFromBroadcast (
 		unsigned char * message,
 		size_t & size
 	) {
-		Environment::instance().readData(message, size);
+		virtual_network_->readData(message, size);
 	}
 
-#pragma endregion
+	#pragma endregion
 
-#pragma region Client Management
+	#pragma region Client Management
 
-	void
+	/*void
 	FakeCommunicationImpl::connectToRobot (
 		const unsigned char * address
 	) {
@@ -92,7 +100,7 @@ namespace lis::pecase::productive40::missionplanner::network::delegate {
 				[=] () { this->clientError(socket, addr_str); }
 			);*/
 
-			socket->connectToServer(QString::fromStdString(addr_str));
+			/*socket->connectToServer(QString::fromStdString(addr_str));
 		}
 	}
 
@@ -141,7 +149,9 @@ namespace lis::pecase::productive40::missionplanner::network::delegate {
 		socket->close();
 		this->m_clients.erase(address);
 		delete socket;
-	}
+	}*/
+
+	#pragma endregion
 
 #pragma endregion
 

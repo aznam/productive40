@@ -38,9 +38,13 @@ namespace lis {
 
 					class MainWindow;
 
+					class LoggerWindow;
+
+					class InspectorWindow;
+
 				#pragma endregion
 
-				}; //namespace ui
+				}; // namespace ui
 
 			}; // namespace missionplanner
 
@@ -52,14 +56,11 @@ namespace lis {
 
 /*
 ===================================================================================================
-	Projects Includes
+	Namespace Includes
 ===================================================================================================
 */
-#include "ui/main_window.hpp"
 #include "ui/widget.hpp"
-
-/*
-===================================================================================================
-    Macros
-===================================================================================================
-*/
+#include "ui/tool.hpp"
+#include "ui/main_window.hpp"
+#include "ui/logger_window.hpp"
+#include "ui/inspector_window.hpp"

@@ -180,7 +180,7 @@
       </Command>
     </CustomBuildStep>
     <PreBuildEvent>
-      <Command>C:\Windows\System32\cmd.exe /C ""D:\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" $(PlatformShortName)  &amp;&amp; cd "$(SolutionDir)" &amp;&amp; "$(ROS_INSTALL)\$(PlatformShortName)\setup.bat" &amp;&amp; catkin_make --use-ninja --force-cmake --build "$(SolutionDir)project" --source "$(SolutionDir)project" -DCMAKE_C_COMPILER="cl.exe" -DCMAKE_CXX_COMPILER="cl.exe" -DCATKIN_DEVEL_PREFIX="$(SolutionDir)" -DCMAKE_PLATFORM=$(PlatformShortName) -DCMAKE_BUILD_TYPE=$(Configuration)"</Command>
+      <Command>C:\Windows\System32\cmd.exe /C ""D:\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" $(PlatformShortName)  &amp;&amp; cd "$(SolutionDir)" &amp;&amp; "$(ROS_INSTALL)\$(PlatformShortName)\setup.bat" &amp;&amp; catkin_make --force-cmake --use-ninja --build "$(SolutionDir)project" --source "$(SolutionDir)project" -DCMAKE_C_COMPILER="cl.exe" -DCMAKE_CXX_COMPILER="cl.exe" -DCATKIN_DEVEL_PREFIX="$(SolutionDir)" -DCMAKE_PLATFORM=$(PlatformShortName) -DCMAKE_BUILD_TYPE=$(Configuration)"</Command>
     </PreBuildEvent>
     <PreBuildEvent>
       <Message>Building Catkin Workspace</Message>
@@ -212,7 +212,7 @@
       </Command>
     </CustomBuildStep>
     <PreBuildEvent>
-      <Command>C:\Windows\System32\cmd.exe /C ""D:\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" $(PlatformShortName)  &amp;&amp; cd "$(SolutionDir)" &amp;&amp; "$(ROS_INSTALL)\$(PlatformShortName)\setup.bat" &amp;&amp; catkin_make --use-ninja --force-cmake --build "$(SolutionDir)project" --source "$(SolutionDir)project" -DCMAKE_C_COMPILER="cl.exe" -DCMAKE_CXX_COMPILER="cl.exe" -DCATKIN_DEVEL_PREFIX="$(SolutionDir)" -DCMAKE_PLATFORM=$(PlatformShortName) -DCMAKE_BUILD_TYPE=$(Configuration)"</Command>
+      <Command>C:\Windows\System32\cmd.exe /C ""D:\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" $(PlatformShortName)  &amp;&amp; cd "$(SolutionDir)" &amp;&amp; "$(ROS_INSTALL)\$(PlatformShortName)\setup.bat" &amp;&amp; catkin_make --force-cmake --use-ninja --build "$(SolutionDir)project" --source "$(SolutionDir)project" -DCMAKE_C_COMPILER="cl.exe" -DCMAKE_CXX_COMPILER="cl.exe" -DCATKIN_DEVEL_PREFIX="$(SolutionDir)" -DCMAKE_PLATFORM=$(PlatformShortName) -DCMAKE_BUILD_TYPE=$(Configuration)"</Command>
     </PreBuildEvent>
     <PreBuildEvent>
       <Message>Building Catkin Workspace</Message>

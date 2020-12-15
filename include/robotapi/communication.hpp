@@ -4,7 +4,7 @@
  * \date Sept. 9 2020
  * \version 1.0
  * \brief Controller Namespace File.
- * \details This file declares the Communication namespace of the RobotAPI library.
+ * \details This file declares the communication namespace of the RobotAPI library.
  */
 
 /*
@@ -13,13 +13,6 @@
 ===================================================================================================
 */
 #pragma once
-
-/*
-===================================================================================================
-	Projects Includes
-===================================================================================================
-*/
-#include "robotapi_defines.hpp"
 
 /*
 ===================================================================================================
@@ -42,41 +35,9 @@ namespace lis {
 				 */
 				namespace communication {
 
-				#pragma region Constants
-
-					/**
-					 * \brief Packet size for Data Transmission.
-					 * \details Packet size for Data Transmission.
-					 */
-					const size_t
-					Packet_Size = 128;
-
-				#pragma endregion
-
-				#pragma region Types Definitions
-
-					/**
-					 * \enum MessageCode
-					 * \brief Discovery Message Code.
-					 * \details Discovery Message Code.
-					 */
-					enum ROBOTAPI_LIB MessageCode {
-
-						/**
-						 * \brief Discovery Code.
-						 * \details Discovery Code.
-						 */
-						Discovery = 0x01,
-						Welcome = 0x02,
-						Informations = 0x03,
-
-					};
-
-				#pragma region
-
 				#pragma region Types Forward Declarations
 
-					class ROBOTAPI_LIB CommunicationInterface;
+					class CommunicationInterface;
 
 				#pragma endregion
 
@@ -92,13 +53,9 @@ namespace lis {
 
 /*
 ===================================================================================================
-	Projects Includes
+	Namespace Includes
 ===================================================================================================
 */
+#include "communication/constants.hpp"
+#include "communication/types.hpp"
 #include "communication/communication_interface.hpp"
-
-/*
-===================================================================================================
-    Macros
-===================================================================================================
-*/

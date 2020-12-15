@@ -46,33 +46,33 @@ namespace lis {
 				 * \brief Name of the workspace.
 				 * \details Name of the workspace.
 				 */
-				static
-				const char*
-				Workspace_Name = "PRODUCTIVE 4.0";
-
-				/**
-				 * \brief Version of the workspace.
-				 * \details Version of the workspace.
-				 */
-				static
-				const unsigned short
-				Worspace_Version = 10;
+				inline
+				char const * const
+				Workspace_Name_ = "PRODUCTIVE 4.0";
 
 				/**
 				 * \brief Major Version of the workspace.
 				 * \details Major Version of the workspace.
 				 */
-				static
-				const unsigned short
-				Workspace_Version_Major = 1;
+				inline
+				const uint8
+				Workspace_Version_Major_ = 1;
 
 				/**
 				 * \brief Minor Version of the workspace.
 				 * \details Minor Version of the workspace.
 				 */
-				static
-				const unsigned short
-				Workspace_Version_Minor = 0;
+				inline
+				const uint8
+				Workspace_Version_Minor_ = 0;
+
+				/**
+				 * \brief Version of the workspace.
+				 * \details Version of the workspace.
+				 */
+				inline
+				const uint16
+				Worspace_Version = (Workspace_Version_Minor_ << 8) + Workspace_Version_Major_;
 
 			#pragma endregion
 
@@ -84,32 +84,32 @@ namespace lis {
 			 * \brief Alias for workspace name.
 			 * \details Alias for workspace name.
 			 */
-			static
-			const char*
+			inline
+			char const * const
 			Workspace_Name = constants::Workspace_Name;
 
 			/**
 			 * \brief Alias for workspace version.
 			 * \details Alias for workspace version.
 			 */
-			static
-			const unsigned short &
+			inline
+			const uint8 &
 			Workspace_Version = constants::Worspace_Version;
 
 			/**
 			 * \brief Alias for workspace major version.
 			 * \details Alias for workspace major version.
 			 */
-			static
-			const unsigned short &
+			inline
+			const uint8 &
 			Workspace_Version_Major = constants::Worspace_Version_Major;
 
 			/**
 			 * \brief Alias for workspace minor version.
 			 * \details Alias for workspace minor version.
 			 */
-			static
-			const unsigned short &
+			inline
+			const uint8 &
 			Workspace_Version_Minor = constants::Worspace_Version_Minor;
 
 		#pragma endregion

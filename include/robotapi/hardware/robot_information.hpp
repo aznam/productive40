@@ -50,7 +50,7 @@ namespace lis::pecase::productive40::robotapi::hardware {
 		 * \details Vendor name.
 		 */
 		public:
-		const char
+		volatile char
 		_vendorName [16];
 
 		/**
@@ -58,7 +58,7 @@ namespace lis::pecase::productive40::robotapi::hardware {
 		 * \details identifier.
 		 */
 		public:
-		const unsigned char
+		volatile unsigned char
 		_identifier [16];
 
 		/**
@@ -66,7 +66,7 @@ namespace lis::pecase::productive40::robotapi::hardware {
 		 * \details Base dimensions [length; width; height] (in meters).
 		 */
 		public:
-		const double
+		volatile double
 		_dimensions [3];
 
 		/**
@@ -74,15 +74,23 @@ namespace lis::pecase::productive40::robotapi::hardware {
 		 * \details Base Mass (in kilograms).
 		 */
 		public:
-		const double
+		volatile double
 		_mass;
+
+		/**
+		 * \brief Wheel radius.
+		 * \details Wheel radius (in meters).
+		 */
+		public:
+		volatile double
+		_wheel;
 
 		/**
 		 * \brief Maximum linear speed.
 		 * \details Maximum linear speed (in m.s-1).
 		 */
 		public:
-		const double
+		volatile double
 		_maxLinearSpeed;
 
 		/**
@@ -90,7 +98,7 @@ namespace lis::pecase::productive40::robotapi::hardware {
 		 * \details Maximum linear acceleration (in m.s-2).
 		 */
 		public:
-		const double
+		volatile double
 		_maxLinearAccel;
 
 		/**
@@ -98,7 +106,7 @@ namespace lis::pecase::productive40::robotapi::hardware {
 		 * \details Moment of inertia (in kg.m2).
 		 */
 		public:
-		const double
+		volatile double
 		_inertiaMoment;
 
 	/**@}*/
@@ -116,6 +124,7 @@ namespace lis::pecase::productive40::robotapi::hardware {
 		 * \param[in] identifier (const unsigned char (&) [16]) Identifier of the robot.
 		 * \param[in] dimensions (const double (&) [3]) Dimensions of the robot (l,w,h).
 		 * \param[in] mass (double) Mass of the robot.
+		 * \param[in] wheel (double) Wheel radius.
 		 * \param[in] max_linear_speed (double) Maximum linear speed.
 		 * \param[in] max_linear_accel (double) Maximum linear acceleration.
 		 * \param[in] inertia_moment (double) Moment of inertia.
@@ -124,6 +133,7 @@ namespace lis::pecase::productive40::robotapi::hardware {
 		RobotInformation (
 			const unsigned char (&) [16],
 			const double (&) [3],
+			double,
 			double,
 			double,
 			double,

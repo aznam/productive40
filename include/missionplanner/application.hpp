@@ -37,6 +37,8 @@ namespace lis {
 
 				#pragma region Forward Declarations
 
+					class WindowLoggerImpl;
+					
 					class Application;
 
 					class Simubot;
@@ -55,9 +57,10 @@ namespace lis {
 
 /*
 ===================================================================================================
-	Projects Includes
+	Namespace Includes
 ===================================================================================================
 */
-#include "application/robot.hpp"
 #include "application/application.hpp"
+#include "application/window_logger_impl.hpp"
 #include "application/simubot.hpp"
+#include "application/robot.hpp"

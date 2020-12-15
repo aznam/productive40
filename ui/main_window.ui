@@ -2,6 +2,12 @@
 <ui version="4.0">
  <class>MainWindowInternal</class>
  <widget class="QMainWindow" name="MainWindowInternal">
+  <property name="windowModality">
+   <enum>Qt::NonModal</enum>
+  </property>
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,104 +17,227 @@
    </rect>
   </property>
   <property name="sizePolicy">
-   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
     <horstretch>0</horstretch>
     <verstretch>0</verstretch>
    </sizepolicy>
   </property>
   <property name="minimumSize">
    <size>
-    <width>1024</width>
-    <height>768</height>
+    <width>0</width>
+    <height>0</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>1024</width>
-    <height>768</height>
+    <width>16777215</width>
+    <height>16777215</height>
    </size>
   </property>
-  <property name="windowTitle">
-   <string>MainWindow</string>
+  <property name="contextMenuPolicy">
+   <enum>Qt::DefaultContextMenu</enum>
   </property>
-  <widget class="QWidget" name="_wdgtCentral">
-   <widget class="QGroupBox" name="_grpCommand">
-    <property name="geometry">
-     <rect>
-      <x>889</x>
-      <y>640</y>
-      <width>121</width>
-      <height>101</height>
-     </rect>
-    </property>
-    <property name="sizePolicy">
-     <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-      <horstretch>0</horstretch>
-      <verstretch>0</verstretch>
-     </sizepolicy>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>110</width>
-      <height>0</height>
-     </size>
-    </property>
-    <property name="title">
-     <string>Commandes</string>
-    </property>
-    <widget class="QWidget" name="layoutWidget">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>20</y>
-       <width>101</width>
-       <height>71</height>
-      </rect>
-     </property>
-     <layout class="QVBoxLayout" name="_lytButtonsCommand">
-      <item>
-       <widget class="QPushButton" name="_btnClearCommand">
-        <property name="text">
-         <string>Cancel Command</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="_btnSendCommand">
-        <property name="text">
-         <string>Send Command</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-   </widget>
-   <widget class="QGraphicsView" name="_grphvwPlanner">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>871</width>
-      <height>731</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QListWidget" name="_robotsList">
-    <property name="geometry">
-     <rect>
-      <x>890</x>
-      <y>10</y>
-      <width>121</width>
-      <height>621</height>
-     </rect>
-    </property>
-   </widget>
+  <property name="windowTitle">
+   <string>PRODUCTIVE 4.0 - Mission Planner</string>
+  </property>
+  <property name="layoutDirection">
+   <enum>Qt::LeftToRight</enum>
+  </property>
+  <property name="dockOptions">
+   <set>QMainWindow::AllowTabbedDocks|QMainWindow::AnimatedDocks</set>
+  </property>
+  <widget class="QWidget" name="_mainLayout">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QToolBox" name="_mainToolbox">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="_mainToolboxRobotToolsLayout">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>80</width>
+         <height>665</height>
+        </rect>
+       </property>
+       <attribute name="label">
+        <string>Robot Tools</string>
+       </attribute>
+       <layout class="QFormLayout" name="formLayout">
+        <item row="0" column="0">
+         <widget class="QPushButton" name="_mainToolboxSelectButton">
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="../resource/main_window.qrc">
+            <normaloff>:/MainWindow/pictures/tool_select.png</normaloff>:/MainWindow/pictures/tool_select.png</iconset>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+          <property name="autoExclusive">
+           <bool>true</bool>
+          </property>
+          <attribute name="buttonGroup">
+           <string notr="true">_robotToolsGroup</string>
+          </attribute>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QPushButton" name="_mainToolboxCancelTrajectoryButton">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="../resource/main_window.qrc">
+            <normaloff>:/MainWindow/pictures/tool_remove.png</normaloff>:/MainWindow/pictures/tool_remove.png</iconset>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="autoExclusive">
+           <bool>true</bool>
+          </property>
+          <attribute name="buttonGroup">
+           <string notr="true">_robotToolsGroup</string>
+          </attribute>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QPushButton" name="_mainToolboxTrajectoryButton">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="../resource/main_window.qrc">
+            <normaloff>:/MainWindow/pictures/tool_trajectory.png</normaloff>:/MainWindow/pictures/tool_trajectory.png</iconset>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
+          </property>
+          <property name="autoExclusive">
+           <bool>true</bool>
+          </property>
+          <attribute name="buttonGroup">
+           <string notr="true">_robotToolsGroup</string>
+          </attribute>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+    <item row="0" column="2">
+     <widget class="QGraphicsView" name="_mainGraphicsView">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>1</horstretch>
+        <verstretch>1</verstretch>
+       </sizepolicy>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
   <widget class="QStatusBar" name="_barStatus"/>
+  <widget class="QMenuBar" name="_menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1024</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="_menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="_actionFileLoadPlugins"/>
+    <addaction name="_actionFileExit"/>
+   </widget>
+   <widget class="QMenu" name="_menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="_actionAbout"/>
+   </widget>
+   <widget class="QMenu" name="_menuMission">
+    <property name="title">
+     <string>Mission</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="_menuDisplay">
+    <property name="title">
+     <string>Display</string>
+    </property>
+    <addaction name="_actionDisplayLoggerOutput"/>
+    <addaction name="_actionDisplayRobotInspector"/>
+    <addaction name="_actionDisplayRobotsList"/>
+   </widget>
+   <addaction name="_menuFile"/>
+   <addaction name="_menuMission"/>
+   <addaction name="_menuDisplay"/>
+   <addaction name="_menuHelp"/>
+  </widget>
+  <action name="_actionDisplayLoggerOutput">
+   <property name="text">
+    <string>Logger Ouput</string>
+   </property>
+  </action>
+  <action name="_actionDisplayRobotInspector">
+   <property name="text">
+    <string>Robot Inspector</string>
+   </property>
+  </action>
+  <action name="_actionDisplayRobotsList">
+   <property name="text">
+    <string>Robots List</string>
+   </property>
+  </action>
+  <action name="_actionFileExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="_actionFileLoadPlugins">
+   <property name="text">
+    <string>Load Plugins</string>
+   </property>
+  </action>
+  <action name="_actionAbout">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>
   <include location="../resource/main_window.qrc"/>
  </resources>
  <connections/>
+ <buttongroups>
+  <buttongroup name="_robotToolsGroup"/>
+ </buttongroups>
 </ui>

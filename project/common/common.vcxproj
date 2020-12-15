@@ -188,9 +188,10 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\include\common.hpp" />
+    <ClCompile Include="..\..\include\common.hpp" />
     <ClInclude Include="..\..\include\common\logging.hpp" />
     <ClInclude Include="..\..\include\common\logging\console_logger_impl.hpp" />
+    <ClInclude Include="..\..\include\common\logging\file_logger_impl.hpp" />
     <ClInclude Include="..\..\include\common\logging\logger.hpp" />
     <ClInclude Include="..\..\include\common\logging\logger_impl.hpp" />
     <ClInclude Include="..\..\include\common\math.hpp" />
@@ -199,8 +200,15 @@
     <ClInclude Include="..\..\include\common\pattern\generic_fsm.hpp" />
     <ClInclude Include="..\..\include\common\pattern\observable.hpp" />
     <ClInclude Include="..\..\include\common\pattern\singleton.hpp" />
-    <ClInclude Include="..\..\include\common\strutils.hpp" />
-    <ClInclude Include="..\..\include\common\strutils\functions.hpp" />
+    <ClCompile Include="..\..\include\common\strutils.hpp">
+      <FileType>Document</FileType>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Default</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Default</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\include\common\strutils\functions.hpp">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsCppModule</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsCppModule</CompileAs>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\include\common\DIRECTORY.md" />
@@ -212,6 +220,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\source\common\logging\console_logger_impl.cpp" />
+    <ClCompile Include="..\..\source\common\logging\file_logger_impl.cpp" />
     <ClCompile Include="..\..\source\common\logging\logger.cpp" />
     <ClCompile Include="..\..\source\common\math\functions.cpp" />
     <ClCompile Include="..\..\source\common\strutils\functions.cpp" />

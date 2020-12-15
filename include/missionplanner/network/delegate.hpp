@@ -42,7 +42,7 @@ namespace lis {
 
 						class ROSCommunicationImpl;
 
-						class InetCommunicationImpl;
+						// class InetCommunicationImpl;
 
 					#pragma endregion
 
@@ -60,15 +60,9 @@ namespace lis {
 
 /*
 ===================================================================================================
-	Projects Includes
+	Namespace Includes
 ===================================================================================================
 */
 #include "delegate/fake_communication_impl.hpp"
 #include "delegate/ros_communication_impl.hpp"
 //#include "delegate/inet_communication_impl.hpp"
-
-/*
-===================================================================================================
-    Macros
-===================================================================================================
-*/

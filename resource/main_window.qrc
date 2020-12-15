@@ -1,5 +1,8 @@
 <RCC>
-    <qresource prefix="/MainWindow">
-        <file>pictures/robot.png</file>
-    </qresource>
+  <qresource prefix="/MainWindow">
+    <file>pictures/tool_remove.png</file>
+    <file>pictures/tool_trajectory.png</file>
+    <file>pictures/tool_select.png</file>
+    <file>pictures/robot.png</file>
+  </qresource>
 </RCC>

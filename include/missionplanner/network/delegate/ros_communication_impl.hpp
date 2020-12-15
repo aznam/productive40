@@ -23,10 +23,16 @@
 
 /*
 ===================================================================================================
+	ROS Include
+===================================================================================================
+*/
+//#include <rosproxy.hpp>
+
+/*
+===================================================================================================
 	Project Include
 ===================================================================================================
 */
-#include <rosproxy.hpp>
 #include "../network_manager_impl.hpp"
 
 /*
@@ -59,9 +65,9 @@ namespace lis::pecase::productive40::missionplanner::network::delegate {
 		std::set<std::string>
 		m_clients;
 
-		private:
+		/*private:
 		rosproxy::ROSManager &
-		m_rosManager;
+		m_rosManager;*/
 
 	/**@}*/
 	#pragma endregion
@@ -138,11 +144,11 @@ namespace lis::pecase::productive40::missionplanner::network::delegate {
 		 * \details Try to connect to a robot.
 		 * \param[in] address (const unsigned char *) Address of the robot.
 		 */
-		protected:
+		/*protected:
 		void
 		connectToRobot (
 			const unsigned char *
-		) override;
+		) override;*/
 
 		/**
 		 * \brief Read a message from a client.
@@ -151,7 +157,7 @@ namespace lis::pecase::productive40::missionplanner::network::delegate {
 		 * \param[out] buffer (unsigned char *) Buffer where the message will be stored.
 		 * \param[out] size (size_t &) Size of the buffer.
 		 */
-		protected:
+		/*protected:
 		void
 		recvFromRobot (
 			const std::string &,
@@ -165,7 +171,7 @@ namespace lis::pecase::productive40::missionplanner::network::delegate {
 			const std::string &,
 			unsigned char *,
 			size_t &
-		) override;
+		) override;*/
 
 		#pragma endregion
 

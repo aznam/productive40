@@ -9,11 +9,28 @@
 
 /*
 ===================================================================================================
+	Qt Includes
+===================================================================================================
+*/
+#include <QtCore/QElapsedTimer>
+#include <QtCore/QThread>
+
+/*
+===================================================================================================
+	Workspace Includes
+===================================================================================================
+*/
+#include <types.hpp>
+#include <common/strutils.hpp>
+#include <rosproxy/rosmanager.hpp>
+
+/*
+===================================================================================================
 	Project Includes
 ===================================================================================================
 */
+#include "../../../../include/missionplanner/globals.hpp"
 #include "../../../../include/missionplanner/application/robot/simubot_interface.hpp"
-#include <common/strutils.hpp>
 
 /*
 ===================================================================================================
@@ -27,14 +44,15 @@ namespace lis::pecase::productive40::missionplanner::application::robot {
 	SimubotInterface::SimubotInterface (
 		unsigned int identifier
 	) :
-		robotapi::DefaultInterface(),
+		QObject(),
+		robotapi::interface::RobotInterface(),
 		m_hardware(QString::asprintf("resource/hardware/%d.xml", identifier)),
 		m_controller(m_hardware),
-		m_communication() {
+		m_communication(this) {
 		m_communication.listen(
 			common::strutils::atohex(
-				m_hardware.robot_informations()._identifier,
-				sizeof(m_hardware.robot_informations()._identifier)
+				(byte*)this->m_hardware.robotInformations()._identifier,
+				sizeof(this->m_hardware.robotInformations()._identifier)
 			)
 		);
 	}
@@ -42,11 +60,14 @@ namespace lis::pecase::productive40::missionplanner::application::robot {
 	SimubotInterface::~SimubotInterface (
 		void
 	) {
+		this->disconnect();
 	}
 
 #pragma endregion
 
-#pragma region Accessors (Getters)
+#pragma region Methods Definitions & Implementations
+
+	#pragma region Accessors (Getters)
 
 	robotapi::communication::CommunicationInterface *
 	SimubotInterface::communication (
@@ -68,6 +89,31 @@ namespace lis::pecase::productive40::missionplanner::application::robot {
 	) const {
 		return (robotapi::hardware::HardwareInterface *)(&this->m_hardware);
 	}
+
+	#pragma endregion
+
+	#pragma region Robot Operations
+
+	void
+	SimubotInterface::update (
+		void
+	) {
+		thread_local QElapsedTimer elapsed_time;
+
+		// Get the elapsed time since the last call
+		types::uint64_t elapsed = (elapsed_time.isValid() ? elapsed_time.elapsed() : 0);
+
+		// Update the controller
+		this->controller()->update(elapsed);
+
+		// Simulate the updating hardware
+		this->hardware()->update(elapsed, this->controller()->targetOrientation());
+
+		// Measure the refresh rate
+		elapsed_time.restart();
+	}
+
+	#pragma endregion
 
 #pragma endregion
 

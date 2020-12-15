@@ -23,11 +23,24 @@
 
 /*
 ===================================================================================================
+	Qt Includes
+===================================================================================================
+*/
+#include <QtCore/QObject>
+
+/*
+===================================================================================================
+	Workspace Includes
+===================================================================================================
+*/
+#include <robotapi/interface/robot_interface.hpp>
+#include <robotapi/controller.hpp>
+
+/*
+===================================================================================================
 	Project Includes
 ===================================================================================================
 */
-#include <robotapi/default_interface.hpp>
-#include <robotapi/controller.hpp>
 #include "hardware_simulation.hpp"
 #include "fake_communication.hpp"
 
@@ -49,7 +62,10 @@ namespace lis::pecase::productive40::missionplanner::application::robot {
 	 * \nosubgrouping
 	 */
 	class SimubotInterface :
-		public robotapi::DefaultInterface {
+		public QObject,
+		public robotapi::interface::RobotInterface {
+
+		Q_OBJECT
 
 	/**
 	 * \name Instance Data Members
@@ -100,7 +116,6 @@ namespace lis::pecase::productive40::missionplanner::application::robot {
 		public:
 		SimubotInterface (
 			unsigned int
-
 		);
 
 		#pragma endregion
@@ -126,6 +141,8 @@ namespace lis::pecase::productive40::missionplanner::application::robot {
 	 */
 	#pragma region Accessors (Getters)
 	/**@{*/
+
+		#pragma region Implemented Methods
 
 		/**
 		 * \brief Access to the communication subsystem.
@@ -159,6 +176,31 @@ namespace lis::pecase::productive40::missionplanner::application::robot {
 		hardware (
 			void
 		) const override;
+
+		#pragma endregion
+
+	/**@}*/
+	#pragma endregion
+
+	/**
+	 * \name Robot Operations.
+	 */
+	#pragma region Robot Operations
+	/**@{*/
+
+		#pragma region Slots
+
+		/**
+		 * \brief Update the robot.
+		 * \details Update the robot.
+		 */
+		public slots:
+		void
+		update (
+			void
+		) override;
+
+		#pragma endregion
 
 	/**@}*/
 	#pragma endregion

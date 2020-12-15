@@ -37,7 +37,6 @@ namespace lis::pecase::productive40::common::logging {
 	) :
 		LoggerImpl(),
 		m_fileMutex(),
-		m_fileLock(m_fileMutex, std::defer_lock),
 		m_fileStream() {
 		m_fileStream.open(filename, std::ofstream::out | std::ofstream::trunc);
 
@@ -63,14 +62,14 @@ namespace lis::pecase::productive40::common::logging {
 	FileLoggerImpl::acquireResource (
 		void
 	) {
-		this->m_fileLock.lock();
+		this->m_fileMutex.lock();
 	}
 
 	void
 	FileLoggerImpl::releaseResource (
 			void
 	) {
-		this->m_fileLock.release();
+		this->m_fileMutex.unlock();
 	}
 
 	#pragma endregion
@@ -79,7 +78,7 @@ namespace lis::pecase::productive40::common::logging {
 
 	void
 	FileLoggerImpl::write (
-		unsigned long object
+		uint32 object
 	) {
 		m_fileStream << object;
 	}
@@ -87,7 +86,22 @@ namespace lis::pecase::productive40::common::logging {
 
 	void
 	FileLoggerImpl::write (
-		long object
+		int32 object
+	) {
+		m_fileStream << object;
+	}
+
+	void
+	FileLoggerImpl::write (
+		uint64 object
+	) {
+		m_fileStream << object;
+	}
+
+
+	void
+	FileLoggerImpl::write (
+		int64 object
 	) {
 		m_fileStream << object;
 	}

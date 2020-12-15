@@ -3,8 +3,8 @@
  * \author Aznam Yacoub (aznam.yacoub@lis-lab.fr)
  * \date Sept. 9 2020
  * \version 1.0
- * \brief This file provides an implementation of the environment for mission planner.
- * \details This file implements the environment of the mission planner.
+ * \brief This file provides an implementation of a virtual network for mission planner.
+ * \details This file implements the virtual network of the mission planner.
  */
 
 /*
@@ -20,42 +20,50 @@
     Project Includes
 ===================================================================================================
 */
-#include "../../include/missionplanner/environment.hpp"
+#include "../../../include/missionplanner/environment/virtual_network.hpp"
 
 /*
 ===================================================================================================
     Code
 ===================================================================================================
 */
-namespace lis::pecase::productive40::missionplanner {
+namespace lis::pecase::productive40::missionplanner::environment {
 
 #pragma region Constructors / Destructor
 
-    Environment::Environment (
+    VirtualNetwork::VirtualNetwork (
 		void
     ) :
 		QObject(nullptr) {
-		connect(
+		this->connect(
 			&this->m_environmentData,
 			&QBuffer::readyRead,
 			this,
-			&Environment::dataReadyRead
+			&VirtualNetwork::dataReadyRead
 		);
 		this->m_environmentData.open(QIODevice::ReadWrite);
     }
 
-    Environment::~Environment (
+    VirtualNetwork::~VirtualNetwork (
         void
     ) {
 		this->m_environmentData.close();
+		this->disconnect(
+			&this->m_environmentData,
+			&QBuffer::readyRead,
+			this,
+			&VirtualNetwork::dataReadyRead
+		);
     }
 
 #pragma endregion
 
-#pragma region Data Transmission
+#pragma region Methods Definitions & Implementations
+
+	#pragma region Data Transmission
 
 	void
-	Environment::sendData (
+	VirtualNetwork::sendData (
 		const unsigned char * data,
 		size_t size
 	) {
@@ -65,7 +73,7 @@ namespace lis::pecase::productive40::missionplanner {
 	}
 
 	void
-	Environment::readData (
+	VirtualNetwork::readData (
 		unsigned char * data,
 		size_t & size
 	) {
@@ -76,13 +84,13 @@ namespace lis::pecase::productive40::missionplanner {
 	}
 
 	bool
-	Environment::dataAvailable (
+	VirtualNetwork::dataAvailable (
 		void
 	) {
 		QMutexLocker lock(&this->m_dataMutex);
 		return this->m_environmentData.bytesAvailable() > 0;
 	}
 
-#pragma endregion
+	#pragma endregion
 
-}; // namespace lis::pecase::productive40::missionplanner
+}; // namespace lis::pecase::productive40::missionplanner::environment

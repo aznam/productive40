@@ -49,6 +49,9 @@
     <Filter Include="Header Files\interface">
       <UniqueIdentifier>{d17f1e28-bd9e-4774-8978-17a676def91c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\interface">
+      <UniqueIdentifier>{b835a670-3e4c-4bfa-bdfa-054d801a61bc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\robotapi.hpp">
@@ -60,29 +63,11 @@
     <ClInclude Include="..\..\include\robotapi\hardware.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\robotapi\hardware\robot_information.hpp">
-      <Filter>Header Files\hardware</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\robotapi\controller.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\robotapi\controller\controller_interface.hpp">
-      <Filter>Header Files\controller</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\robotapi\controller\default_controller.hpp">
-      <Filter>Header Files\controller</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\robotapi\hardware\hardware_interface.hpp">
-      <Filter>Header Files\hardware</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\robotapi\communication.hpp">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\robotapi\communication\communication_interface.hpp">
-      <Filter>Header Files\communication</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\robotapi\watcher\watcher_interface.hpp">
-      <Filter>Header Files\watcher</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\robotapi\interface.hpp">
       <Filter>Header Files</Filter>
@@ -90,22 +75,49 @@
     <ClInclude Include="..\..\include\robotapi\interface\robot_interface.hpp">
       <Filter>Header Files\interface</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\robotapi\hardware\robot_information.hpp">
+      <Filter>Header Files\hardware</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\robotapi\hardware\hardware_interface.hpp">
+      <Filter>Header Files\hardware</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\robotapi\controller\controller_interface.hpp">
+      <Filter>Header Files\controller</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\robotapi\communication\constants.hpp">
+      <Filter>Header Files\communication</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\robotapi\communication\types.hpp">
+      <Filter>Header Files\communication</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\robotapi\communication\communication_interface.hpp">
+      <Filter>Header Files\communication</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\include\robotapi\interface\default_interface.hpp">
       <Filter>Header Files\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\robotapi\controller\default_controller.hpp">
+      <Filter>Header Files\controller</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\source\robotapi\robotapi_entry.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\source\robotapi\controller\default_controller.cpp">
-      <Filter>Source Files\controller</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\source\robotapi\hardware\robot_information.cpp">
       <Filter>Source Files\hardware</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\source\robotapi\default_interface.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="..\..\source\robotapi\hardware\hardware_interface.cpp">
+      <Filter>Source Files\hardware</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\robotapi\communication\communication_interface.cpp">
+      <Filter>Source Files\communication</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\robotapi\controller\controller_interface.cpp">
+      <Filter>Source Files\controller</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\robotapi\controller\default_controller.cpp">
+      <Filter>Source Files\controller</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

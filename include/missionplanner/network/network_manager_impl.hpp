@@ -146,12 +146,12 @@ namespace lis::pecase::productive40::missionplanner::network {
 		 * \param[in] interface (const NetworkManagerImpl &) Network interfce.
 		 * \param[in] address (std::string) Address of the robot.
 		 */
-		signals:
+		/*signals:
 		void
 		robotMessageReceived (
 			NetworkManagerImpl &,
 			std::string
-		);
+		);*/
 
 		#pragma endregion
 
@@ -162,11 +162,11 @@ namespace lis::pecase::productive40::missionplanner::network {
 		 * \details Try to connect to a robot.
 		 * \param[in] address (const unsigned char *) Address of the robot.
 		 */
-		protected: virtual
+		/*protected: virtual
 		void
 		connectToRobot (
 			const unsigned char *
-		) = 0;
+		) = 0;*/
 
 		/**
 		 * \brief Read a message from a client.
@@ -175,21 +175,21 @@ namespace lis::pecase::productive40::missionplanner::network {
 		 * \param[out] buffer (unsigned char *) Buffer where the message will be stored.
 		 * \param[out] size (size_t &) Size of the buffer.
 		 */
-		protected: virtual
+		/*protected: virtual
 		void
 		recvFromRobot (
 			const std::string &,
 			unsigned char *,
 			size_t &
-		) = 0;
+		) = 0;*/
 
-		protected: virtual
+		/*protected: virtual
 		void
 		sendToRobot (
 			const std::string &,
 			unsigned char *,
 			size_t &
-		) = 0;
+		) = 0;*/
 
 		#pragma endregion
 

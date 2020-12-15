@@ -30,11 +30,10 @@ namespace lis::pecase::productive40::common::logging {
 	Logger::write (
 		const Type & object
 	) {
-		this->m_loggerLock.lock();
+		std::unique_lock lock(this->m_loggerMutex);
 		for(auto l : this->m_loggersImpl) {
 			l.first->write(object);
 		}
-		this->m_loggerLock.unlock();
 	}
 
 	template <

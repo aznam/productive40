@@ -43,7 +43,7 @@ namespace lis::pecase::productive40::robotapi::interface {
 	 * access to the different algorithm.
 	 * \nosubgrouping
 	 */
-	class ROBOTAPI_LIB RobotInterface {
+	class RobotInterface {
 
 	/**
 	 * \name Constructors / Destructor
@@ -86,6 +86,8 @@ namespace lis::pecase::productive40::robotapi::interface {
 	#pragma region Accessors (Getters)
 	/**@{*/
 
+		#pragma region Abstract Methods
+
 		/**
 		 * \brief Access to the communication interface.
 		 * \details Access to the communication interface.
@@ -118,6 +120,31 @@ namespace lis::pecase::productive40::robotapi::interface {
 		hardware (
 			void
 		) const = 0;
+
+		#pragma endregion
+
+	/**@}*/
+	#pragma endregion
+
+	/**
+	 * \name Robot Operations.
+	 */
+	#pragma region Robot Operations
+	/**@{*/
+
+		#pragma region Abstract Methods
+
+		/**
+		 * \brief Update the robot.
+		 * \details Update the robot.
+		 */
+		public: virtual
+		void
+		update (
+			void
+		) = 0;
+
+		#pragma endregion
 
 	/**@}*/
 	#pragma endregion

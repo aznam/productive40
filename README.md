@@ -126,7 +126,7 @@ is blank line before and after the beginning of a region, before and after the e
 - Constant variables begins with an uppercase.
 
 #### Enum & Define values
-- Enum values and define values are full upercase.
+- Enum values and define values are full uppercase.
 - Each word in a define identifier are separated by `_`.
 - Enum values don't contain `_`.
 
@@ -177,6 +177,8 @@ alphanumeric symbols.
 - Static functions follows function naming convention.
 - Access protection should be in this order: public, protected, private.
 - Initializer-list follow the block convention.
+- Defined types (using typedef) must end with _t.
+- Pointer types begin with p (exemple: pClass_t, pchar_t...).
 
 Catkin Build
 ---------------------------------------------------------------------------------------------------

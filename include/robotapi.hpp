@@ -50,3 +50,6 @@ namespace lis {
 */
 #include "robotapi/robotapi_defines.hpp"
 #include "robotapi/interface.hpp"
+#include "robotapi/communication.hpp"
+#include "robotapi/hardware.hpp"
+#include "robotapi/controller.hpp"

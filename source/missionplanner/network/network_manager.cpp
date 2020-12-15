@@ -35,9 +35,9 @@ namespace lis::pecase::productive40::missionplanner::network {
 		void
 	) :
 		common::pattern::Singleton<NetworkManager>(),
-		common::pattern::Observable<NetworkInterface>(),
+		//common::pattern::Observable<NetworkInterface>(),
 		m_delegates() {
-		this->m_messageFunc[robotapi::communication::MessageCode::Discovery] = std::bind(
+		/*this->m_messageFunc[robotapi::communication::MessageCode::Discovery] = std::bind(
 			&NetworkManager::discoveryHandler,
 			this,
 			std::placeholders::_1,
@@ -48,7 +48,7 @@ namespace lis::pecase::productive40::missionplanner::network {
 			this,
 			std::placeholders::_1,
 			std::placeholders::_2
-		);
+		);*/
 	}
 
 	NetworkManager::~NetworkManager (
@@ -61,7 +61,9 @@ namespace lis::pecase::productive40::missionplanner::network {
 
 #pragma endregion
 
-#pragma region Message Parsing
+#pragma region Methods Definitions & Implementations
+
+	#pragma region Message Parsing
 
 	void
 	NetworkManager::parse (
@@ -77,7 +79,7 @@ namespace lis::pecase::productive40::missionplanner::network {
 		}
 	}
 
-	void
+	/*void
 	NetworkManager::discoveryHandler (
 		NetworkManagerImpl & interface,
 		const unsigned char * buffer
@@ -92,11 +94,11 @@ namespace lis::pecase::productive40::missionplanner::network {
 	) {
 		std::string robot_name((const char *)buffer);
 		// this->notify(&NetworkInterface::robotConnected, robot_name);
-	}
+	}*/
 
-#pragma endregion
+	#pragma endregion
 
-#pragma region Delegates Handling
+	#pragma region Delegates Handling
 
 	void
 	NetworkManager::addNetworkDelegate (
@@ -105,7 +107,7 @@ namespace lis::pecase::productive40::missionplanner::network {
 		this->m_delegates.push_back(delegate);
 
 		// Broadcast Events
-		connect(
+		QObject::connect(
 			delegate,
 			&NetworkManagerImpl::broadcastMessageReceived,
 			this,
@@ -113,19 +115,19 @@ namespace lis::pecase::productive40::missionplanner::network {
 		);
 
 		// Client Events
-		connect(
+		/*connect(
 			delegate,
 			&NetworkManagerImpl::robotMessageReceived,
 			this,
 			&NetworkManager::dataAvailable
-		);
+		);*/
 	}
 
-#pragma endregion
+	#pragma endregion
 
-#pragma region Client Handlers
+	#pragma region Client Handlers
 
-	void
+	/*void
 	NetworkManager::dataAvailable (
 		NetworkManagerImpl & interface,
 		std::string address
@@ -136,11 +138,11 @@ namespace lis::pecase::productive40::missionplanner::network {
 
 		interface.recvFromRobot(address, buffer, size);
 		this->parse(interface, buffer);
-	}
+	}*/
 
-#pragma endregion
+	#pragma endregion
 
-#pragma region Broadcast Handlers
+	#pragma region Broadcast Handlers
 
 	void
 	NetworkManager::broadcastAvailable (
@@ -153,6 +155,8 @@ namespace lis::pecase::productive40::missionplanner::network {
 		interface.readFromBroadcast(buffer, size);
 		this->parse(interface, buffer);
 	}
+
+	#pragma endregion
 
 #pragma endregion
 

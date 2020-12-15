@@ -63,14 +63,6 @@ namespace lis::pecase::productive40::common::logging {
 		m_loggersImpl;
 
 		/**
-		 * \brief Internal lock.
-		 * \details Internal lock.
-		 */
-		private:
-		std::unique_lock<std::mutex>
-		m_loggerLock;
-
-		/**
 		 * \brief Mutex.
 		 * \details Mutex.
 		 */
@@ -248,6 +240,17 @@ namespace lis::pecase::productive40::common::logging {
 	#pragma endregion
 
 	}; // class Logger
+
+#pragma endregion
+
+#pragma region Functions Aliases
+
+	/**
+	 * \brief Function alias for Logger::endl.
+	 * \details Function alias for Logger::endl;
+	 */
+	static
+	Logger & (*endl)(const Logger &) = Logger::endl;
 
 #pragma endregion
 
